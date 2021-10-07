@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 import { dataProducts as data } from "../constants/products";
 import "./ProductDetails.css";
 
@@ -108,4 +109,13 @@ const ProductDetails = (props) => {
     )
   );
 };
+ProductDetails.propTypes = {
+  location: PropTypes.shape({
+    hash: PropTypes.string,
+  }),
+  match: PropTypes.shape({
+    params: PropTypes.string,
+  }),
+};
+
 export default ProductDetails;
