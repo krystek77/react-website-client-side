@@ -3,7 +3,8 @@
   "extends": [
     "plugin:jsx-a11y/recommended",
     "eslint:recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "plugin:import/recommended"
   ],
   "env": {
     "browser": true,
