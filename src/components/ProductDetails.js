@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import PropTypes from "prop-types";
-import { dataProducts as data } from "../constants/products";
-import "./ProductDetails.css";
+import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { dataProducts as data } from '../constants/products';
+import './ProductDetails.css';
 
 const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
@@ -14,7 +14,7 @@ const ProductDetails = (props) => {
     if (props.location.hash) {
       const target = document.getElementById(props.location.hash.slice(1));
       if (target) {
-        target.scrollIntoView({ behavior: "smooth" });
+        target.scrollIntoView({ behavior: 'smooth' });
       }
     }
   }, [props]);
@@ -24,7 +24,7 @@ const ProductDetails = (props) => {
       <React.Fragment>
         {product.kind.map((item) => {
           const { title, subtitle, desc, pathname } = item;
-          const id = pathname.split("#")[1];
+          const id = pathname.split('#')[1];
 
           return (
             <article id={id} key={id}>
@@ -39,15 +39,11 @@ const ProductDetails = (props) => {
                 </li>
                 <li className="short-info__item">
                   <span className="short-info__name">Sterowanie:</span>
-                  <span className="short-info__value">
-                    półautomatyczne, automatyczne
-                  </span>
+                  <span className="short-info__value">półautomatyczne, automatyczne</span>
                 </li>
                 <li className="short-info__item">
                   <span className="short-info__name">Dostępne podgrzewy:</span>
-                  <span className="short-info__value">
-                    elektryczny, parowy bezpośredni, woda ciepła
-                  </span>
+                  <span className="short-info__value">elektryczny, parowy bezpośredni, woda ciepła</span>
                 </li>
               </ul>
               <h4>Cechy</h4>

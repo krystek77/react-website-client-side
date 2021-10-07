@@ -1,8 +1,8 @@
-import React from "react";
-import "./index.css";
-import { BrowserRouter as Router, Link, Switch, Route } from "react-router-dom";
-import ProductDetails from "./components/ProductDetails";
-//prettier-ignore
+import React from 'react';
+import './index.css';
+import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
+import ProductDetails from './components/ProductDetails';
+
 const App = () => {
   return (
     <Router>
@@ -16,7 +16,6 @@ const App = () => {
         </li>
         <li>
           <Link to="/produkty/pralnice">Produkty</Link>
-
           <ul>
             <li className="title">
               <Link to="/produkty/pralnice#pralnicee">
@@ -24,15 +23,10 @@ const App = () => {
               </Link>
               <ul>
                 <li>
-                  <Link to="/produkty/pralnice#czolowe">
-                    {" "}
-                    bębnowe o załadunku czołowym{" "}
-                  </Link>
+                  <Link to="/produkty/pralnice#czolowe"> bębnowe o załadunku czołowym </Link>
                 </li>
                 <li>
-                  <Link to="/produkty/pralnice#boczne">
-                    bębnowe o załadunku bocznym
-                  </Link>
+                  <Link to="/produkty/pralnice#boczne">bębnowe o załadunku bocznym</Link>
                 </li>
               </ul>
             </li>
@@ -45,39 +39,25 @@ const App = () => {
               </Link>
               <ul>
                 <li>
-                  <Link to="/produkty/pralnicowirowki#normalnoobrotowe-pralma">
-                    normalnoobrotowe Pralma
-                  </Link>
+                  <Link to="/produkty/pralnicowirowki#normalnoobrotowe-pralma">normalnoobrotowe Pralma</Link>
                 </li>
                 <li>
-                  <Link to="/produkty/pralnicowirowki#normalnoobrotowe-rx">
-                    normalnoobrotowe RX
-                  </Link>
+                  <Link to="/produkty/pralnicowirowki#normalnoobrotowe-rx">normalnoobrotowe RX</Link>
                 </li>
                 <li>
-                  <Link to="/produkty/pralnicowirowki#szybkoobrotowe-rx">
-                    szybkoobrotowe RX
-                  </Link>
+                  <Link to="/produkty/pralnicowirowki#szybkoobrotowe-rx">szybkoobrotowe RX</Link>
                 </li>
                 <li>
-                  <Link to="/produkty/pralnicowirowki#wysokoobrotowe-fx">
-                    wysokoobrotowe FX
-                  </Link>
+                  <Link to="/produkty/pralnicowirowki#wysokoobrotowe-fx">wysokoobrotowe FX</Link>
                 </li>
                 <li>
-                  <Link to="/produkty/pralnicowirowki#wysokoobrotowe-fx350">
-                    wysokoobrotowe FX350/450/600
-                  </Link>
+                  <Link to="/produkty/pralnicowirowki#wysokoobrotowe-fx350">wysokoobrotowe FX350/450/600</Link>
                 </li>
                 <li>
-                  <Link to="/produkty/pralnicowirowki#wysokoobrotowe-fs">
-                    wysokoobrotowe FS
-                  </Link>
+                  <Link to="/produkty/pralnicowirowki#wysokoobrotowe-fs">wysokoobrotowe FS</Link>
                 </li>
                 <li>
-                  <Link to="/produkty/pralnicowirowki#male-profesionalne-sf">
-                    małe, profesjonalne SF
-                  </Link>
+                  <Link to="/produkty/pralnicowirowki#male-profesionalne-sf">małe, profesjonalne SF</Link>
                 </li>
               </ul>
             </li>
@@ -129,10 +109,7 @@ const App = () => {
         </li>
       </ul>
       <Switch>
-        <Route
-          path="/produkty/:name"
-          children={(props) => <ProductDetails {...props} />}
-        />
+        <Route path="/produkty/:name" children={(props) => <ProductDetails {...props} />} />
         <Route path="/" render={() => <h1>Home Page</h1>} />
       </Switch>
     </Router>
