@@ -22,14 +22,33 @@ const ProductDetails = (props) => {
     return (
       <React.Fragment>
         {product.kind.map((item) => {
-          const { title, desc, pathname } = item;
+          const { title, subtitle, desc, pathname } = item;
           const id = pathname.split("#")[1];
 
           return (
             <article id={id} key={id}>
               <header>
+                <p className="subtitle">{subtitle}</p>
                 <h3>{title}</h3>
               </header>
+              <ul className="short-info">
+                <li className="short-info__item">
+                  <span className="short-info__name">Funkcje:</span>
+                  <span className="short-info__value">pranie, płukanie</span>
+                </li>
+                <li className="short-info__item">
+                  <span className="short-info__name">Sterowanie:</span>
+                  <span className="short-info__value">
+                    półautomatyczne, automatyczne
+                  </span>
+                </li>
+                <li className="short-info__item">
+                  <span className="short-info__name">Dostępne podgrzewy:</span>
+                  <span className="short-info__value">
+                    elektryczny, parowy bezpośredni, woda ciepła
+                  </span>
+                </li>
+              </ul>
               <h4>Cechy</h4>
               <p>{desc}</p>
               <h4>Opcje</h4>
