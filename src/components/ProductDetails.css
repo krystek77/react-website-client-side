@@ -1,6 +1,10 @@
 * {
   box-sizing: border-box;
 }
+
+
+
+/*some comment 2*/
 main {
   /* border:1px solid red; */
   display: grid;
