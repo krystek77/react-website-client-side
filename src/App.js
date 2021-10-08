@@ -109,7 +109,8 @@ const App = () => {
         </li>
       </ul>
       <Switch>
-        <Route path="/produkty/:name" children={(props) => <ProductDetails {...props} />} />
+        <Route path="/produkty/:name" render={(props)=><ProductDetails {...props}/>}/>
+
         <Route path="/" render={() => <h1>Home Page</h1>} />
       </Switch>
     </Router>
