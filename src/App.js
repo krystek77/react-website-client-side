@@ -18,7 +18,7 @@ const App = () => {
           <Link to="/produkty/pralnice">Produkty</Link>
           <ul>
             <li className="title">
-              <Link to="/produkty/pralnice#pralnicee">
+              <Link to="/produkty/pralnice#pralnice">
                 <strong>Pralnice</strong>
               </Link>
               <ul>
