@@ -6,16 +6,13 @@ import './ProductDetails.css';
 
 const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
+  
   useEffect(() => {
     const product = data.find((p) => p.pathname === props.match.params.name);
-    if (product) {
-      setProduct(product);
-    }
+    if (product) { setProduct(product); }
     if (props.location.hash) {
       const target = document.getElementById(props.location.hash.slice(1));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
+      if (target) { target.scrollIntoView({ behavior: 'smooth' }); }
     }
   }, [props]);
 
@@ -64,17 +61,13 @@ const ProductDetails = (props) => {
     return (
       <ul className="utility-menu">
         <li className="utility-menu__title">
-          <Link to={`/produkty/pralnice#${product.pathname}`}>
-            <strong>{product.short_title}</strong>
-          </Link>
+          <Link to={`/produkty/pralnice#${product.pathname}`}> <strong>{product.short_title}</strong> </Link>
 
           <ul className="utility-menu__submenu">
             {product.kind.map((item) => {
               const { pathname, label } = item;
               return (
-                <li className="utility-menu__item" key={pathname}>
-                  <Link to={`/produkty/${pathname}`}>{label}</Link>
-                </li>
+                <li className="utility-menu__item" key={pathname}> <Link to={`/produkty/${pathname}`}>{label}</Link> </li>
               );
             })}
           </ul>
@@ -86,9 +79,7 @@ const ProductDetails = (props) => {
   return (
     product && (
       <main>
-        <header>
-          <h2 id={product.pathname}>{product.title}</h2>
-        </header>
+        <header><h2 id={product.pathname}>{product.title}</h2></header>
         <div className="needs">
           <h3>Wymagania</h3>
           <ul>
