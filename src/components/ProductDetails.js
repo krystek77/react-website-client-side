@@ -20,7 +20,7 @@ const ProductDetails = (props) => {
     return (
       <React.Fragment>
         {product.kind.map((item) => {
-          const { title, subtitle, desc, pathname } = item;
+          const { title, subtitle, short_info, pathname,desc } = item;
           const id = pathname.split('#')[1];
 
           return (
@@ -29,20 +29,20 @@ const ProductDetails = (props) => {
                 <p className="subtitle">{subtitle}</p>
                 <h3>{title}</h3>
               </header>
-              <ul className="short-info">
-                <li className="short-info__item">
-                  <span className="short-info__name">Funkcje:</span>
-                  <span className="short-info__value">pranie, płukanie</span>
-                </li>
-                <li className="short-info__item">
-                  <span className="short-info__name">Sterowanie:</span>
-                  <span className="short-info__value">półautomatyczne, automatyczne</span>
-                </li>
-                <li className="short-info__item">
-                  <span className="short-info__name">Dostępne podgrzewy:</span>
-                  <span className="short-info__value">elektryczny, parowy bezpośredni, woda ciepła</span>
-                </li>
-              </ul>
+              {short_info && (
+                <ul>
+                {short_info.map((item)=>{
+                  const {key,value} = item;
+                  return (
+                  <li className="short-info__item" key={"A"}>
+                    <span className="short-info__name">{key}</span>
+                    <span className="short-info__value">{value}</span>
+                  </li>
+                  )
+                })}
+                </ul>
+              )}
+
               <h4>Cechy</h4>
               <p>{desc}</p>
               <h4>Opcje</h4>
