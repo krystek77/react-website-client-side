@@ -20,7 +20,7 @@ const ProductDetails = (props) => {
     return (
       <React.Fragment>
         {product.kind.map((item) => {
-          const { title, subtitle, pathname,desc } = item;
+          const { title, subtitle,control_options, purpose,heating,g_factor,mount, pathname,desc } = item;
           const id = pathname.split('#')[1];
 
           return (
@@ -28,20 +28,14 @@ const ProductDetails = (props) => {
               <header>
                 <p className="subtitle">{subtitle}</p>
                 <h3>{title}</h3>
-              </header>
-              {/* {short_info && (
-                <ul>
-                {short_info.map((item)=>{
-                  const {key,value} = item;
-                  return (
-                  <li className="short-info__item" key={"A"}>
-                    <span className="short-info__name">{key}</span>
-                    <span className="short-info__value">{value}</span>
-                  </li>
-                  )
-                })}
+                <ul className="short-info">
+                  {purpose.length && <li className="short-info__item"><span className="short-info__title">Przeznaczenie:</span><span className="short-info__content">{purpose.join(', ')}</span></li>}
+                  {control_options.length && <li className="short-info__item"><span className="short-info__title">Sterownik:</span><span className="short-info__content">{control_options.map((item)=><a key={item} href="/">{item}</a>)}</span></li>}
+                  {heating.length && <li className="short-info__item"><span className="short-info__title">Podgrzew:</span><span className="short-info__content">{heating.join(', ')}</span></li>}
+                  {g_factor && <li className="short-info__item"><span className="short-info__title">G-faktor:</span><span className="short-info__content">{g_factor}</span></li>}
+                  {mount && <li className="short-info__item"><span className="short-info__title">Mocowanie:</span><span className="short-info__content">{mount}</span></li>}
                 </ul>
-              )} */}
+              </header>
 
               <h4>Cechy</h4>
               <p>{desc}</p>
@@ -101,7 +95,9 @@ ProductDetails.propTypes = {
     hash: PropTypes.string,
   }),
   match: PropTypes.shape({
-    params: PropTypes.string,
+    params: PropTypes.shape({
+      name:PropTypes.string
+    }),
   }),
 };
 
