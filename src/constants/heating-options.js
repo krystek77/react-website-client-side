@@ -6,4 +6,5 @@ export default [
     {id:5,heating:'elektryczno - parowy'},
     {id:6,heating:'gazowy'},
     {id:7,heating:'pompa ciepła'},
+    {id:8,heating:'parowy pośredni'},
 ]
