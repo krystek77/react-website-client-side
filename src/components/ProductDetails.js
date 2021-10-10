@@ -20,7 +20,7 @@ const ProductDetails = (props) => {
     return (
       <React.Fragment>
         {product.kind.map((item) => {
-          const { title, subtitle, short_info, pathname,desc } = item;
+          const { title, subtitle, pathname,desc } = item;
           const id = pathname.split('#')[1];
 
           return (
@@ -29,7 +29,7 @@ const ProductDetails = (props) => {
                 <p className="subtitle">{subtitle}</p>
                 <h3>{title}</h3>
               </header>
-              {short_info && (
+              {/* {short_info && (
                 <ul>
                 {short_info.map((item)=>{
                   const {key,value} = item;
@@ -41,7 +41,7 @@ const ProductDetails = (props) => {
                   )
                 })}
                 </ul>
-              )}
+              )} */}
 
               <h4>Cechy</h4>
               <p>{desc}</p>
