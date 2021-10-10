@@ -71,28 +71,35 @@ section {
   text-transform: uppercase;
   font-size: 16px;
 }
+.subtitle {
+  font-size: 24px;
+}
 /*
-.short-info
+short-info
 */
-.short-info {
-    list-style-type: none;
-    margin:0;
-    padding:0;
+.short-info{
+  list-style-type: none;
+  padding-left: 0;
+
 }
 .short-info__item {
-    font-weight: 700;
-    color:black;
+  
+
 }
-.short-info__name {
-    margin-right: 20px;
+.short-info__title {
+  display: inline-block;
+  font-weight: 600;
+  width:150px;
+
 }
-.short-info__value {
-    /* color:red; */
-    font-weight: 400;
-    /* text-transform: capitalize; */
+.short-info__content {
+  display: inline-block;
+  font-weight: 300;
 }
-.subtitle {
-    /* color:red; */
-    font-size: 24px;
-    text-transform: capitalize;
+.short-info__content > a {
+  display: inline-block;
+  padding-right: 10px;
 }
+/*
+end short-info
+*/
