@@ -14,4 +14,5 @@ export default [
   { id: 14, control: 'Electronic Display' },
   { id: 15, control: 'PLC Color Touchscreen' },
   { id: 15, control: 'MCX mikroprocesor' },
+  { id: 16, control: 'według zamówienia' },
 ];
