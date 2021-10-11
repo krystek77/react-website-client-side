@@ -107,6 +107,9 @@ section {
 }
 .slider__thumbnail {
   cursor:pointer;
+  background-color:transparent;
+  border:none;
+  width:100%;
 }
 .slider__thumbnail > img {
   display: block;
