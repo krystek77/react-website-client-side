@@ -1,7 +1,7 @@
 import React from 'react';
 import './index.css';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
-import ProductDetails from './components/ProductDetails';
+import ProductDetails from './components/ProductDetails/ProductDetails';
 
 const App = () => {
   return (

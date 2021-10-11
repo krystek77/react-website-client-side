@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { dataProducts as allProducts } from '../constants/products';
-import { dataControls as allControls } from '../constants/control-options';
+import { dataProducts as allProducts } from '../../constants/products';
+import { dataControls as allControls } from '../../constants/control-options';
 
-import Slider from './ProductDetails/Slider/Slider';
+import Slider from './Slider/Slider';
 
 import './ProductDetails.css';
 
