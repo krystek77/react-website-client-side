@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -9,9 +10,12 @@ import './ProductDetails.css';
 const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
   const [controls, setControls] = useState([]);
+  const [currentImage, setCurrentImage] = useState('pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-1-586x784');
 
   useEffect(() => {
     const product = allProducts.find((p) => p.pathname === props.match.params.name);
+    const images = product.kind.map((item)=>item.image)
+    console.log(images);
 
     if (product) {
       setProduct(product);
@@ -28,11 +32,18 @@ const ProductDetails = (props) => {
     }
   }, [props]);
 
+  function getImageSource(e) {
+    if (e.target.getAttribute('src')) {
+      const sourceTarget = e.target.getAttribute('alt').replace("100x100","586x784");
+      setCurrentImage(sourceTarget);
+    }
+  }
+
   function renderProduct() {
     return (
       <React.Fragment>
         {product.kind.map((item) => {
-          const { title, subtitle, control_options, purpose, heating, g_factor, mount, pathname, features, options } = item;
+          const { title, subtitle, control_options, purpose, heating, g_factor, mount, pathname, images, thumbnails, features, options } = item;
           const id = pathname.split('#')[1];
           const controlsItem = control_options.map((controlId) => {
             return controls.find((control) => control.id === controlId);
@@ -43,28 +54,23 @@ const ProductDetails = (props) => {
               <p className="product__subtitle">{subtitle}</p>
 
               {/** start slider component */}
-              <aside className="slider">
-                <div className="slider__image">
-                  <img src="../assets/images/pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-1-586x784.webp" alt="pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-1-586x784" />
-                </div>
-                <div className="slider__thumbnails">
-                  <div className="slider__thumbnail">
-                    <img src="../assets/images/pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-1-100x100.webp" alt="pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-1-100x100" />
+              {images.length !== 0 && (
+                <aside className="slider">
+                  <div className="slider__image">
+                    <img src={`../assets/images/${currentImage}.webp`} alt="pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-1-586x784" />
                   </div>
-                  <div className="slider__thumbnail">
-                    <img src="../assets/images/pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-2-100x100.webp" alt="pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-2-100x100" />
-                  </div>
-                  <div className="slider__thumbnail">
-                    <img src="../assets/images/pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-3-100x100.webp" alt="pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-3-100x100" />
-                  </div>
-                  <div className="slider__thumbnail">
-                    <img src="../assets/images/pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-4-100x100.webp" alt="pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-4-100x100" />
-                  </div>
-                  <div className="slider__thumbnail">
-                    <img src="../assets/images/pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-5-100x100.webp" alt="pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-5-100x100" />
-                  </div>
-                </div>
-              </aside>
+                  {thumbnails.length !== 0 && (
+                    <div className="slider__thumbnails">
+                      {thumbnails.map((item) => (
+                        <button type="button" className="slider__thumbnail" key={item} onClick={getImageSource}>
+                          <img src={`../assets/images/${item}.webp`} alt={item} />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+                </aside>
+              )}
+
               {/** end slider component */}
 
               <div className="product__introduction">
