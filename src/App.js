@@ -16,10 +16,11 @@ const App = () => {
             <li className="title">
               <Link to="/produkty/pralnice#pralnice"> <strong>Pralnice</strong> </Link> 
               <ul>
-                <li> <Link to="/produkty/pralnice#czolowe">bębnowe o załadunku czołowym </Link></li>
-                <li> <Link to="/produkty/pralnice#boczne">bębnowe o załadunku bocznym</Link></li>
-                <li> <Link to="/produkty/pralnice#specjalne-czolowe">specjalistyczne, bębnowe o załadunku czołowym</Link></li>
-                <li> <Link to="/produkty/pralnice#specjalne-boczne">specjalistyczne, bębnowe o załadunku bocznym</Link></li>
+                <li> <Link to="/produkty/pralnice#czolowe-pb">bębnowe o załadunku czołowym <b>PB</b></Link></li>
+                <li> <Link to="/produkty/pralnice#czolowe-pc">bębnowe o załadunku czołowym <b>PC</b></Link></li>
+                <li> <Link to="/produkty/pralnice#boczne">bębnowe o załadunku bocznym <b>BP</b></Link></li>
+                <li> <Link to="/produkty/pralnice#specjalne-czolowe">specjalistyczne, bębnowe o załadunku czołowym <b>PC</b></Link></li>
+                <li> <Link to="/produkty/pralnice#specjalne-boczne">specjalistyczne, bębnowe o załadunku bocznym <b>PB</b></Link></li>
               </ul>
             </li>
           </ul>

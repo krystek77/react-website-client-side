@@ -1,0 +1,18 @@
+export const dataControls = [
+  { id: 1, control: 'TC (temperatura-czas)' },
+  { id: 2, control: 'Pralmatic' },
+  { id: 3, control: 'XControl' },
+  { id: 5, control: 'XControl +' },
+  { id: 6, control: 'XControl Flex' },
+  { id: 7, control: 'XControl Flex Plus' },
+  { id: 8, control: 'Graphitronic' },
+  { id: 9, control: 'ECT - Easy Control Timer' },
+  { id: 10, control: 'FCT - Full Control Timer' },
+  { id: 11, control: 'Full OPL mikroprocesor' },
+  { id: 12, control: 'Dual Digital Control' },
+  { id: 13, control: 'XQ Control' },
+  { id: 14, control: 'Electronic Display' },
+  { id: 15, control: 'PLC Color Touchscreen' },
+  { id: 15, control: 'MCX mikroprocesor' },
+  { id: 16, control: 'według zamówienia' },
+];
