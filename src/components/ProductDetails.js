@@ -26,7 +26,7 @@ const ProductDetails = (props) => {
     return (
       <React.Fragment>
         {product.kind.map((item) => {
-          const { title, subtitle,control_options, purpose,heating,g_factor,mount, pathname,desc } = item;
+          const { title, subtitle,control_options, purpose,heating,g_factor,mount, pathname,features,options } = item;
           const id = pathname.split('#')[1];
           const controlsItem = control_options.map((controlId)=>{
             return controls.find((control)=>control.id===controlId)
@@ -38,22 +38,60 @@ const ProductDetails = (props) => {
                 <p className="subtitle">{subtitle}</p>
                 <h3>{title}</h3>
                 <ul className="short-info">
-                  {purpose.length && <li className="short-info__item"><span className="short-info__title">Przeznaczenie:</span><span className="short-info__content">{purpose.join(', ')}</span></li>}
-                  {control_options.length && <li className="short-info__item"><span className="short-info__title">Sterownik:</span><span className="short-info__content">{controlsItem.map((item)=><a key={item.control} href="/">{item.control}</a>)}</span></li>}
-                  {heating.length && <li className="short-info__item"><span className="short-info__title">Podgrzew:</span><span className="short-info__content">{heating.join(', ')}</span></li>}
-                  {g_factor && <li className="short-info__item"><span className="short-info__title">G-faktor:</span><span className="short-info__content">{g_factor}</span></li>}
-                  {mount && <li className="short-info__item"><span className="short-info__title">Mocowanie:</span><span className="short-info__content">{mount}</span></li>}
+                  {purpose.length && (
+                    <li className="short-info__item">
+                      <span className="short-info__title">Przeznaczenie:</span>
+                      <span className="short-info__content">{purpose.join(', ')}</span>
+                    </li>
+                  )}
+                  {control_options.length && (
+                    <li className="short-info__item">
+                      <span className="short-info__title">Sterownik:</span>
+                      <span className="short-info__content">
+                        {controlsItem.map((item) => (
+                          <a key={item.control} href="/">
+                            {item.control}
+                          </a>
+                        ))}
+                      </span>
+                    </li>
+                  )}
+                  {heating.length && (
+                    <li className="short-info__item">
+                      <span className="short-info__title">Podgrzew:</span>
+                      <span className="short-info__content">{heating.join(', ')}</span>
+                    </li>
+                  )}
+                  {g_factor && (
+                    <li className="short-info__item">
+                      <span className="short-info__title">G-faktor:</span>
+                      <span className="short-info__content">{g_factor}</span>
+                    </li>
+                  )}
+                  {mount && (
+                    <li className="short-info__item">
+                      <span className="short-info__title">Mocowanie:</span>
+                      <span className="short-info__content">{mount}</span>
+                    </li>
+                  )}
                 </ul>
               </header>
 
-              <h4>Cechy</h4>
-              <p>{desc}</p>
-              <h4>Opcje</h4>
-              <p>{desc}</p>
+              {features.length!==0 && (
+                <React.Fragment>
+                  <h4>Cechy</h4>
+                  <ul>{features.map((item)=><li key={item}>{item}</li>)}</ul>
+                </React.Fragment>
+              )}
+               {options.length!==0 && (
+                <React.Fragment>
+                  <h4>Opcje</h4>
+                  <ul>{options.map((item)=><li key={item}>{item}</li>)}</ul>
+                </React.Fragment>
+              )}
+
               <h4>Technologie</h4>
-              <p>{desc}</p>
               <h4>Dane techniczne</h4>
-              <p>{desc}</p>
             </article>
           );
         })}
