@@ -9,7 +9,7 @@ export const dataProducts = [
       {
         title: 'Pralnice bębnowe o załadunku czołowym',
         subtitle: 'przemysłowe urządzenia pralnicze bez wirowania, załadunek 8 - 22 kg',
-        control_options: ['TC (temperatura-czas)', 'Pralmatic'],
+        control_options: [1,2],
         purpose: ['pranie', 'płukanie'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła'],
         g_factor: '',
@@ -21,7 +21,7 @@ export const dataProducts = [
       {
         title: 'Pralnice bębnowe o załadunku czołowym',
         subtitle: 'przemysłowe urządzenia pralnicze bez wirowania, załadunek 30 - 50 kg',
-        control_options: ['TC (temperatura-czas', 'Pralmatic'],
+        control_options: [1,2],
         purpose: ['pranie', 'płukanie'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła'],
         g_factor: '',
@@ -33,7 +33,7 @@ export const dataProducts = [
       {
         title: 'Pralnice bębnowe o załadunku bocznym',
         subtitle: 'przemysłowe urządzenia pralnicze bez wirowania, załadunek 30 -50 kg',
-        control_options: ['TC (temperatura-czas'],
+        control_options: [1],
         purpose: ['pranie', 'płukanie'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła'],
         g_factor: '',
@@ -45,7 +45,7 @@ export const dataProducts = [
       {
         title: 'Specjalistyczne pralnice bębnowe o załadunku czołowym',
         subtitle: 'przemysłowe urządzenia pralnicze, załadunek 90 - 120 kg',
-        control_options: ['TC (temperatura-czas', 'Pralmatic', 'według ustaleń'],
+        control_options: [1,2,16],
         purpose: ['pranie', 'płukanie', 'farbowanie', 'dekatyzacja'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła', 'parowy pośredni'],
         g_factor: '',
@@ -57,7 +57,7 @@ export const dataProducts = [
       {
         title: 'Specjalistyczne pralnice bębnowe o załadunku bocznym',
         subtitle: 'przemysłowe urządzenia pralnicze, załadunek 200 - 300 kg',
-        control_options: ['TC (temperatura-czas', 'Pralmatic', 'według ustaleń'],
+        control_options: [1,2,16],
         purpose: ['pranie', 'płukanie', 'farbowanie', 'dekatyzacja'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła', 'parowy pośredni'],
         g_factor: '',
@@ -78,7 +78,7 @@ export const dataProducts = [
       {
         title: 'Pralnicowirówki normalnoobrotowe, Pralma',
         subtitle: 'przemysłowe pralnicowirówki sztywnomocowane, załadunek 10 - 22 kg',
-        control_options: ['Pralmatic'],
+        control_options: [2],
         purpose: ['pranie', 'płukanie', 'wirowanie'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła'],
         g_factor: '200',
@@ -90,7 +90,7 @@ export const dataProducts = [
       {
         title: 'Pralnicowirówki normalnoobrotowe, RX',
         subtitle: 'przemysłowe pralnicowirówki sztywnomocowane, załadunek 8 - 52 kg',
-        control_options: ['XControl'],
+        control_options: [3],
         purpose: ['pranie', 'płukanie', 'wirowanie'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno z przystosowaniem do pary', 'woda ciepła'],
         g_factor: '100-150',
@@ -102,7 +102,7 @@ export const dataProducts = [
       {
         title: 'Pralnicowirówki szybkoobrotowe, RX',
         subtitle: 'przemysłowe pralnicowirówki sztywnomocowane, załadunek 8 - 28 kg',
-        control_options: ['XControl'],
+        control_options: [3],
         purpose: ['pranie', 'płukanie', 'wirowanie'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno z przystosowaniem do pary', 'woda ciepła'],
         g_factor: '200',
