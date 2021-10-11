@@ -1,4 +1,4 @@
-export default [
+export const dataControls = [
   { id: 1, control: 'TC (temperatura-czas)' },
   { id: 2, control: 'Pralmatic' },
   { id: 3, control: 'XControl' },
