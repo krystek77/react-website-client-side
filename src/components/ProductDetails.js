@@ -38,13 +38,13 @@ const ProductDetails = (props) => {
                 <p className="subtitle">{subtitle}</p>
                 <h3>{title}</h3>
                 <ul className="short-info">
-                  {purpose.length && (
+                  {purpose.length !==0 && (
                     <li className="short-info__item">
                       <span className="short-info__title">Przeznaczenie:</span>
                       <span className="short-info__content">{purpose.join(', ')}</span>
                     </li>
                   )}
-                  {control_options.length && (
+                  {control_options.length !==0 && (
                     <li className="short-info__item">
                       <span className="short-info__title">Sterownik:</span>
                       <span className="short-info__content">
@@ -56,7 +56,7 @@ const ProductDetails = (props) => {
                       </span>
                     </li>
                   )}
-                  {heating.length && (
+                  {heating.length !==0 && (
                     <li className="short-info__item">
                       <span className="short-info__title">Podgrzew:</span>
                       <span className="short-info__content">{heating.join(', ')}</span>
