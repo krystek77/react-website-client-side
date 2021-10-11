@@ -2,20 +2,20 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+
 import { dataProducts as allProducts } from '../constants/products';
 import { dataControls as allControls } from '../constants/control-options';
+
+import Slider from './ProductDetails/Slider/Slider';
 
 import './ProductDetails.css';
 
 const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
   const [controls, setControls] = useState([]);
-  const [currentImage, setCurrentImage] = useState('pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-1-586x784');
 
   useEffect(() => {
     const product = allProducts.find((p) => p.pathname === props.match.params.name);
-    const images = product.kind.map((item)=>item.image)
-    console.log(images);
 
     if (product) {
       setProduct(product);
@@ -32,13 +32,6 @@ const ProductDetails = (props) => {
     }
   }, [props]);
 
-  function getImageSource(e) {
-    if (e.target.getAttribute('src')) {
-      const sourceTarget = e.target.getAttribute('alt').replace("100x100","586x784");
-      setCurrentImage(sourceTarget);
-    }
-  }
-
   function renderProduct() {
     return (
       <React.Fragment>
@@ -53,25 +46,7 @@ const ProductDetails = (props) => {
             <article className="product" id={id} key={id}>
               <p className="product__subtitle">{subtitle}</p>
 
-              {/** start slider component */}
-              {images.length !== 0 && (
-                <aside className="slider">
-                  <div className="slider__image">
-                    <img src={`../assets/images/${currentImage}.webp`} alt="pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-1-586x784" />
-                  </div>
-                  {thumbnails.length !== 0 && (
-                    <div className="slider__thumbnails">
-                      {thumbnails.map((item) => (
-                        <button type="button" className="slider__thumbnail" key={item} onClick={getImageSource}>
-                          <img src={`../assets/images/${item}.webp`} alt={item} />
-                        </button>
-                      ))}
-                    </div>
-                  )}
-                </aside>
-              )}
-
-              {/** end slider component */}
+              <Slider images={images} thumbnails={thumbnails} />
 
               <div className="product__introduction">
                 <header className="product__header">
