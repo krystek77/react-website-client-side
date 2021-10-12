@@ -7,7 +7,7 @@ import { dataProducts as allProducts } from '../../constants/products';
 import { dataControls as allControls } from '../../constants/control-options';
 
 import Slider from './Slider/Slider';
-import TechnicalData from '../TechnicalData/TechnicalData';
+import TechnicalData from './TechnicalData/TechnicalData';
 
 import './ProductDetails.css';
 
