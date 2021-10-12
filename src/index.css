@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Montserrat:wght@300;400;600;700;900&family=Noto+Sans:wght@400;700&family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap');
 
 :root {
-  --primary:#FF0000;
-  --secondary:#87A0B2;
-  --light-secondary:#A4BEF3;
-  --dark:#051014;
-  --dark-gray:#2E2F2F;
-  --light:#EEF4D4;
+  --primary:#FF0101;
+  --secondary:#43B1B0;
+  --dark:#231F20;
+  --gray:#A6979C;
+  --light-gray:#dadada;
+  --light:#FFFFFF;
 }
 
 *,
@@ -21,9 +21,10 @@ html {
 body {
   font-family: "Source Sans Pro",sans-serif;
   font-weight: 400;
+  color:var(--dark);
 }
 
 #root {
-  max-width: 1200px;
+  /* max-width: 1200px; */
   margin:0 auto;
 }
