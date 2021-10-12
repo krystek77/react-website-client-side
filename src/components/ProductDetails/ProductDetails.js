@@ -7,8 +7,10 @@ import { dataProducts as allProducts } from '../../constants/products';
 import { dataControls as allControls } from '../../constants/control-options';
 
 import Slider from './Slider/Slider';
+import TechnicalData from '../TechnicalData/TechnicalData';
 
 import './ProductDetails.css';
+
 
 const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
@@ -133,6 +135,7 @@ const ProductDetails = (props) => {
               {/** start related details component */}
               <section className="related-details">
                 <h4>Dane techniczne</h4>
+                <TechnicalData />
               </section>
               {/** end related details component */}
             </article>
