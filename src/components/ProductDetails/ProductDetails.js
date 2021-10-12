@@ -7,8 +7,10 @@ import { dataProducts as allProducts } from '../../constants/products';
 import { dataControls as allControls } from '../../constants/control-options';
 
 import Slider from './Slider/Slider';
+import TechnicalData from '../TechnicalData/TechnicalData';
 
 import './ProductDetails.css';
+
 
 const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
@@ -36,7 +38,7 @@ const ProductDetails = (props) => {
     return (
       <React.Fragment>
         {product.kind.map((item) => {
-          const { title, subtitle, control_options, purpose, heating, g_factor, mount, pathname, images, thumbnails, features, options } = item;
+          const { title, subtitle, control_options, purpose, heating, g_factor, mount, pathname, images, thumbnails, features, options,parameters } = item;
           const id = pathname.split('#')[1];
           const controlsItem = control_options.map((controlId) => {
             return controls.find((control) => control.id === controlId);
@@ -133,6 +135,7 @@ const ProductDetails = (props) => {
               {/** start related details component */}
               <section className="related-details">
                 <h4>Dane techniczne</h4>
+                <TechnicalData data={parameters} />
               </section>
               {/** end related details component */}
             </article>
