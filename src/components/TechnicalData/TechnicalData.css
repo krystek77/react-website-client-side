@@ -1,6 +1,46 @@
 table {
-    width:100%;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
 }
-th,td {
-    border:1px solid grey;
+td,
+th {
+  border-bottom: 1px solid grey;
+  padding:2px;
+}
+thead th {
+  border-top: 1px solid grey;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+tfoot th {
+    font-size: 14px;
+}
+tfoot > tr:nth-child(n+1) > th:last-child {
+    text-align: left;
+    font-weight: 400;
+}
+
+tr > td {
+  text-align: center;
+}
+tr > td:first-child,
+tr > th:first-child {
+  text-align: left;
+  border-left:1px solid gray;
+}
+tr > td:nth-child(n + 2),
+tr > th:nth-child(n + 2) {
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
+thead tr, tfoot tr:first-child {
+    background-color: rgb(206, 247, 255);
+}
+tbody tr:nth-child(2n+1){
+    background-color: rgb(243, 243, 243);
+}
+tbody tr > td:nth-child(2){
+    background-color: rgb(206, 247, 255);
 }
