@@ -8,13 +8,14 @@ import ContactMailIcon from '@mui/icons-material/ContactMail';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
-// import KeyboardArrowUp from '@mui/icons-material/KeyboardArrowUp';
+import KeyboardArrowUp from '@mui/icons-material/KeyboardArrowUp';
 
 import './Navigation.css';
 
 function Navigation() {
   const [openNavigation,setOpenNavigation] = useState(false);
   const [activeMenu,setActiveMenu] = useState("0");
+  const [activeHandySubmenu,setActiveHandySubmenu] = useState("0");
 
   function toggleMenu(){
     setOpenNavigation(!openNavigation);
@@ -46,8 +47,13 @@ function Navigation() {
               <ul className="submenu__list">
                 <li className="submenu__item">
 
-                  <button type="button" className="menu-button">Pralnice bębnowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
-                  <div className="handy-submenu">
+                  <button type="button" data-number-hs="1" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Pralnice bębnowe
+                    {activeHandySubmenu === "1" ? 
+                    <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
+                    <span className="pointer pointer--down"><KeyboardArrowDown/></span>
+                    }
+                  </button>
+                  <div className={`handy-submenu ${activeHandySubmenu === "1" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" onClick={()=>{setOpenNavigation(false)}} to="/produkty/pralnice#pralnice">Pralnice</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{;setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/pralnice#czolowe-pb"><span>bębnowe o załadunku czołowym</span><b>PB</b></Link></li>
@@ -61,8 +67,13 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <button type="button" className="menu-button">Wirówki pralnicze<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
-                  <div className="handy-submenu">
+                  <button type="button" data-number-hs="2" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Wirówki pralnicze
+                    {activeHandySubmenu === "2" ? 
+                    <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
+                    <span className="pointer pointer--down"><KeyboardArrowDown/></span>
+                    }
+                  </button>
+                  <div className={`handy-submenu ${activeHandySubmenu === "2" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" to="/">Wirówki</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link className="handy-submenu__link" to="/">1</Link></li>
@@ -74,8 +85,13 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <button type="button"className="menu-button">Pralnicowirówki przemysłowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
-                  <div className="handy-submenu">
+                  <button type="button" data-number-hs="3" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Pralnicowirówki przemysłowe
+                    {activeHandySubmenu === "3" ? 
+                    <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
+                    <span className="pointer pointer--down"><KeyboardArrowDown/></span>
+                    }
+                  </button>
+                  <div className={`handy-submenu ${activeHandySubmenu === "3" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" to="/">Pralnicowirówki</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link className="handy-submenu__link" to="/">1</Link></li>

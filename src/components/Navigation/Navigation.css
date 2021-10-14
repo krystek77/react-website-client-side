@@ -75,13 +75,21 @@ submenu component
   list-style-type: none;
 }
 .submenu__item {
-  border-top: 1px solid var(--dark);
+  /* border-top: 1px solid var(--dark); */
+  overflow:hidden;
 }
 /*
   handy-submenu component
 */
 .handy-submenu {
   border-top: 1px solid var(--dark);
+  height:0;
+  max-height: 0;
+  transition:all .5s ease-in-out;
+}
+.handy-submenu--visible {
+  height:auto;
+  max-height: 600px;
 }
 .handy-submenu__title {
   padding: 15px 25px;
@@ -137,10 +145,9 @@ toggle-btn component
   transform: translateY(-50%);
 }
 .pointer--right,
-.pointer--down {
+.pointer--down,.pointer--up {
   right: 15px;
 }
-.pointer--left,
-.pointer--up {
+.pointer--left {
   left: 15px;
 }
