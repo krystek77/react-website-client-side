@@ -46,7 +46,7 @@ function Navigation() {
               <ul className="submenu__list">
                 <li className="submenu__item">
 
-                  <span className="submenu__header">Pralnice bębnowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></span>
+                  <button type="button" className="menu-button">Pralnice bębnowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
                   <div className="handy-submenu">
                       <Link className="handy-submenu__title" onClick={()=>{setOpenNavigation(false)}} to="/produkty/pralnice#pralnice">Pralnice</Link>
                       <ul className="handy-submenu__list">
@@ -61,7 +61,7 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <span className="submenu__header">Wirówki pralnicze<span className="pointer pointer--down"><KeyboardArrowDown/></span></span>
+                  <button type="button" className="menu-button">Wirówki pralnicze<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
                   <div className="handy-submenu">
                       <Link className="handy-submenu__title" to="/">Wirówki</Link>
                       <ul className="handy-submenu__list">
@@ -74,7 +74,7 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <span className="submenu__header">Pralnicowirówki przemysłowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></span>
+                  <button type="button"className="menu-button">Pralnicowirówki przemysłowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
                   <div className="handy-submenu">
                       <Link className="handy-submenu__title" to="/">Pralnicowirówki</Link>
                       <ul className="handy-submenu__list">
@@ -87,27 +87,27 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <span className="submenu__header">Suszarki bębnowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></span>
+                  <button type="button" className="menu-button">Suszarki bębnowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
 
                 </li>
                 <li className="submenu__item">
                   
-                  <span className="submenu__header">Prasownice przemysłowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></span>
+                  <button type="button" className="menu-button">Prasownice przemysłowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
 
                 </li>
                 <li className="submenu__item">
 
-                  <span className="submenu__header">Bariery higieny<span className="pointer pointer--down"><KeyboardArrowDown/></span></span>
+                  <button type="button" className="menu-button">Bariery higieny<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
 
                 </li>
                 <li className="submenu__item">
 
-                  <span className="submenu__header">Prasowanie fasonowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></span>
+                  <button type="button" className="menu-button">Prasowanie fasonowe<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
 
                 </li>
                 <li className="submenu__item">
 
-                  <span className="submenu__header">Sprzęt pomocniczy<span className="pointer pointer--down"><KeyboardArrowDown/></span></span>
+                  <button type="button" className="menu-button">Sprzęt pomocniczy<span className="pointer pointer--down"><KeyboardArrowDown/></span></button>
                   
                 </li>
               </ul>

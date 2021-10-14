@@ -77,13 +77,6 @@ submenu component
 .submenu__item {
   border-top: 1px solid var(--dark);
 }
-.submenu__header {
-  display: block;
-  padding: 15px 25px;
-  font-size: 18px;
-  position: relative;
-  cursor: pointer;
-}
 /*
   handy-submenu component
 */
