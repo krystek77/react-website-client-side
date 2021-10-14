@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { dataProducts as allProducts } from '../../constants/products';
@@ -15,8 +15,10 @@ import './ProductDetails.css';
 const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
   const [controls, setControls] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
+    console.log('[ProductDetails.js] - useEffect');
     const product = allProducts.find((p) => p.pathname === props.match.params.name);
 
     if (product) {
@@ -25,14 +27,21 @@ const ProductDetails = (props) => {
     if (allControls.length) {
       setControls(allControls);
     }
+  }, []);
 
+  useEffect(()=>{
+    console.log('[ProductDetails.js] - useEffect product');
     if (props.location.hash) {
-      const target = document.getElementById(props.location.hash.slice(1));
+      console.log('hash');
+      const target = document.getElementById(props.location.hash.slice(1)); //do not get element
+      console.log(target);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  }, [props]);
+  },[product,props])
+
+ console.log('[ProductDetails.js] - render');
 
   function renderProduct() {
     return (

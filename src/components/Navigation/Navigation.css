@@ -1,0 +1,153 @@
+.navbar__logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  position: relative;
+  background-color: var(--light);
+  z-index: 1;
+}
+.navbar__menu {
+  display: block;
+  position: absolute;
+  width: 200vw;
+  top:-100vh;
+  margin-top:56px;
+  left: 0;
+  transition: top 0.5s ease-in-out;
+  background-color: var(--light);
+  z-index: 0;
+  overflow-y:auto;
+  overflow-x: hidden;
+  height:calc(100vh - 56px);
+}
+.navbar__menu--visible {
+  top:0px;
+}
+.menu {
+  width:100%;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.menu__item {
+  border-top: 1px solid var(--dark);
+}
+.menu__link,
+.menu-button {
+  display: block;
+  padding: 15px 25px;
+  text-decoration: none;
+  color: var(--dark);
+  font-size: 18px;
+  position: relative;
+  cursor: pointer;
+}
+.menu-button {
+  background-color: var(--light);
+  width: 100%;
+  border: none;
+  text-align: left;
+}
+.menu-button--submenu {
+  text-align: center;
+}
+/*
+submenu component
+*/
+.submenu {
+  border-top: 1px solid var(--dark);
+  position: absolute;
+  top: 0px;
+  left:100%;
+  margin-top:53px;
+  width: 100vw;
+  transition: left 1s ease-in-out;
+  background-color: rgb(247, 255, 199);
+  z-index:2;
+}
+.submenu.submenu--visible {
+  left:0%
+}
+.submenu__list {
+  padding-left: 0;
+  list-style-type: none;
+}
+.submenu__item {
+  border-top: 1px solid var(--dark);
+}
+.submenu__header {
+  display: block;
+  padding: 15px 25px;
+  font-size: 18px;
+  position: relative;
+  cursor: pointer;
+}
+/*
+  handy-submenu component
+*/
+.handy-submenu {
+  border-top: 1px solid var(--dark);
+}
+.handy-submenu__title {
+  padding: 15px 25px;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--dark);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.handy-submenu__title:hover {
+  color: var(--secondary);
+}
+.handy-submenu__list {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.handy-submenu__link {
+  padding: 15px 25px;
+  display: block;
+  font-size: 18px;
+  text-decoration: none;
+  color: var(--dark);
+  display: flex;
+  justify-content: space-between;
+}
+.handy-submenu__link:hover {
+  color: var(--secondary);
+}
+
+/*
+toggle-btn component
+*/
+
+.toggle-btn {
+  border: none;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.toggle-btn--contact {
+  display: none;
+}
+/*
+ pointer component
+*/
+.pointer {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.pointer--right,
+.pointer--down {
+  right: 15px;
+}
+.pointer--left,
+.pointer--up {
+  left: 15px;
+}

@@ -17,11 +17,26 @@
 html {
   font-size: 100%;
   font-weight: 400;
+  /* prevent scroll horizontal on mobile*/
+  width:100%;
+  overflow-x: hidden;
 }
 body {
   font-family: "Source Sans Pro",sans-serif;
   font-weight: 400;
   color:var(--dark);
+  margin:0;
+  padding:0;
+  /* prevent scroll horizontal on mobile*/
+  width:100vw;
+  position:relative;
+  overflow-x: hidden;
+}
+.no-scroll-mobile {
+  overflow:hidden;
+}
+button {
+  font-family: "Source Sans Pro",sans-serif;
 }
 
 #root {

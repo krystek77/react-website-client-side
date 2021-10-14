@@ -3,10 +3,14 @@ import './index.css';
 import { BrowserRouter as Router, Link, Switch, Route } from 'react-router-dom';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 
+import Navigation from './components/Navigation/Navigation'
+
 const App = () => {
   return (
     <Router>
+      <Navigation/>
       <Link to="/">Home</Link>
+      
       <ul>
         <li><Link to="/o-nas">O nas</Link></li>
         <li><Link to="/klienci">Klienci</Link></li>
