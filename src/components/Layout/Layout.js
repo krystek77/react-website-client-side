@@ -10,8 +10,10 @@ import './Layout.css';
 function Layout({ children }) {
   return (
     <div className="layout">
-      <Toolbar />
-      <Navigation />
+      <div className="layout__topbar">
+        <Toolbar />
+        <Navigation />
+      </div>
       {children}
       <Footer />
     </div>
