@@ -1,0 +1,7 @@
+.toolbar {
+    background-color:var(--primary);
+    color:var(--light);
+    padding:8px 25px;
+    position: relative;
+    z-index:1000;
+}

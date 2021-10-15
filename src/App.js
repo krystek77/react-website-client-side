@@ -3,11 +3,13 @@ import './index.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import ProductDetails from './components/ProductDetails/ProductDetails';
 
-import Navigation from './components/Navigation/Navigation'
+import Toolbar from './components/Toolbar/Toolbar';
+import Navigation from './components/Navigation/Navigation';
 
 const App = () => {
   return (
     <Router>
+      <Toolbar/>
       <Navigation/>
       <Switch>
         <Route path="/produkty/:name" render={(props) => <ProductDetails {...props} />} />
