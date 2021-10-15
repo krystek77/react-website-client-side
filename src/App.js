@@ -5,6 +5,7 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 
 import Toolbar from './components/Toolbar/Toolbar';
 import Navigation from './components/Navigation/Navigation';
+import Footer from './components/Footer/Footer';
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/produkty/:name" render={(props) => <ProductDetails {...props} />} />
         <Route path="/" render={() => <h1>Home Page</h1>} />
       </Switch>
+      <Footer/>
     </Router>
   );
 };
