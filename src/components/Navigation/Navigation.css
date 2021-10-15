@@ -25,14 +25,14 @@
   position: absolute;
   width: 200vw;
   top:-100vh;
-  padding-top:56px;
+  padding-top:52px;
   left: 0;
   transition: top 0.5s ease-in-out;
   background-color: var(--light);
   z-index: 0;
   overflow-y:auto;
   overflow-x: hidden;
-  height:calc(100vh - 56px);
+  height:calc(100vh - 36px);
 }
 .navbar__menu--visible {
   top:0px;
@@ -74,10 +74,10 @@ submenu component
   position: absolute;
   top: 0px;
   left:100%;
-  /* margin-top:53px; */
+  padding-top:55px;
   width: 100vw;
   transition: left 1s ease-in-out;
-  background-color: rgb(247, 255, 199);
+  background-color:var(--light);
   z-index:2;
 }
 .submenu.submenu--visible {
