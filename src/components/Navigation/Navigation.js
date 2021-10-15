@@ -48,13 +48,13 @@ function Navigation() {
               <ul className="submenu__list">
                 <li className="submenu__item">
 
-                  <button type="button" data-number-hs="1" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Pralnice bębnowe
-                    {activeHandySubmenu === "1" ? 
+                  <button type="button" data-number-hs="11" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Pralnice bębnowe
+                    {activeHandySubmenu === "11" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "1" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "11" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" onClick={()=>{setOpenNavigation(false)}} to="/produkty/pralnice#pralnice">Pralnice</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{;setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/pralnice#czolowe-pb"><span>bębnowe o załadunku czołowym</span><b>PB</b></Link></li>
@@ -68,13 +68,13 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <button type="button" data-number-hs="2" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Wirówki pralnicze
-                    {activeHandySubmenu === "2" ? 
+                  <button type="button" data-number-hs="12" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Wirówki pralnicze
+                    {activeHandySubmenu === "12" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "2" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "12" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" to="/produkty/wirowki#wirowki">Wirówki</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{;setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wirówki#c8"><span>wirówka pralnicza</span><b>C8</b></Link></li>
@@ -85,13 +85,13 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <button type="button" data-number-hs="3" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Pralnicowirówki przemysłowe
-                    {activeHandySubmenu === "3" ? 
+                  <button type="button" data-number-hs="13" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Pralnicowirówki przemysłowe
+                    {activeHandySubmenu === "13" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "3" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "13" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" to="/produkty/pralnicowirowki#pralnicowirowki">Pralnicowirówki</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{;setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/pralnicowirowki#normalnoobrotowe-pralma"><span>normalnoobrotowe</span><b>Pralma</b></Link></li>
@@ -108,13 +108,13 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <button type="button" data-number-hs="3" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Suszarki bębnowe
-                    {activeHandySubmenu === "3" ? 
+                  <button type="button" data-number-hs="14" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Suszarki bębnowe
+                    {activeHandySubmenu === "14" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "3" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "14" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" to="/produkty/suszarki#suszarki">Suszarki</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{;setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/suszarki#kompaktowe"><span>kompaktowe</span><b>TX</b></Link></li>
@@ -126,13 +126,13 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
                   
-                  <button type="button" data-number-hs="3" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Magle
-                    {activeHandySubmenu === "3" ? 
+                  <button type="button" data-number-hs="15" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Magle
+                    {activeHandySubmenu === "15" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "3" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "15" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" to="/produkty/magle#magle">Magle przemysłowe</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{;setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/magle#nieckowe-i25"><span>nieckowe</span><b>I25</b></Link></li>
@@ -149,13 +149,13 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <button type="button" data-number-hs="3" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Bariery higieny
-                    {activeHandySubmenu === "3" ? 
+                  <button type="button" data-number-hs="16" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Bariery higieny
+                    {activeHandySubmenu === "16" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "3" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "16" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" to="/produkty/bariery-higieny#bariery-higieny">Urządzenia do pralni z tzw. barierą higieny</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{;setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/bariery-higieny#normalnoobrotowe-bh"><span>normalnoobrotowe</span><b>BH</b></Link></li>
@@ -168,13 +168,13 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
                 
-                  <button type="button" data-number-hs="3" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Prasowanie fasonowe
-                    {activeHandySubmenu === "3" ? 
+                  <button type="button" data-number-hs="17" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Prasowanie fasonowe
+                    {activeHandySubmenu === "17" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "3" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "17" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" to="/produkty/prasowanie-fasonowe#prasowanie-fasonowe">Zestawy do prasowania ręcznego, prasy</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{;setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/prasowanie-fasonowe#eb3"><span>zestaw do prasowania ręcznego</span><b>EB3</b></Link></li>
@@ -187,13 +187,13 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <button type="button" data-number-hs="3" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Wózki i regały
-                    {activeHandySubmenu === "3" ? 
+                  <button type="button" data-number-hs="18" onClick={(e)=>setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Wózki i regały
+                    {activeHandySubmenu === "18" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "3" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "18" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" to="/produkty/wozki-regaly#wozki-regaly">Sprzęt pomocniczy</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{;setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#ws150"><span>wózek na suche pranie</span><b>WS-150</b></Link></li>
@@ -221,14 +221,14 @@ function Navigation() {
               <button type="button" onClick={()=>setActiveMenu("0")} className="menu-button menu-button--submenu">Rozwiązania specjalne<span className="pointer pointer--left"><KeyboardArrowLeftIcon/></span></button>
               <ul className="submenu__list">
                 <li className="submenu__item">
-                  <button type="button" data-number-hs="4" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Pralnie samoobsługowe
-                    {activeHandySubmenu === "4" ? 
+                  <button type="button" data-number-hs="21" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Pralnie samoobsługowe
+                    {activeHandySubmenu === "21" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
 
-                  <div className={`handy-submenu ${activeHandySubmenu === "4" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "21" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" onClick={()=>{setOpenNavigation(false)}} to="/rozwiazania-specjalne/samoobslugowe#samoobslugowe">Do samoobsługi</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{setOpenNavigation(false)}} className="handy-submenu__link" to="/rozwiazania-specjalne/samoobslugowe#pralnicowirowki-wysokoobrotowe"><span>pralnicowirówki wysokoobrotowe</span><b>FX</b></Link></li>
@@ -244,13 +244,13 @@ function Navigation() {
                   </div>
                 </li>
                 <li className="submenu__item">
-                  <button type="button" data-number-hs="5" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Służby cywilne (np. straż pożarna)
-                    {activeHandySubmenu === "5" ? 
+                  <button type="button" data-number-hs="22" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Służby cywilne (np. straż pożarna)
+                    {activeHandySubmenu === "22" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "5" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "22" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" onClick={()=>{setOpenNavigation(false)}} to="/rozwiazania-specjalne/sluzby-cywilne#sluzby-cywilne">Urządzenia dedykowane</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{setOpenNavigation(false)}} className="handy-submenu__link" to="/rozwiazania-specjalne/sluzby-cywilne#suszarka-komorowa-fdc"><span>suszarka komorowa</span><b>FDC6</b></Link></li>
@@ -258,13 +258,13 @@ function Navigation() {
                   </div>
                 </li>
                 <li className="submenu__item">
-                  <button type="button" data-number-hs="6" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Urządzenia softwash
-                    {activeHandySubmenu === "6" ? 
+                  <button type="button" data-number-hs="23" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className="menu-button">Urządzenia softwash
+                    {activeHandySubmenu === "23" ? 
                     <span className="pointer pointer--up"><KeyboardArrowUp/></span>:
                     <span className="pointer pointer--down"><KeyboardArrowDown/></span>
                     }
                   </button>
-                  <div className={`handy-submenu ${activeHandySubmenu === "6" ? "handy-submenu--visible":""}`}>
+                  <div className={`handy-submenu ${activeHandySubmenu === "23" ? "handy-submenu--visible":""}`}>
                       <Link className="handy-submenu__title" onClick={()=>{setOpenNavigation(false)}} to="/rozwiazania-specjalne/softwash#softwash">Urządzenia softwash</Link>
                       <ul className="handy-submenu__list">
                         <li className="handy-submenu__item"><Link onClick={()=>{setOpenNavigation(false)}} className="handy-submenu__link" to="/rozwiazania-specjalne/softwash#pralnicowirowki"><span>pralnicowirówki wysokoobrotowe</span><b>SW</b></Link></li>
