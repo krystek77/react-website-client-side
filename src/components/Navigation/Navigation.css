@@ -1,3 +1,7 @@
+.navbar {
+  position:relative;
+  z-index:999;
+}
 .navbar__logo {
   display: flex;
   justify-content: space-between;
@@ -25,7 +29,7 @@
   top:0px;
 }
 .menu {
-  width:100%;
+  width:100vw;
   list-style-type: none;
   padding-left: 0;
   margin-top: 0;
@@ -61,7 +65,7 @@ submenu component
   position: absolute;
   top: 0px;
   left:100%;
-  margin-top:53px;
+  /* margin-top:53px; */
   width: 100vw;
   transition: left 1s ease-in-out;
   background-color: rgb(247, 255, 199);
@@ -70,6 +74,7 @@ submenu component
 .submenu.submenu--visible {
   left:0%
 }
+
 .submenu__list {
   padding-left: 0;
   list-style-type: none;
@@ -140,6 +145,7 @@ toggle-btn component
  pointer component
 */
 .pointer {
+  display: block;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
