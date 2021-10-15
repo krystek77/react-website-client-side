@@ -11,6 +11,15 @@
   background-color: var(--light);
   z-index: 1;
 }
+/*
+ logo component
+*/
+
+.logo__text {
+  text-decoration: none;
+  color:var(--dark);
+  font-weight: 600;
+}
 .navbar__menu {
   display: block;
   position: absolute;
