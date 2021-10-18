@@ -35,6 +35,9 @@ body {
   width:100vw;
   position:relative;
   overflow-x: hidden;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .no-scroll-mobile {
   overflow:hidden;
