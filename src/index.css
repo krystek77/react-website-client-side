@@ -2,11 +2,14 @@
 
 :root {
   --primary:#FF0101;
-  --secondary:#43B1B0;
+  --secondary:#283845;
+  --light-secondary:#39A0ED;
   --dark:#231F20;
-  --gray:#A6979C;
-  --light-gray:#dadada;
+  --gray:#B8B08D;
+  --light-gray:#c0bca9;
   --light:#FFFFFF;
+  --border-radius:0.2rem;
+  --transition: all .5s ease-in-out;
 }
 
 *,
@@ -33,6 +36,9 @@ body {
   width:100vw;
   position:relative;
   overflow-x: hidden;
+  font-smooth: always;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .no-scroll-mobile {
   overflow:hidden;
