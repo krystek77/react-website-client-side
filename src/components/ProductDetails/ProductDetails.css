@@ -1,154 +1,151 @@
-* {
-  box-sizing: border-box;
+/*
+* start banner component
+*/
+.banner {
+  width: 100%;
+  height: 400px;
+  background-color: var(--light-gray);
+  flex-shrink: 0;
 }
-
-/*some comment 2*/
-main {
-  /* border:1px solid red; */
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 10px;
+.banner__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
 }
-header {
-  grid-column: 1/3;
-}
-.needs {
-  grid-column: 1/3;
-}
-h2 {
+.banner__title {
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 25px;
+  max-width: 320px;
   font-size: 32px;
-  border: 1px solid lightgrey;
-  margin: 0;
-}
-aside {
-  border: 1px solid lightgrey;
-  position: relative;
-  padding: 10px;
-}
-aside::before {
-  display: none;
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-section {
-  border: 1px solid lightgrey;
+  font-weight: 400;
 }
 /*
-.utility-menu
+* end banner component
 */
-.utility-menu {
-  position: sticky;
-  top: 20px;
-}
-.utility-menu {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
 
-.utility-menu__title > a {
-  font-size: 24px;
-  color: black;
-  display: block;
-  padding-bottom: 10px;
+/*
+* start header component
+*/
+.header {
+  background-color: var(--secondary);
+  color: var(--light);
 }
-.utility-menu li:not(.utility-menu__title) {
-  margin-bottom: 2px;
+.header__content {
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
-.utility-menu li:not(.utility-menu__title) a {
-  display: block;
-  padding-bottom: 10px;
-  text-decoration: none;
-  font-size: 16px;
-  color: black;
-}
-.utility-menu__title > a:first-of-type {
-  text-decoration: none;
+.header__title {
+  font-size: 32px;
   text-transform: uppercase;
-  font-size: 16px;
 }
 /*
-  start product
+* start product card component
 */
-.product {
+.product__wrapper {
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap:10px;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  gap: 15px;
 }
-.product__subtitle {
-  font-size: 24px;
-  grid-column: 1/3;
+.product__main {
+  grid-row: 2/3;
+  border: 1px solid grey;
 }
-.product__introduction {
-  border: 1px solid lightgrey;
+
+.product__aside {
+  grid-row: 1/2;
+  border: 1px solid grey;
+  width: 100%;
 }
-/*
-  end product
-*/
+.product-card {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 15px;
+}
+.article-title {
+  font-size: 28px;
+  grid-row: 1/2;
+}
+.article-subtitle {
+  font-size: 18px;
+}
+.product-card__content {
+  grid-row: 2/3;
+}
+.product-slider {
+  grid-row: 3/4;
+}
 
 /*
-  start slider
+* component candidate
 */
-
-.slider__image {
-  max-width: 392px;
-  margin-bottom:10px;
+.product-slider {
+  max-width: 100%;
+  border: 1px solid pink;
 }
-.slider__image > img {
+.product-slider__image {
+  width: 100%;
+}
+.product-slider__image img {
   display: block;
   max-width: 100%;
 }
-.slider__thumbnails {
-  display: grid;
-  grid-template-columns: 100px 100px 100px;
-  gap:10px;
+
+.product-card__content {
+  border: 1px solid red;
 }
-.slider__thumbnail {
-  cursor:pointer;
-  background-color:transparent;
-  border:none;
-  width:100%;
+.product-card__short {
+  border: 1px solid green;
 }
-.slider__thumbnail > img {
-  display: block;
-  max-width: 100%;
+.product-card__lists {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 /*
-  end slider
+* component candidate
+*/
+.product-card__list {
+  border: 1px solid blue;
+}
+/*
+* end component candidate
 */
 
-/*
-short-info
-*/
-.short-info {
-  list-style-type: none;
-  padding-left: 0;
+@media screen and (min-width: 1200px) {
+  .product__wrapper {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto;
+  }
+  .product__main {
+    grid-row: 1/2;
+  }
+  .product__aside {
+    grid-row: 1/2;
+    min-width: 280px;
+  }
+  .product-card {
+    grid-template-columns: auto 1fr;
+  }
+  .article-title {
+    grid-column: 1/3;
+  }
+  .product-slider {
+    max-width: 392px;
+    grid-column: 1/2;
+    grid-row:2/3;
+  }
+  .product-card__content {
+    grid-column: 2/3;
+    grid-row:2/3;
+  }
+  .product-card__lists {
+    display: block;
+  }
+  .product-card__details {
+    grid-column: 1/3;
+    border: 1px solid lightseagreen;
+  }
 }
-.short-info__title {
-  display: inline-block;
-  font-weight: 600;
-  width: 150px;
-}
-.short-info__content {
-  display: inline-block;
-  font-weight: 300;
-}
-.short-info__content > a {
-  display: inline-block;
-  padding-right: 10px;
-}
-/*
-end short-info
-*/
-
-/*
-  start related details
-*/
-.related-details {
-  grid-column: 1/3;
-}
-/*
-  end related details
-*/

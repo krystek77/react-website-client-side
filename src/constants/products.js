@@ -7,8 +7,8 @@ export const dataProducts = [
     pathname: 'pralnice',
     kind: [
       {
-        title: 'Pralnice bębnowe o załadunku czołowym',
-        subtitle: 'przemysłowe urządzenia pralnicze bez wirowania, załadunek 8 - 22 kg',
+        title: 'Pralnice bębnowe o załadunku czołowym 8 - 22 kg',
+        subtitle: '',
         control_options: [1, 2],
         purpose: ['pranie', 'płukanie'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła'],
@@ -41,8 +41,8 @@ export const dataProducts = [
         label: 'załadaunek czołowy - PB',
       },
       {
-        title: 'Pralnice bębnowe o załadunku czołowym',
-        subtitle: 'przemysłowe urządzenia pralnicze bez wirowania, załadunek 30 - 50 kg',
+        title: 'Pralnice bębnowe o załadunku czołowym 30 - 50 kg',
+        subtitle: '',
         control_options: [1, 2],
         purpose: ['pranie', 'płukanie'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła'],
@@ -75,8 +75,8 @@ export const dataProducts = [
         label: 'załadunek czołowy - PC',
       },
       {
-        title: 'Pralnice bębnowe o załadunku bocznym',
-        subtitle: 'przemysłowe urządzenia pralnicze bez wirowania, załadunek 30 -50 kg',
+        title: 'Pralnice bębnowe o załadunku bocznym 30 - 50 kg',
+        subtitle: '',
         control_options: [1],
         purpose: ['pranie', 'płukanie'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła'],
@@ -91,8 +91,8 @@ export const dataProducts = [
         label: 'załadunek boczny - PB',
       },
       {
-        title: 'Specjalistyczne pralnice bębnowe o załadunku czołowym',
-        subtitle: 'przemysłowe urządzenia pralnicze, załadunek 90 - 120 kg',
+        title: 'Specjalistyczne pralnice bębnowe o załadunku czołowym 90 - 120 kg',
+        subtitle: '',
         control_options: [1, 2, 16],
         purpose: ['pranie', 'płukanie', 'farbowanie', 'dekatyzacja'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła', 'parowy pośredni'],
@@ -107,8 +107,8 @@ export const dataProducts = [
         label: 'specjalistyczne, czołowe - PC',
       },
       {
-        title: 'Specjalistyczne pralnice bębnowe o załadunku bocznym',
-        subtitle: 'przemysłowe urządzenia pralnicze, załadunek 200 - 300 kg',
+        title: 'Specjalistyczne pralnice bębnowe o załadunku bocznym 200 - 300 kg',
+        subtitle: '',
         control_options: [1, 2, 16],
         purpose: ['pranie', 'płukanie', 'farbowanie', 'dekatyzacja'],
         heating: ['elektryczny', 'parowy bezpośredni', 'eletryczno - parowy', 'woda ciepła', 'parowy pośredni'],
