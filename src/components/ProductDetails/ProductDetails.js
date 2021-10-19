@@ -7,6 +7,7 @@ import { dataProducts as allProducts } from '../../constants/products';
 import { dataControls as allControls } from '../../constants/control-options';
 
 import Slider from './Slider/Slider';
+import List from '../List/List';
 import TechnicalData from './TechnicalData/TechnicalData';
 
 import './ProductDetails.css';
@@ -112,31 +113,12 @@ const ProductDetails = (props) => {
                         {/** end product short component */}
 
                         <div className="product-card__lists">
-                          {/** start unordered list component */}
-                          {features.length !== 0 && (
-                            <div className="product-card__list">
+                            <List items={features}>
                               <h5 className="article-subtitle">Cechy</h5>
-                              <ul>
-                                {features.map((item)=>{
-                                  return <li key={item}>{item}</li>
-                                })}
-                              </ul>
-                            </div>
-                          )}
-                          {/** end unordered list component */}
-
-                          {/** start unordered list component */}
-                          {options.length !== 0 && (
-                            <div className="product-card__list">
+                            </List>
+                            <List items={options}>
                               <h5 className="article-subtitle">Opcje</h5>
-                              <ul>
-                                {options.map((item)=>{
-                                  return <li key={item}>{item}</li>
-                                })}
-                              </ul>
-                            </div>
-                          )}
-                          {/** end unordered list component */}
+                            </List>
                         </div>
 
                       </div>
