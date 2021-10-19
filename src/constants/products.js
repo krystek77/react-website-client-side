@@ -3,6 +3,7 @@ export const dataProducts = [
     category: 'pralnice',
     title: 'Pralnice przemysłowe',
     short_title: 'Pralnice',
+    needs:['prosta konstrukcja','trwała budowa','niskie koszty eksploatacji i serwisu','trudne warunki w pralni','osobna wirówka'],
     desc: '',
     pathname: 'pralnice',
     kind: [
@@ -128,6 +129,7 @@ export const dataProducts = [
     category: 'pralnicowirówki',
     title: 'Pralnicowirówki przemysłowe',
     short_title: 'Pralnicowirówki',
+    needs:[],
     desc: '',
     pathname: 'pralnicowirowki',
     kind: [
