@@ -1,0 +1,24 @@
+.list {
+  border: 1px solid blue;
+}
+.list__items {
+  list-style-type: none;
+}
+.list__item {
+  position: relative;
+  line-height: 1.5;
+  font-size: 16px;
+  font-weight: 400;
+}
+.list__item::before {
+  position: absolute;
+  display: block;
+  content: '';
+  top:50%;
+  left:-20px;
+  transform: translateY(-50%);
+  width:10px;
+  height:10px;
+  background-color: var(--primary);
+  border-radius:2px;
+}
