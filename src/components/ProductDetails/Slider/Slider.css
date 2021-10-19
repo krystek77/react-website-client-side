@@ -4,6 +4,7 @@
 }
 .product-slider__image {
   width: 100%;
+  margin-bottom:25px;
 }
 .product-slider__image img {
   display: block;
