@@ -131,6 +131,7 @@
   .product-card__content {
     grid-column: 2/3;
     grid-row: 2/3;
+    padding-left:25px;
   }
   .product-card__lists {
     display: block;
