@@ -159,7 +159,7 @@ toggle-btn component
   align-items: center;
   padding: 8px 25px;
   background: var(--secondary);
-  background: linear-gradient(45deg, rgba(40,56,69,1) 50%, rgba(57,160,237,1) 100%);
+  /* background: linear-gradient(45deg, rgba(40,56,69,1) 50%, rgba(57,160,237,1) 100%); */
   border-radius: 40px;
   cursor: pointer;
   flex-wrap: nowrap;

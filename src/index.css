@@ -28,7 +28,7 @@ html {
 body {
   font-family: "Source Sans Pro",sans-serif;
   font-weight: 400;
-  color:var(--dark);
+  color:var(--secondary);
   margin:0;
   padding:0;
   height:100%;
@@ -46,6 +46,7 @@ a {
 h1,h2,h3,h4,h5,h6,p {
   margin:0;
   margin-bottom:25px;
+  color:var(--dark);
 }
 ul {
   margin:0;

@@ -65,8 +65,8 @@ const ProductDetails = (props) => {
 
         <section className="needs">
           <div className="container">
-            <List items={product.needs} dark>
-              <h3 className="content__title">Potrzeby:</h3>
+            <List items={product.needs}>
+              <h3 className="content-title content-title--light">Potrzeby:</h3>
             </List>
           </div>
         </section>
@@ -76,19 +76,19 @@ const ProductDetails = (props) => {
             <div className="product__wrapper">
               <main className="product__main">
 
-                <header className="content__header">
-                  <h3 className="content__title">Rodzaje urządzeń:</h3>
-                </header>
                 {product.kind.map((item)=>{
-                  const {title,images,thumbnails, features, options,purpose,heating,g_factor,mount,control_options,parameters} = item;
+                  const {title, subtitle, images,thumbnails, features, options,purpose,heating,g_factor,mount,control_options,parameters} = item;
                   const key = item.pathname.split('#')[1];
-                  const currentImage = images[1];
                   const controlTypes = control_options.map((id)=>controls.find((item)=>item.id===id));
 
                   return (
-                    <article className="product-card" key={key}>
+                    <article className="product-card" key={key} id={key}>
 
-                      <h4 className="article-title">{title}</h4>
+                      <header className="product-card__header">
+                        <h4 className="product-card__title">{title}</h4>
+                        <p className="product-card__subtitle">{subtitle}</p>
+                      </header>
+
                       <Slider images={images} thumbnails={thumbnails}/>
                       <div className="product-card__content">
                         
@@ -108,29 +108,23 @@ const ProductDetails = (props) => {
 
                         <div className="product-card__lists">
                             <List items={features}>
-                              <h5 className="article-subtitle">Cechy</h5>
+                              <h5 className="list-title">Cechy</h5>
                             </List>
                             <List items={options}>
-                              <h5 className="article-subtitle">Opcje</h5>
+                              <h5 className="list-title">Opcje</h5>
                             </List>
                         </div>
 
                       </div>
 
                       <div className="product-card__details">
-                        <h5 className="article-subtitle">Dane techniczne</h5>
+                        <h5>Dane techniczne</h5>
                         <TechnicalData data={parameters}/>
                       </div>
-
-                      <div className="product-card__details">
-                        <h5 className="article-subtitle">Technologie</h5>
-                      </div>
-
                     </article>
                     )
                 })}
                 
-              
               </main>
             
 
