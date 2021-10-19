@@ -22,3 +22,13 @@
 .list__item--dark::before {
   background-color: var(--dark);
 }
+@media screen and (min-width:900px) {
+  .list {
+    padding-right: 80px;
+  }
+}
+@media screen and (min-width:1200px) {
+  .list {
+    padding-right: 0;
+  }
+}
