@@ -82,6 +82,27 @@
 .product-card__content {
   grid-row: 2/3;
 }
+.product-short {
+  margin-bottom:25px;
+}
+.product-short__item {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 3px;
+}
+.product-short__name {
+  font-weight: 600;
+  margin-right:15px;
+}
+.product-short__value {
+  font-style: italic;
+  color: var(--primary);
+  font-weight: 300;
+}
+.product-short__link {
+  font-style: normal;
+  margin-right: 15px;
+}
 
 .product-card__lists {
   display: flex;

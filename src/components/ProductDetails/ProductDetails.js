@@ -94,15 +94,15 @@ const ProductDetails = (props) => {
                         
                         {/** start product short component */}
                         <div className="product-short">
-                            {purpose.length !==0 && <div className="product-short__item"><span className="product-short__name">Przeznaczenie:</span><span className="product-short__value">{purpose.join(', ')}</span></div>}
-                            {g_factor && <div className="product-short__item"><span className="product-short__name">G-faktor:</span><span className="product-short__value">{g_factor}</span></div>}
-                            {mount &&<div className="product-short__item"><span className="product-short__name">Mocowanie:</span><span className="product-short__value">{mount}</span></div>}
-                            {heating.length !==0 && <div className="product-short__item"><span className="product-short__name">Dostępne podgrzewy:</span><span className="product-short__value">{heating.join(', ')}</span></div>}
-                            {controlTypes.length !==0 && <div className="product-short__item">
-                                <span className="product-short__name">Rodzaje sterowników:</span>
-                                <span className="product-short__value"> {controlTypes.map((item)=>{ return <Link className="product-short__link" to="/" key={item.id}>{item.control}</Link> }) } </span>
-                              </div>
-                            }
+                          {purpose.length !==0 && <div className="product-short__item"><span className="product-short__name">Przeznaczenie:</span><span className="product-short__value">{purpose.join(', ')}</span></div>}
+                          {g_factor && <div className="product-short__item"><span className="product-short__name">G-faktor:</span><span className="product-short__value">{g_factor}</span></div>}
+                          {mount &&<div className="product-short__item"><span className="product-short__name">Mocowanie:</span><span className="product-short__value">{mount}</span></div>}
+                          {heating.length !==0 && <div className="product-short__item"><span className="product-short__name">Dostępne podgrzewy:</span><span className="product-short__value">{heating.join(', ')}</span></div>}
+                          {controlTypes.length !==0 && <div className="product-short__item">
+                              <span className="product-short__name">Rodzaje sterowników:</span>
+                              <span className="product-short__value"> {controlTypes.map((item)=>{ return <Link className="product-short__link" to="/" key={item.id}>{item.control}</Link> }) } </span>
+                            </div>
+                           }
                         </div>
                         {/** end product short component */}
 
