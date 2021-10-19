@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 import './List.css';
 
-function List({items,children}){
+function List({items,children,dark}){
     return items.length !== 0 && (
         <div className="list">
             {children}
             <ul className="list__items">
             {items.map((item)=>{
-                return <li className="list__item" key={item}>{item}</li>
+                return <li className={`list__item ${dark ? 'list__item--dark':''}`} key={item}>{item}</li>
             })}
             </ul>
       </div>
@@ -18,6 +18,7 @@ function List({items,children}){
 
 List.propTypes = {
     items:PropTypes.arrayOf(PropTypes.string),
-    children:PropTypes.element
+    children:PropTypes.element,
+    dark:PropTypes.bool
 }
 export default List;

@@ -22,3 +22,6 @@
   background-color: var(--primary);
   border-radius:2px;
 }
+.list__item--dark::before {
+  background-color: var(--dark);
+}
