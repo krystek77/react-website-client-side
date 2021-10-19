@@ -1,6 +1,3 @@
-.list {
-  border: 1px solid blue;
-}
 .list__items {
   list-style-type: none;
 }

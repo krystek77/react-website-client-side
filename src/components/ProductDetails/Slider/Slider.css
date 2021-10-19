@@ -1,7 +1,6 @@
 .product-slider {
   max-width: 100%;
-  border: 1px solid pink;
-  grid-row:3/4;
+  grid-row: 3/4;
 }
 .product-slider__image {
   width: 100%;
