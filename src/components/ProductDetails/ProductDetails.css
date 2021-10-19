@@ -71,6 +71,9 @@
   gap: 15px;
   margin-bottom: 40px;
 }
+.product-card:nth-child(2n){
+  background-color:#fbfbfb;
+}
 .product-card__header {
   grid-row: 1/2;
   position: relative;
