@@ -129,20 +129,24 @@ const ProductDetails = (props) => {
             
 
               <aside className="product__aside">
-                <ul className="utility-menu">
-                  <li className="utility-menu__title">
-                    <Link to={`/produkty/pralnice#${product.pathname}`}> <strong>{product.short_title}</strong> </Link>
+                <div className="product__sticky">
 
-                    <ul className="utility-menu__submenu">
-                      {product.kind.map((item) => {
-                        const { pathname, label } = item;
-                        return (
-                          <li className="utility-menu__item" key={pathname}> <Link to={`/produkty/${pathname}`}>{label}</Link> </li>
-                        );
-                      })}
-                    </ul>
-                  </li>
-                </ul>
+                  <ul className="utility-menu">
+                    <li className="utility-menu__title">
+                      <Link to={`/produkty/pralnice#${product.pathname}`}>{product.short_title}</Link>
+
+                      <ul className="utility-menu__submenu">
+                        {product.kind.map((item) => {
+                          const { pathname, label } = item;
+                          return (
+                            <li className="utility-menu__item" key={pathname}> <Link to={`/produkty/${pathname}`}>{label}</Link> </li>
+                          );
+                        })}
+                      </ul>
+                    </li>
+                  </ul>
+
+                </div>
               </aside>
             </div>
 

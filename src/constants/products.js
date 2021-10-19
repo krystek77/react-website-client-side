@@ -39,7 +39,7 @@ export const dataProducts = [
           { id: 16, name: 'głębokość', unit: 'mm', values: ['650', '650', '880', '880', '980', '980', '650', '650', '880', '880', '980', '980'] },
           { id: 17, name: 'masa netto', unit: 'kg', values: ['200', '200', '210', '210', '210', '210', '200', '200', '210', '210', '210', '210'] },
         ],
-        label: 'załadaunek czołowy - PB',
+        label: 'załadunek czołowy - PB',
       },
       {
         title: 'załadunek znamionowy 30 - 50 kg',
