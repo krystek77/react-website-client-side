@@ -63,19 +63,13 @@ const ProductDetails = (props) => {
           </div>
         </div>
 
-
-        <div>
+        <section className="needs">
           <div className="container">
-            <h3>Potrzeby:</h3>
-            <ul>
-              <li>prosta konstrukcja</li>
-              <li>trwała budowa</li>
-              <li>niskie koszty eksploatacji i serwisu</li>
-              <li>trudne warunki w pralni</li>
-              <li>osobna wirówka</li>
-            </ul>
+            <List items={product.needs} dark>
+              <h3 className="content__title">Potrzeby:</h3>
+            </List>
           </div>
-        </div>
+        </section>
 
         <div className="product__content">
           <div className="container">
