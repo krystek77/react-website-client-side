@@ -127,6 +127,7 @@
 }
 .product-card__lists {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 }
@@ -208,7 +209,12 @@
   color:var(--light-secondary);
   padding-left:35px;
 }
-
+@media screen and (min-width:900px) {
+  .product-card__lists {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}
 @media screen and (min-width: 1200px) {
   .product__wrapper {
     grid-template-columns: auto 1fr;
