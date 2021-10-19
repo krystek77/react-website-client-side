@@ -39,6 +39,7 @@
 .header__title {
   font-size: 32px;
   text-transform: uppercase;
+  margin-bottom:0;
 }
 /*
 * start product card component
