@@ -1,6 +1,7 @@
 .product-slider {
   max-width: 100%;
   grid-row: 3/4;
+  margin-bottom: 25px;
 }
 .product-slider__image {
   width: 100%;
