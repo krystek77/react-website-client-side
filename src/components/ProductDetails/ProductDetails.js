@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import { dataProducts as allProducts } from '../../constants/products';
 import { dataControls as allControls } from '../../constants/control-options';
 
+import Slider from './Slider/Slider';
 import TechnicalData from './TechnicalData/TechnicalData';
 
 import './ProductDetails.css';
@@ -93,26 +94,7 @@ const ProductDetails = (props) => {
                     <article className="product-card" key={key}>
 
                       <h4 className="article-title">{title}</h4>
-
-                      {/** start product-slider component */}
-                      <aside className="product-slider">
-                        <div className="product-slider__image">
-                          <img src={`../assets/images/${currentImage}.webp`} alt={currentImage}/>
-                        </div>
-                        {thumbnails.length !== 0 && (
-                           <div className="product-slider__thumbnails">
-                            {thumbnails.map((item)=>{
-                                return (
-                                  <button key={item} type="button" className="product-slider__button-thumbnail">
-                                    <img className="product-slider__thumbnail" src={`../assets/images/${item}.webp`} alt={item}/>
-                                  </button>
-                                )
-                            })}
-                           </div>
-                        )}
-                      </aside>
-                      {/** end product-slider component */}
-
+                      <Slider images={images} thumbnails={thumbnails}/>
                       <div className="product-card__content">
                         
                         {/** start product short component */}

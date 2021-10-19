@@ -1,0 +1,19 @@
+.product-slider {
+  max-width: 100%;
+  border: 1px solid pink;
+  grid-row:3/4;
+}
+.product-slider__image {
+  width: 100%;
+}
+.product-slider__image img {
+  display: block;
+  max-width: 100%;
+}
+@media screen and (min-width: 1200px) {
+  .product-slider {
+    max-width: 392px;
+    grid-column: 1/2;
+    grid-row: 2/3;
+  }
+}

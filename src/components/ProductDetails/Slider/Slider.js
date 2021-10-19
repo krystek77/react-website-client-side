@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 
+import './Slider.css';
+
 function Slider({ images, thumbnails }) {
   const [currentImage, setCurrentImage] = useState(() => {
     if (images.length !== 0) {
@@ -18,18 +20,22 @@ function Slider({ images, thumbnails }) {
     return false;
   }
   return (
-    <aside className="slider">
-      <div className="slider__image">
-        <img src={`../assets/images/${currentImage}.webp`} alt="pralnica-bebnowa-o-zaladunku-czolowym-8-22-slider-1-586x784" />
-      </div>
-      <div className="slider__thumbnails">
-        {thumbnails.map((item) => (
-          <button type="button" className="slider__thumbnail" key={item} onClick={handleImage}>
-            <img src={`../assets/images/${item}.webp`} alt={item} />
-          </button>
-        ))}
-      </div>
-    </aside>
+    <aside className="product-slider">
+    <div className="product-slider__image">
+      <img src={`../assets/images/${currentImage}.webp`} alt={currentImage}/>
+    </div>
+    {thumbnails.length !== 0 && (
+       <div className="product-slider__thumbnails">
+        {thumbnails.map((item)=>{
+            return (
+              <button onClick={handleImage} key={item} type="button" className="product-slider__button-thumbnail">
+                <img className="product-slider__thumbnail" src={`../assets/images/${item}.webp`} alt={item}/>
+              </button>
+            )
+        })}
+       </div>
+    )}
+  </aside>
   );
 }
 
