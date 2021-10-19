@@ -40,8 +40,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-h1,h2,h3,h4,h5,h6 {
+a {
+  color:var(--light-secondary);
+}
+h1,h2,h3,h4,h5,h6,p {
   margin:0;
+  margin-bottom:25px;
+}
+ul {
+  margin:0;
+  margin-bottom:25px;
+  padding-left:20px;
+}
+p {
+  margin-bottom: 25px;
+  font-weight: 300;
 }
 .container {
   padding:15px 25px;
