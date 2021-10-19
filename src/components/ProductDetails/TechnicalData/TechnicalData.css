@@ -16,10 +16,7 @@ thead th {
 tfoot th {
     font-size: 14px;
 }
-tfoot > tr:nth-child(n+1) > th:last-child {
-    text-align: left;
-    font-weight: 400;
-}
+
 
 tr > td {
   text-align: center;
@@ -36,13 +33,21 @@ tr > th:nth-child(n + 2) {
 }
 
 thead tr, tfoot tr:first-child {
-    background-color: #d3e8eb;
+    background-color: var(--light-secondary);
     color:var(--dark)
 }
 tbody tr:nth-child(2n+1){
     background-color: var(--light-gray);
 }
 tbody tr > td:nth-child(2){
-    background-color: #d3e8eb;
+    background-color: var(--light-secondary);
     color:var(--dark);
+}
+tfoot > tr:nth-child(n+2) > th:nth-child(3) {
+  text-align: left;
+  font-weight: 400;
+}
+
+tfoot > tr:first-child > th:first-child {
+  text-transform: uppercase;
 }
