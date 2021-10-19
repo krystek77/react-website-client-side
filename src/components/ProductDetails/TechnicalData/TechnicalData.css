@@ -1,3 +1,12 @@
+.technical-data {
+  display: none;
+}
+.technical-data h5 {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -6,7 +15,7 @@ table {
 td,
 th {
   border-bottom: 1px solid var(--dark);
-  padding:2px;
+  padding: 2px;
 }
 thead th {
   border-top: 1px solid var(--dark);
@@ -14,9 +23,8 @@ thead th {
   font-size: 14px;
 }
 tfoot th {
-    font-size: 14px;
+  font-size: 14px;
 }
-
 
 tr > td {
   text-align: center;
@@ -24,7 +32,7 @@ tr > td {
 tr > td:first-child,
 tr > th:first-child {
   text-align: left;
-  border-left:1px solid var(--dark);
+  border-left: 1px solid var(--dark);
 }
 tr > td:nth-child(n + 2),
 tr > th:nth-child(n + 2) {
@@ -32,22 +40,35 @@ tr > th:nth-child(n + 2) {
   border-right: 1px solid var(--dark);
 }
 
-thead tr, tfoot tr:first-child {
-    background-color: var(--light-secondary);
-    color:var(--dark)
+thead tr,
+tfoot tr:first-child {
+  background-color: var(--light-secondary);
+  color: var(--dark);
 }
-tbody tr:nth-child(2n+1){
-    background-color: var(--light-gray);
+tbody tr:nth-child(2n + 1) {
+  background-color: var(--light-gray);
 }
-tbody tr > td:nth-child(2){
-    background-color: var(--light-secondary);
-    color:var(--dark);
+tbody tr > td:nth-child(2) {
+  background-color: var(--light-secondary);
+  color: var(--dark);
 }
-tfoot > tr:nth-child(n+2) > th:nth-child(3) {
+tfoot > tr:nth-child(n + 2) > th:nth-child(3) {
   text-align: left;
   font-weight: 400;
 }
 
 tfoot > tr:first-child > th:first-child {
   text-transform: uppercase;
+}
+
+@media screen and (min-width: 600px) {
+  .technical-data {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .technical-data {
+    grid-column: 1/3;
+  }
 }

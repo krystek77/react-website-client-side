@@ -116,11 +116,7 @@ const ProductDetails = (props) => {
                         </div>
 
                       </div>
-
-                      <div className="product-card__details">
-                        <h5>Dane techniczne</h5>
-                        <TechnicalData data={parameters}/>
-                      </div>
+                      <TechnicalData data={parameters}/>
                     </article>
                     )
                 })}
