@@ -1,0 +1,53 @@
+/*
+toggle-btn component
+*/
+.toggle-btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  padding: 2px 8px;
+  background-color: var(--secondary);
+  border: 1px solid var(--dark);
+  border-radius: 4px;
+  cursor: pointer;
+  color:var(--light);
+  transition: var(--transition);
+}
+
+.toggle-btn__label {
+  margin-right: 4px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.toggle-btn__icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggle-btn:hover {
+    background-color:var(--light);
+    color:var(--secondary);
+}
+.toggle-btn.toggle-btn__row-reverse{
+    flex-direction: row-reverse;
+}
+.toggle-btn.toggle-btn.toggle-btn__row-reverse .toggle-btn__label {
+    margin-right:0;
+    margin-left:4px;
+}
+.toggle-btn.toggle-btn__column{
+    flex-direction: column;
+}
+.toggle-btn.toggle-btn__column-reverse{
+    flex-direction: column-reverse;
+}
+.toggle-btn.toggle-btn.toggle-btn__column .toggle-btn__label {
+    margin-right:0;
+}
+.toggle-btn.toggle-btn.toggle-btn__column-reverse .toggle-btn__label {
+    margin-right:0;
+}
