@@ -65,14 +65,14 @@ tr > th:nth-child(n + 2) {
 
 thead tr,
 tfoot tr:first-child {
-  background-color: var(--light-secondary);
+  background-color: #ddebf5;
   color: var(--dark);
 }
 tbody tr:nth-child(2n + 1) {
-  background-color: var(--light-gray);
+  background-color: #e8e8e8;
 }
 tbody tr > td:nth-child(2) {
-  background-color: var(--light-secondary);
+  background-color: #ddebf5;
   color: var(--dark);
 }
 tfoot > tr:nth-child(n + 2) > th:nth-child(3) {
