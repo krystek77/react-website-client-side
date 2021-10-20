@@ -1,0 +1,31 @@
+.accordion {
+  display: block;
+}
+.accordion__header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--dark);
+  margin-bottom: 5px;
+}
+.accordion__header h5 {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+.accordion__content {
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.accordion__content.accordion__content--visible {
+  height: auto;
+  max-height: 800px;
+}
+

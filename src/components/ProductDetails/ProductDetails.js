@@ -8,6 +8,7 @@ import { dataControls as allControls } from '../../constants/control-options';
 
 import Slider from './Slider/Slider';
 import List from '../List/List';
+import Accordion from '../Accordion/Accordion';
 import TechnicalData from './TechnicalData/TechnicalData';
 
 import './ProductDetails.css';
@@ -116,7 +117,13 @@ const ProductDetails = (props) => {
                         </div>
 
                       </div>
-                      <TechnicalData data={parameters}/>
+                      
+                      <Accordion title="Dane techniczne">
+                        <TechnicalData data={parameters}/>
+                      </Accordion>
+                      <Accordion title="Materiały informacyjne">
+                        KONTENT
+                      </Accordion>
                     </article>
                     )
                 })}
