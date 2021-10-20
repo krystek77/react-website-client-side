@@ -11,6 +11,16 @@
   background-color: var(--light);
   z-index: 1;
 }
+.hamburger {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 8px;
+  cursor: pointer;
+  background-color: transparent;
+  border:none;
+}
 /*
  logo component
 */
@@ -187,14 +197,11 @@ submenu component
     align-items: center;
     height: auto;
   }
-  .toggle-btn--menu {
+  .hamburger {
     display: none;
   }
-  .toggle-btn--contact {
-    display: flex;
-  }
   .menu {
-    width:max-content;
+    width: max-content;
     display: flex;
     padding-left: 25px;
   }
@@ -213,7 +220,7 @@ submenu component
   }
   .menu-button.menu-button--submenu {
     font-size: 32px;
-    padding-top:40px;
+    padding-top: 40px;
     padding-bottom: 40px;
   }
   .menu__link:hover {
@@ -270,7 +277,6 @@ submenu component
     height: calc(100vh - 250px);
     max-height: calc(100vh - 250px);
   }
- 
 
   .submenu__list {
     width: 360px;
@@ -287,7 +293,7 @@ submenu component
   }
   .submenu__item > .menu-button.active {
     font-weight: 600;
-    padding-left:40px;
+    padding-left: 40px;
     color: var(--secondary);
   }
 

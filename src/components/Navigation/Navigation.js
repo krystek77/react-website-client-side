@@ -34,7 +34,7 @@ function Navigation() {
         {/** logo component */}
         <div className="logo"><Link to="/" className="logo__text">LOGO</Link></div>
         {/** toggle button component */}
-        <button className="toggle-btn toggle-btn--menu" type="button" onClick={toggleMenu}>{openNavigation ? <MenuOpenIcon/>:<MenuIcon/>}</button> 
+        <button className="hamburger" type="button" onClick={toggleMenu}>{openNavigation ? <MenuOpenIcon/>:<MenuIcon/>}</button> 
       </div>
       <div className={`navbar__menu ${openNavigation ? "navbar__menu--visible":""}`}>
         <ul className="menu">
