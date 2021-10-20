@@ -1,0 +1,30 @@
+.information-materials {
+  padding-left: 0;
+  list-style: none;
+}
+.information-materials__item:not(:last-child) {
+  border-bottom: 1px solid var(--light-gray);
+}
+.information-materials__link {
+  display: block;
+  color: var(--dark);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  padding: 15px 25px;
+}
+
+.information-materials__icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 15px 0 0;
+  color: var(--primary);
+}
+.information-materials__label {
+  font-size: 22px;
+}
+.information-materials__link:hover {
+  color: var(--light-secondary);
+}
