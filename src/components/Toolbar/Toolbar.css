@@ -15,7 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color:var(--secondary);
+    color:var(--light);
     border:none;
     cursor:pointer;
 }
