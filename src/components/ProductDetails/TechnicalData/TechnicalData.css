@@ -1,12 +1,44 @@
-table {
+.technical-data {
+  display: none;
+}
+.technical-data__header {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding-top:15px;
+  padding-bottom:15px;
+  border-bottom:1px solid var(--dark);
+  margin-bottom:5px;
+}
+.technical-data__header h5 {
+  font-size: 18px;
+  font-weight: 500;
+  text-transform: capitalize;
+  margin-bottom:0;
+}
+.technical-data__content {
+  height: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.technical-data__content.technical-data__content--visible {
+  height: auto;
+  max-height: 600px;
+}
+.technical-data__table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 16px;
+  font-size: 12px;
+  background-color: var(--light);
 }
+
 td,
 th {
   border-bottom: 1px solid var(--dark);
-  padding:2px;
+  padding: 2px;
 }
 thead th {
   border-top: 1px solid var(--dark);
@@ -14,11 +46,7 @@ thead th {
   font-size: 14px;
 }
 tfoot th {
-    font-size: 14px;
-}
-tfoot > tr:nth-child(n+1) > th:last-child {
-    text-align: left;
-    font-weight: 400;
+  font-size: 14px;
 }
 
 tr > td {
@@ -27,7 +55,7 @@ tr > td {
 tr > td:first-child,
 tr > th:first-child {
   text-align: left;
-  border-left:1px solid var(--dark);
+  border-left: 1px solid var(--dark);
 }
 tr > td:nth-child(n + 2),
 tr > th:nth-child(n + 2) {
@@ -35,12 +63,35 @@ tr > th:nth-child(n + 2) {
   border-right: 1px solid var(--dark);
 }
 
-thead tr, tfoot tr:first-child {
-    background-color: var(--secondary);
+thead tr,
+tfoot tr:first-child {
+  background-color: #ddebf5;
+  color: var(--dark);
 }
-tbody tr:nth-child(2n+1){
-    background-color: var(--light-gray);
+tbody tr:nth-child(2n + 1) {
+  background-color: #e8e8e8;
 }
-tbody tr > td:nth-child(2){
-    background-color: var(--secondary);
+tbody tr > td:nth-child(2) {
+  background-color: #ddebf5;
+  color: var(--dark);
+}
+tfoot > tr:nth-child(n + 2) > th:nth-child(3) {
+  text-align: left;
+  font-weight: 400;
+}
+
+tfoot > tr:first-child > th:first-child {
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 600px) {
+  .technical-data {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .technical-data {
+    grid-column: 1/3;
+  }
 }

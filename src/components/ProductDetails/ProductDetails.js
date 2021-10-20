@@ -1,12 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { dataProducts as allProducts } from '../../constants/products';
 import { dataControls as allControls } from '../../constants/control-options';
 
 import Slider from './Slider/Slider';
+import List from '../List/List';
 import TechnicalData from './TechnicalData/TechnicalData';
 
 import './ProductDetails.css';
@@ -15,7 +16,6 @@ import './ProductDetails.css';
 const ProductDetails = (props) => {
   const [product, setProduct] = useState(null);
   const [controls, setControls] = useState([]);
-  const history = useHistory();
 
   useEffect(() => {
     console.log('[ProductDetails.js] - useEffect');
@@ -41,162 +41,115 @@ const ProductDetails = (props) => {
     }
   },[product,props])
 
- console.log('[ProductDetails.js] - render');
-
-  function renderProduct() {
-    return (
-      <React.Fragment>
-        {product.kind.map((item) => {
-          const { title, subtitle, control_options, purpose, heating, g_factor, mount, pathname, images, thumbnails, features, options,parameters } = item;
-          const id = pathname.split('#')[1];
-          const controlsItem = control_options.map((controlId) => {
-            return controls.find((control) => control.id === controlId);
-          });
-
-          return (
-            <article className="product" id={id} key={id}>
-              <p className="product__subtitle">{subtitle}</p>
-
-              <Slider images={images} thumbnails={thumbnails} />
-
-              <div className="product__introduction">
-                <header className="product__header">
-                  <h3 className="product__title">{title}</h3>
-                  {/** start short info component */}
-                  <ul className="short-info">
-                    {purpose.length !== 0 && (
-                      <li className="short-info__item">
-                        <span className="short-info__title">Przeznaczenie:</span>
-                        <span className="short-info__content">{purpose.join(', ')}</span>
-                      </li>
-                    )}
-                    {control_options.length !== 0 && (
-                      <li className="short-info__item">
-                        <span className="short-info__title">Sterownik:</span>
-                        <span className="short-info__content">
-                          {controlsItem.map((item) => (
-                            <a key={item.control} href="/">
-                              {item.control}
-                            </a>
-                          ))}
-                        </span>
-                      </li>
-                    )}
-                    {heating.length !== 0 && (
-                      <li className="short-info__item">
-                        <span className="short-info__title">Podgrzew:</span>
-                        <span className="short-info__content">{heating.join(', ')}</span>
-                      </li>
-                    )}
-                    {g_factor && (
-                      <li className="short-info__item">
-                        <span className="short-info__title">G-faktor:</span>
-                        <span className="short-info__content">{g_factor}</span>
-                      </li>
-                    )}
-                    {mount && (
-                      <li className="short-info__item">
-                        <span className="short-info__title">Mocowanie:</span>
-                        <span className="short-info__content">{mount}</span>
-                      </li>
-                    )}
-                  </ul>
-                  {/** end short info component */}
-                </header>
-                <div className="product__content">
-                  {/** plain list component */}
-                  {features.length !== 0 && (
-                    <div className="plain-list">
-                      <h4 className="plain-list__title">Cechy</h4>
-                      <ul className="plain-list__items">
-                        {features.map((item) => (
-                          <li className="plain-list__item" key={item}>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {/** end plain list component */}
-                  {/** start plain list component */}
-                  {options.length !== 0 && (
-                    <div className="plain-list">
-                      <h4 className="plain-list__title">Opcje</h4>
-                      <ul className="plain-list__items">
-                        {options.map((item) => (
-                          <li className="plain-list__item" key={item}>
-                            {item}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
-                  {/** end plain list component */}
-                </div>
-              </div>
-
-              {/** start related details component */}
-              <section className="related-details">
-                <h4>Technologie</h4>
-              </section>
-              {/** end related details component */}
-
-              {/** start related details component */}
-              <section className="related-details">
-                <h4>Dane techniczne</h4>
-                <TechnicalData data={parameters} />
-              </section>
-              {/** end related details component */}
-            </article>
-          );
-        })}
-      </React.Fragment>
-    );
-  }
-  function renderUtilityMenu() {
-    return (
-      <ul className="utility-menu">
-        <li className="utility-menu__title">
-          <Link to={`/produkty/pralnice#${product.pathname}`}>
-            {' '}
-            <strong>{product.short_title}</strong>{' '}
-          </Link>
-
-          <ul className="utility-menu__submenu">
-            {product.kind.map((item) => {
-              const { pathname, label } = item;
-              return (
-                <li className="utility-menu__item" key={pathname}>
-                  {' '}
-                  <Link to={`/produkty/${pathname}`}>{label}</Link>{' '}
-                </li>
-              );
-            })}
-          </ul>
-        </li>
-      </ul>
-    );
-  }
+  console.log('[ProductDetails.js] - render');
 
   return (
     product && (
-      <main>
-        <header>
-          <h2 id={product.pathname}>{product.title}</h2>
-        </header>
-        <div className="needs">
-          <h3>Wymagania</h3>
-          <ul>
-            <li>Lorem, ipsum dolor.</li>
-            <li>Lorem ipsum dolor sit amet.</li>
-            <li>Lorem, ipsum dolor.</li>
-            <li>Lorem ipsum dolor sit amet consectetur.</li>
-          </ul>
+      <React.Fragment>
+
+        <div className="banner" id={product.pathname}>
+          <div className="container">
+            <div className="banner__content">
+              <h1 className="banner__title">Przemysłowe pralnice bębnowe</h1>
+            </div>
+          </div>
         </div>
 
-        <section>{renderProduct()}</section>
-        <aside>{renderUtilityMenu()}</aside>
-      </main>
+        <div className="header">
+          <div className="container">
+            <div className="header__content">
+              <h2 className="header__title">{product.title}</h2>
+            </div>
+          </div>
+        </div>
+
+        <section className="needs">
+          <div className="container">
+            <List items={product.needs}>
+              <h3 className="content-title content-title--light">Potrzeby:</h3>
+            </List>
+          </div>
+        </section>
+
+        <div className="product__content">
+          <div className="container">
+            <div className="product__wrapper">
+              <main className="product__main">
+
+                {product.kind.map((item)=>{
+                  const {title, subtitle, images,thumbnails, features, options,purpose,heating,g_factor,mount,control_options,parameters} = item;
+                  const key = item.pathname.split('#')[1];
+                  const controlTypes = control_options.map((id)=>controls.find((item)=>item.id===id));
+
+                  return (
+                    <article className="product-card" key={key} id={key}>
+
+                      <header className="product-card__header">
+                        <h4 className="product-card__title">{title}</h4>
+                        <p className="product-card__subtitle">{subtitle}</p>
+                      </header>
+
+                      <Slider images={images} thumbnails={thumbnails}/>
+                      <div className="product-card__content">
+                        
+                        {/** start product short component */}
+                        <div className="product-short">
+                          {purpose.length !==0 && <div className="product-short__item"><span className="product-short__name">Przeznaczenie:</span><span className="product-short__value">{purpose.join(', ')}</span></div>}
+                          {g_factor && <div className="product-short__item"><span className="product-short__name">G-faktor:</span><span className="product-short__value">{g_factor}</span></div>}
+                          {mount &&<div className="product-short__item"><span className="product-short__name">Mocowanie:</span><span className="product-short__value">{mount}</span></div>}
+                          {heating.length !==0 && <div className="product-short__item"><span className="product-short__name">Dostępne podgrzewy:</span><span className="product-short__value">{heating.join(', ')}</span></div>}
+                          {controlTypes.length !==0 && <div className="product-short__item">
+                              <span className="product-short__name">Rodzaje sterowników:</span>
+                              <span className="product-short__value"> {controlTypes.map((item)=>{ return <Link className="product-short__link" to="/" key={item.id}>{item.control}</Link> }) } </span>
+                            </div>
+                           }
+                        </div>
+                        {/** end product short component */}
+
+                        <div className="product-card__lists">
+                            <List items={features}>
+                              <h5 className="list-title">Cechy</h5>
+                            </List>
+                            <List items={options}>
+                              <h5 className="list-title">Opcje</h5>
+                            </List>
+                        </div>
+
+                      </div>
+                      <TechnicalData data={parameters}/>
+                    </article>
+                    )
+                })}
+                
+              </main>
+            
+
+              <aside className="product__aside">
+                <div className="product__sticky">
+
+                  <ul className="utility-menu">
+                    <li className="utility-menu__title">
+                      <Link to={`/produkty/pralnice#${product.pathname}`}>{product.short_title}</Link>
+
+                      <ul className="utility-menu__submenu">
+                        {product.kind.map((item) => {
+                          const { pathname, label } = item;
+                          return (
+                            <li className="utility-menu__item" key={pathname}> <Link to={`/produkty/${pathname}`}>{label}</Link> </li>
+                          );
+                        })}
+                      </ul>
+                    </li>
+                  </ul>
+
+                </div>
+              </aside>
+            </div>
+
+          </div>
+
+        </div>
+      </React.Fragment>
     )
   );
 };
