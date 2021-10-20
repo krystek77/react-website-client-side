@@ -354,10 +354,6 @@ function Navigation() {
           <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/wiadomości">Wiadomości</NavLink></li>
           <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/kontakt">Kontakt</NavLink></li>
         </ul>
-        {/** toggle button component */}
-        <button className="toggle-btn toggle-btn--contact toggle-btn--row" type="button" onClick={()=>{setActiveMenu("0")}}>
-          <span className="toggle-btn__icon"><ContactMailIcon/></span>
-          <span className="toggle-btn__text">Kontakt</span></button>
       </div>
     </nav>
   );
