@@ -123,6 +123,8 @@ const ProductDetails = (props) => {
                       </Accordion>
                       <Accordion title="Materiały informacyjne">
                         KONTENT
+                        <button type="button" onClick={()=>{window.open('../assets/pdf/dtr-pralnica-bebnowa-o-zaladunku-czolowym-8-22.pdf')}}>Karta informacyjna</button>
+                        <a href="../assets/pdf/dtr-pralnica-bebnowa-o-zaladunku-czolowym-8-22.pdf" target="_blank">Karta informacyjna</a>
                       </Accordion>
                     </article>
                     )
