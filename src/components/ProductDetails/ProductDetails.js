@@ -142,8 +142,11 @@ const ProductDetails = (props) => {
                       <ul className="utility-menu__submenu">
                         {product.kind.map((item) => {
                           const { pathname, label } = item;
+                          const kind = label.split('-')[0];
+                          const type = label.split('-')[1];
+
                           return (
-                            <li className="utility-menu__item" key={pathname}> <Link to={`/produkty/${pathname}`}>{label}</Link> </li>
+                            <li className="utility-menu__item" key={pathname}> <Link to={`/produkty/${pathname}`}><span>{kind}</span><b>{type}</b></Link></li>
                           );
                         })}
                       </ul>
