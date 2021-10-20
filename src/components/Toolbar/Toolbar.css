@@ -4,4 +4,18 @@
     padding:8px 25px;
     position: relative;
     z-index:1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.toolbar__mail {
+    padding:2px 8px;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color:var(--secondary);
+    border:none;
+    cursor:pointer;
 }
