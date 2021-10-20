@@ -10,6 +10,7 @@ import Slider from './Slider/Slider';
 import List from '../List/List';
 import Accordion from '../Accordion/Accordion';
 import TechnicalData from './TechnicalData/TechnicalData';
+import InformationMaterials from './InformationMaterials/InformationMaterials';
 
 import './ProductDetails.css';
 
@@ -78,7 +79,7 @@ const ProductDetails = (props) => {
               <main className="product__main">
 
                 {product.kind.map((item)=>{
-                  const {title, subtitle, images,thumbnails, features, options,purpose,heating,g_factor,mount,control_options,parameters} = item;
+                  const {title, subtitle, images,thumbnails, features, options,purpose,heating,g_factor,mount,control_options,parameters,information_materials} = item;
                   const key = item.pathname.split('#')[1];
                   const controlTypes = control_options.map((id)=>controls.find((item)=>item.id===id));
 
@@ -122,9 +123,7 @@ const ProductDetails = (props) => {
                         <TechnicalData data={parameters}/>
                       </Accordion>
                       <Accordion title="Materiały informacyjne">
-                        KONTENT
-                        <button type="button" onClick={()=>{window.open('../assets/pdf/dtr-pralnica-bebnowa-o-zaladunku-czolowym-8-22.pdf')}}>Karta informacyjna</button>
-                        <a href="../assets/pdf/dtr-pralnica-bebnowa-o-zaladunku-czolowym-8-22.pdf" target="_blank">Karta informacyjna</a>
+                          <InformationMaterials data={information_materials}/>
                       </Accordion>
                     </article>
                     )
