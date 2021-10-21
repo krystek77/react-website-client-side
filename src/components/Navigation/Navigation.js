@@ -350,8 +350,8 @@ function Navigation() {
 
           </li>
           <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/technologie">Technologie</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/akcesoria">Akcesoria</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/wiadomości">Wiadomości</NavLink></li>
+          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/dodatkowe-wyposazenie">Akcesoria</NavLink></li>
+          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/wiadomosci">Wiadomości</NavLink></li>
           <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/kontakt">Kontakt</NavLink></li>
         </ul>
       </div>
