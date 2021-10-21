@@ -1,6 +1,7 @@
 export {default as Home} from './Home';
 export {default as About} from './About';
 export {default as Customers} from './Customers';
+export {default as Products} from './Products';
 export {default as DedicatedSolutions} from './DedicatedSolutions';
 export {default as Technologies} from './Technologies';
 export {default as AdditionalEquipment} from './AdditionalEquipment';
