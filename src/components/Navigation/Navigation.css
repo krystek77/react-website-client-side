@@ -262,7 +262,7 @@ submenu component
   .submenu {
     position: absolute;
     width: 100vw;
-    top: 93px;
+    top: 102px;
     left: 0;
     padding-top: 0;
     height: 0;
@@ -274,8 +274,8 @@ submenu component
   .submenu.submenu--visible {
     border-top: 1px solid var(--gray);
     border-bottom: 1px solid var(--gray);
-    height: calc(100vh - 250px);
-    max-height: calc(100vh - 250px);
+    height: calc(100vh - 200px);
+    max-height: calc(100vh - 200px);
   }
 
   .submenu__list {
