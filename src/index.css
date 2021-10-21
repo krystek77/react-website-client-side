@@ -66,6 +66,13 @@ p {
 .no-scroll-mobile {
   overflow:hidden;
 }
+.page {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: initial;
+  align-items: initial;
+}
 button {
   font-family: "Source Sans Pro",sans-serif;
 }

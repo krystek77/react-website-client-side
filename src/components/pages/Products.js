@@ -6,16 +6,16 @@ import PropTypes from 'prop-types';
 import { dataProducts as allProducts } from '../../constants/products';
 import { dataControls as allControls } from '../../constants/control-options';
 
-import Slider from './Slider/Slider';
+import Slider from '../ProductDetails/Slider/Slider';
 import List from '../List/List';
 import Accordion from '../Accordion/Accordion';
-import TechnicalData from './TechnicalData/TechnicalData';
-import InformationMaterials from './InformationMaterials/InformationMaterials';
+import TechnicalData from '../ProductDetails/TechnicalData/TechnicalData';
+import InformationMaterials from '../ProductDetails/InformationMaterials/InformationMaterials';
 
-import './ProductDetails.css';
+import '../ProductDetails/ProductDetails.css';
 
 
-const ProductDetails = (props) => {
+const Products = (props) => {
   const [product, setProduct] = useState(null);
   const [controls, setControls] = useState([]);
 
@@ -32,7 +32,7 @@ const ProductDetails = (props) => {
   }, []);
 
   useEffect(()=>{
-    console.log('[ProductDetails.js] - useEffect product');
+    console.log('[Products.js] - useEffect product');
     if (props.location.hash) {
       console.log('hash');
       const target = document.getElementById(props.location.hash.slice(1)); //do not get element
@@ -43,11 +43,11 @@ const ProductDetails = (props) => {
     }
   },[product,props])
 
-  console.log('[ProductDetails.js] - render');
+  console.log('[Products.js] - render');
 
   return (
     product && (
-      <React.Fragment>
+      <div className="page">
 
         <div className="banner" id={product.pathname}>
           <div className="container">
@@ -160,11 +160,13 @@ const ProductDetails = (props) => {
           </div>
 
         </div>
-      </React.Fragment>
+
+      </div>
     )
   );
 };
-ProductDetails.propTypes = {
+
+Products.propTypes = {
   location: PropTypes.shape({
     hash: PropTypes.string,
   }),
@@ -175,4 +177,4 @@ ProductDetails.propTypes = {
   }),
 };
 
-export default ProductDetails;
+export default Products;
