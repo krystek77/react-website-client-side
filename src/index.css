@@ -2,6 +2,7 @@
 
 :root {
   --primary:#FF0101;
+  /* --primary:#d32f2f; */
   --secondary:#283845;
   --light-secondary:#39A0ED;
   --dark:#231F20;
@@ -72,6 +73,17 @@ p {
   flex-direction: column;
   justify-content: initial;
   align-items: initial;
+}
+/*
+* temporary styles
+*/
+.page > span {
+  font-weight: 700;
+  text-align: center;
+  font-size: 48px;
+  display: block;
+  padding-top:40px;
+  padding-bottom:40px;
 }
 button {
   font-family: "Source Sans Pro",sans-serif;
