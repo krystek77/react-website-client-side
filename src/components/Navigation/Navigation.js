@@ -38,8 +38,8 @@ function Navigation() {
       </div>
       <div className={`navbar__menu ${openNavigation ? "navbar__menu--visible":""}`}>
         <ul className="menu">
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/o-nas">O nas</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/klienci">Klienci</NavLink></li>
+          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/o-nas">O nas</NavLink></li>
+          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/klienci">Klienci</NavLink></li>
           <li className="menu__item">
 
             <NavLink data-number-menu="1" to="/produkty" onClick={(e)=>{setActiveMenu(e.target.dataset.numberMenu);setActiveHandySubmenu("11")}} role="button" className="menu__link menu__link--pointer">Produkty
@@ -349,10 +349,10 @@ function Navigation() {
             </div>
 
           </li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/technologie">Technologie</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/dodatkowe-wyposazenie">Akcesoria</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/wiadomosci">Wiadomości</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0")}} to="/kontakt">Kontakt</NavLink></li>
+          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/technologie">Technologie</NavLink></li>
+          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/dodatkowe-wyposazenie">Akcesoria</NavLink></li>
+          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/wiadomosci">Wiadomości</NavLink></li>
+          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/kontakt">Kontakt</NavLink></li>
         </ul>
       </div>
     </nav>

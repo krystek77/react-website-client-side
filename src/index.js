@@ -6,6 +6,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import App from './App';
 
 const theme = createTheme({
+  typography:{
+  },
   palette:{
     primary:{
       main:"#FF0101",

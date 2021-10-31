@@ -4,9 +4,9 @@ import { makeStyles } from '@mui/styles';
 
 export default makeStyles((theme) => ({
   contactFormWrapper: {
-    backgroundColor: 'gold',
-    paddingBottom: '40px',
-    paddingTop: '40px',
+    backgroundColor: '#f7f7f7',
+    paddingBottom: '80px',
+    paddingTop: '80px',
   },
   contactForm: {},
   btnSubmit: {
