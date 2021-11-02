@@ -5,8 +5,8 @@ import { makeStyles } from '@mui/styles';
 export default makeStyles((theme) => ({
   contactFormWrapper: {
     backgroundColor: '#f7f7f7',
-    paddingBottom: '80px',
-    paddingTop: '80px',
+    paddingBottom: 80,
+    paddingTop: 64,
   },
   contactForm: {},
   btnSubmit: {
@@ -18,6 +18,12 @@ export default makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.dark,
     },
   },
+  title:{
+    fontWeight: 700,
+    textAlign: "center",
+    paddingBottom:48,
+    textTransform:'uppercase'
+  }
   // inputField:{
   //   "& label.Mui-focused": {
   //     color: theme.palette.secondary.main,
