@@ -5,7 +5,6 @@ import { Phone, Email, ExpandMore, Expand } from '@mui/icons-material';
 import { makeStyles, styled } from '@mui/styles';
 
 import Hero from '../Hero/Hero';
-import { maxWidth } from '@mui/system';
 
 const useStyles = makeStyles((theme) => ({
   ['address-wrapper']: {
@@ -54,14 +53,14 @@ const useStyles = makeStyles((theme) => ({
   contactPage: {
     paddingTop: 80,
     paddingBottom: 80,
+    maxWidth:1200,
+    margin:'0 auto',
+    paddingLeft:24,
+    paddingRight:24
   },
   title: {
     fontWeight: 700,
-    textAlign: 'center',
-    [theme.breakpoints.up('md')]: {
-      paddingLeft: 50,
-      textAlign: 'left',
-    },
+    textAlign:"center",
     '&.titleLast': {
       paddingBottom: 24,
     },
@@ -186,7 +185,6 @@ function Contact() {
       </div>
 
       <main className={[`${classes.contactPage}`, 'page'].join(' ')}>
-        <Container>
           <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 3 }}>
             <Grid item xs={12}>
               <Typography className={classes.title} component="h2" variant="h6" noWrap>
@@ -365,7 +363,6 @@ function Contact() {
               </Grid>
             </Grid>
           </Grid>
-        </Container>
       </main>
     </React.Fragment>
   );
