@@ -23,7 +23,8 @@ Hero.propTypes = {
     bgImage:PropTypes.string.isRequired,
     title:PropTypes.string.isRequired,
     subtitle:PropTypes.string,
-    blend:PropTypes.string
+    blendColor:PropTypes.string,
+    blendMode:PropTypes.string
 }
 
 export default Hero;

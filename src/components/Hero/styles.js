@@ -4,9 +4,9 @@ import { lineHeight } from '@mui/system';
 
 export default makeStyles((theme)=>({
     hero:{
-        backgroundColor:(props)=>props.blend ? props.blend:theme.palette.secondary.light,
+        backgroundColor:(props)=>props.blendColor ? props.blendColor:theme.palette.secondary.light,
         backgroundImage:(props)=>props.bgImage ? `url(../assets/images/hero/${props.bgImage}.webp)`:"transparent",
-        backgroundBlendMode:"difference",
+        backgroundBlendMode:(props)=>props.blendMode ? props.blendMode : "difference",
         backgroundSize:"cover",
         backgroundPosition:"center center",
         [theme.breakpoints.up("md")]:{
