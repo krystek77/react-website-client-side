@@ -13,7 +13,7 @@ function About() {
 const classes = useStyles();
   return (
     <React.Fragment>
-      <Hero blend="grey" bgImage="" title="Dlaczego Pralma ..." subtitle="" />
+      <Hero blendColor="beige" blendMode="overlay" bgImage="" title="Dlaczego Pralma ..." subtitle="" />
       <main className={[`${classes.aboutPage}`, 'page'].join(' ')}>
         <span>About us Page</span>
       </main>
