@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Container, Grid, Card, CardHeader, CardContent, List, ListItem, CardActions, Collapse, ButtonBase, IconButton, Button, CardMedia, Avatar, Typography, Paper } from '@mui/material';
 import { Phone, Email, ExpandMore, Expand } from '@mui/icons-material';
 import { makeStyles, styled } from '@mui/styles';
@@ -7,17 +7,60 @@ import { makeStyles, styled } from '@mui/styles';
 import Hero from '../Hero/Hero';
 
 const useStyles = makeStyles((theme) => ({
+  ['address-wrapper']: {
+    backgroundColor: theme.palette.secondary.main,
+    marginTop: 48,
+  },
+  address: {
+    paddingTop: 24,
+    paddingBottom: 24,
+    paddingLeft:24,
+    paddingRight:24,
+    maxWidth: 1200,
+    margin: '0 auto',
+    borderRadius: 0,
+    backgroundColor: 'transparent',
+    '& $header': {
+      '& span:first-child': {
+        color: theme.palette.secondary.contrastText,
+        fontSize: 18,
+      },
+      '& span:last-child': {
+        color: theme.palette.secondary.contrastText,
+        fontSize: 18,
+        fontWeight: 300,
+      },
+    },
+    '& $description': {
+      color: theme.palette.secondary.contrastText,
+      fontSize: 16,
+      maxWidth: 900,
+      fontWeight: 200,
+      fontStyle:'italic',
+      lineHeight:1.5
+    },
+    '& button': {
+      color: 'white',
+      '& svg': {
+        color: 'red',
+      },
+    },
+  },
+  collapse:{
+    backgroundColor:theme.palette.secondary.contrastText
+  },
+
   contactPage: {
     paddingTop: 80,
     paddingBottom: 80,
+    maxWidth:1200,
+    margin:'0 auto',
+    paddingLeft:24,
+    paddingRight:24
   },
   title: {
     fontWeight: 700,
-    textAlign: 'center',
-    [theme.breakpoints.up('md')]: {
-      paddingLeft: 50,
-      textAlign: 'left',
-    },
+    textAlign:"center",
     '&.titleLast': {
       paddingBottom: 24,
     },
@@ -61,26 +104,87 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ExpandMoreButton = styled((props) => {
-  const {expand,...other} = props;
-  return <IconButton {...other}/>
-})(({theme,expand})=>({
-  marginLeft:"auto",
-  transform:expand ? "rotate(180deg)":"rotate(0deg)",
+  const { expand, ...other } = props;
+  return <IconButton {...other} />;
+})(({ theme, expand }) => ({
+  marginLeft: 'auto',
+  transform: expand ? 'rotate(180deg)' : 'rotate(0deg)',
 }));
 
 function Contact() {
   const classes = useStyles();
-  const [expanded,setExpanded] =useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
-  }
+  };
 
   return (
     <React.Fragment>
-      <Hero bgImage="contact" title="Dane firmy" subtitle="tak możesz się z nami skontaktować"/>
+      <Hero bgImage="contact" title="Dane firmy" subtitle="tak możesz się z nami skontaktować" />
+      <div className={classes['address-wrapper']}>
+        <Card className={classes.address} elevation={0}>
+          <CardHeader className={classes.header} avatar={<Avatar src="../assets/images/contact/firma.webp" alt="" />} title="P.P.U.P PRALMA sp. z o.o." subheader="Przedsiębiorstwo Produkcji Urządzeń Pralniczych Pralma sp. z o.o., 25-651 Kielce, ul. Górnicza 49a" />
+          <CardContent className={classes.content}>
+            <Typography className={classes.description} variant="body2" gutterBottom>
+              Producent przemysłowych maszyn pralniczych oraz urządzęń do transportu i składowania prania. Od 1992 roku autoryzowany przedstawiciel handlowy oraz serwis, najpopularniejszych obecnie, przemysłowych urządzeń pralniczych marki <strong>Primus</strong>.
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <ButtonBase href="tel:413450561">
+              <IconButton aria-label="zadzwwoń">
+                <Phone />
+              </IconButton>
+            </ButtonBase>
+            <ButtonBase href="mailto:biuro@pralma.pl">
+              <Button aria-label="napisz" startIcon={<Email />}>
+                biuro@pralma.pl
+              </Button>
+            </ButtonBase>
+            <ExpandMoreButton expand={expanded} aria-label="pokaż więcej" aria-expanded={expanded} onClick={handleExpandClick}>
+              <ExpandMore />
+            </ExpandMoreButton>
+          </CardActions>
+          <Collapse className={classes.collapse} in={expanded} timeout="auto" unmountOnExit>
+            <CardContent className="">
+              <Typography component="p">
+                <Typography component="span" variant="body2" sx={{ display: 'inline-block', width: 80, fontWeight: 600 }}>
+                  NIP:
+                </Typography>
+                <Typography component="span" variant="body1">
+                  657-008-11-16
+                </Typography>
+              </Typography>
+              <Typography component="p">
+                <Typography component="span" variant="body2" sx={{ display: 'inline-block', width: 80, fontWeight: 600 }}>
+                  REGON:
+                </Typography>
+                <Typography component="span" variant="body1">
+                  290022092
+                </Typography>
+              </Typography>
+              <Typography component="p">
+                <Typography component="span" variant="body2" sx={{ display: 'inline-block', width: 80, fontWeight: 600 }}>
+                  KRS:
+                </Typography>
+                <Typography component="span" variant="body1">
+                  0000022564
+                </Typography>
+              </Typography>
+              <Typography component="p">
+                <Typography component="span" variant="body2" sx={{ display: 'inline-block', width: 80, fontWeight: 600 }}>
+                  KONTO:
+                </Typography>
+                <Typography component="span" variant="body1">
+                  Alior Bank: 71-24-900005-0000453097384961
+                </Typography>
+              </Typography>
+            </CardContent>
+          </Collapse>
+        </Card>
+      </div>
+
       <main className={[`${classes.contactPage}`, 'page'].join(' ')}>
-        <Container>
           <Grid container rowSpacing={3} columnSpacing={{ xs: 2, md: 3 }}>
             <Grid item xs={12}>
               <Typography className={classes.title} component="h2" variant="h6" noWrap>
@@ -258,83 +362,7 @@ function Contact() {
                 </Card>
               </Grid>
             </Grid>
-            {/** Dane firmy */}
-            <Grid item xs={12}>
-              <Typography className={classes.title} component="h2" variant="h6" noWrap>
-                Dane firmy
-              </Typography>
-            </Grid>
-            <Grid item xs={12} md={6}>
-              <Card sx={{ maxWidth: 460, margin: '0 auto' }}>
-                <CardHeader className={classes.header} avatar={<Avatar src="../assets/images/contact/firma.webp" alt="" />} title="P.P.U.P Pralma sp. z o.o." subheader="Przedsiębiorstwo Produkcji Urządzeń Pralniczych Pralma sp. z o.o., 25-651 Kielce, ul. Górnicza 49a" />
-                <CardContent className={classes.content}>
-                  <CardMedia className={classes.image} component="img" height="194" image="../assets/images/contact/firma.webp" alt="P.P.U.P Pralma sp. z o.o." />
-                  <Typography className={classes.description} variant="body2" color="text.secondary " gutterBottom>
-                    Producent przemysłowych maszyn pralniczych oraz urządzęń do transportu i składowania prania. Od 1992 roku autoryzowany przedstawiciel handlowy oraz serwis, najpopularniejszych obecnie, przemysłowych urządzeń pralniczych marki <strong>Primus</strong>.
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <ButtonBase href="tel:413450561">
-                    <IconButton aria-label="zadzwwoń">
-                      <Phone />
-                    </IconButton>
-                  </ButtonBase>
-                  <ButtonBase href="mailto:biuro@pralma.pl">
-                    <Button aria-label="napisz" startIcon={<Email />}>
-                      biuro@pralma.pl
-                    </Button>
-                  </ButtonBase>
-
-                  <ExpandMoreButton 
-                    expand={expanded} 
-                    aria-label="pokaż więcej" 
-                    aria-expanded={expanded}
-                    onClick={handleExpandClick}
-                    >
-                    <ExpandMore/>
-                  </ExpandMoreButton>
-                </CardActions>
-
-                <Collapse in={expanded} timeout="auto" unmountOnExit>
-                  <CardContent className="">
-                    <Typography component="p">
-                      <Typography component="span" variant="body2" sx={{ display: 'inline-block', width: 80, fontWeight: 600 }}>
-                        NIP:
-                      </Typography>
-                      <Typography component="span" variant="body1">
-                        657-008-11-16
-                      </Typography>
-                    </Typography>
-                    <Typography component="p">
-                      <Typography component="span" variant="body2" sx={{ display: 'inline-block', width: 80, fontWeight: 600 }}>
-                        REGON:
-                      </Typography>
-                      <Typography component="span" variant="body1">
-                        290022092
-                      </Typography>
-                    </Typography>
-                    <Typography component="p">
-                      <Typography component="span" variant="body2" sx={{ display: 'inline-block', width: 80, fontWeight: 600 }}>
-                        KRS:
-                      </Typography>
-                      <Typography component="span" variant="body1">
-                        0000022564
-                      </Typography>
-                    </Typography>
-                    <Typography component="p">
-                      <Typography component="span" variant="body2" sx={{ display: 'inline-block', width: 80, fontWeight: 600 }}>
-                        KONTO:
-                      </Typography>
-                      <Typography component="span" variant="body1">
-                        Alior Bank: 71-24-900005-0000453097384961
-                      </Typography>
-                    </Typography>
-                  </CardContent>
-                </Collapse>
-              </Card>
-            </Grid>
           </Grid>
-        </Container>
       </main>
     </React.Fragment>
   );

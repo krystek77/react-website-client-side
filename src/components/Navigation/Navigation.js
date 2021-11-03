@@ -4,7 +4,6 @@ import React,{useState} from 'react';
 import {Link, NavLink} from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
-import ContactMailIcon from '@mui/icons-material/ContactMail';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowDown from '@mui/icons-material/KeyboardArrowDown';
@@ -32,22 +31,22 @@ function Navigation() {
     <nav className="navbar">
       <div className="navbar__logo">
         {/** logo component */}
-        <div className="logo"><Link to="/" className="logo__text">LOGO</Link></div>
+        <div className="logo"><Link to="/" onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="logo__text">LOGO</Link></div>
         {/** toggle button component */}
         <button className="hamburger" type="button" onClick={toggleMenu}>{openNavigation ? <MenuOpenIcon/>:<MenuIcon/>}</button> 
       </div>
       <div className={`navbar__menu ${openNavigation ? "navbar__menu--visible":""}`}>
         <ul className="menu">
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/o-nas">O nas</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/klienci">Klienci</NavLink></li>
+          <li className="menu__item"><NavLink className={`menu__link ${activeMenu==="3"?"active":""}`} onClick={()=>{setActiveMenu("3");setOpenNavigation(false);setActiveHandySubmenu("0")}} to="/o-nas">O nas</NavLink></li>
+          <li className="menu__item"><NavLink className={`menu__link ${activeMenu==="4"?"active":""}`} onClick={()=>{setActiveMenu("4");setOpenNavigation(false);setActiveHandySubmenu("0")}} to="/klienci">Klienci</NavLink></li>
           <li className="menu__item">
 
-            <NavLink data-number-menu="1" to="/produkty" onClick={(e)=>{setActiveMenu(e.target.dataset.numberMenu);setActiveHandySubmenu("11")}} role="button" className="menu__link menu__link--pointer">Produkty
+            <button data-number-menu="1" onClick={(e)=>{setActiveMenu(e.target.dataset.numberMenu);setActiveHandySubmenu("11")}} className={`menu__link menu__link--button menu__link--pointer ${activeHandySubmenu >="11" && activeHandySubmenu <"21" && activeMenu==="0" ? "active":""}`}>Produkty
               <span className="pointer pointer--right"><KeyboardArrowRightIcon/></span>
               {activeMenu === "1" ? <span className="pointer pointer--up"><KeyboardArrowUp/></span>:<span className="pointer pointer--down"><KeyboardArrowDown/></span> }
-            </NavLink>
-            <div className={`submenu ${activeMenu === "1" ? "submenu--visible":"" }`}>
-              <button type="button" onClick={()=>setActiveMenu("0")} className="menu-button menu-button--submenu">Produkty<span className="pointer pointer--left"><KeyboardArrowLeftIcon/></span></button>
+            </button>
+            <div className={`submenu ${activeMenu=== "1" ? "submenu--visible":"" }`}>
+              <button type="button" onClick={()=>{setActiveHandySubmenu("0");setActiveMenu("0");setOpenNavigation(false)}} className="menu-button menu-button--submenu">Produkty<span className="pointer pointer--left"><KeyboardArrowLeftIcon/></span></button>
               <ul className="submenu__list">
                 <li className="submenu__item">
 
@@ -77,7 +76,7 @@ function Navigation() {
                 </li>
                 <li className="submenu__item">
 
-                  <button type="button" data-number-hs="12" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className={`menu-button ${activeHandySubmenu==="12" ? 'active':''}`}>Wirówki pralnicze
+                  <button type="button" data-number-hs="12" onClick={(e)=> {setActiveHandySubmenu(e.target.dataset.numberHs)}} className={`menu-button ${activeHandySubmenu==="12" ? 'active':''}`}>Wirówki pralnicze
                     {activeHandySubmenu === "12" ? 
                     <React.Fragment>
                       <span className="pointer pointer--up"><KeyboardArrowUp/></span>
@@ -245,18 +244,18 @@ function Navigation() {
                     }
                   </button>
                   <div className={`handy-submenu ${activeHandySubmenu === "18" ? "handy-submenu--visible":""}`}>
-                      <Link className="handy-submenu__title" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/produkty/wozki-regaly#wozki-regaly">Sprzęt pomocniczy</Link>
+                      <Link className="handy-submenu__title" onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} to="/produkty/wozki-regaly#wozki-regaly">Sprzęt pomocniczy</Link>
                       <ul className="handy-submenu__list">
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#ws150"><span>wózek na suche pranie</span><b>WS-150</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#wm150"><span>wózek na mokre pranie</span><b>WM-150</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#wst280"><span>wózek na suche pranie</span><b>WST-280</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#wst400"><span>wózek na suche pranie</span><b>WST-400</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#wpd400"><span>wózek z podnoszonym dnem</span><b>WPD-400</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#rs"><span>regał stacjonarny</span><b>RS</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#rj"><span>regał jezdny</span><b>RJ</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#wj"><span>wieszak jezdny</span><b>WJ</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#sm"><span>stół manipulacyjny</span><b>SM</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/produkty/wozki-regaly#kj"><span>kontener jezdny</span><b>KJ</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#ws150"><span>wózek na suche pranie</span><b>WS-150</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#wm150"><span>wózek na mokre pranie</span><b>WM-150</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#wst280"><span>wózek na suche pranie</span><b>WST-280</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#wst400"><span>wózek na suche pranie</span><b>WST-400</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#wpd400"><span>wózek z podnoszonym dnem</span><b>WPD-400</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#rs"><span>regał stacjonarny</span><b>RS</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#rj"><span>regał jezdny</span><b>RJ</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#wj"><span>wieszak jezdny</span><b>WJ</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#sm"><span>stół manipulacyjny</span><b>SM</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/produkty/wozki-regaly#kj"><span>kontener jezdny</span><b>KJ</b></Link></li>
                       </ul>
                   </div>
 
@@ -267,12 +266,12 @@ function Navigation() {
           </li>
           <li className="menu__item">
 
-            <NavLink data-number-menu="2" to="/rozwiazania-specjalne" onClick={(e)=>{setActiveMenu(e.target.dataset.numberMenu);setActiveHandySubmenu("21")}} role="button" className="menu__link menu__link--pointer">Dedykowane
+            <button data-number-menu="2" onClick={(e)=>{setActiveMenu(e.target.dataset.numberMenu);setActiveHandySubmenu("21")}} className={`menu__link menu__link--button menu__link--pointer ${activeHandySubmenu >="21" && activeMenu==="0" ? "active":""}`}>Dedykowane
               <span className="pointer pointer--right"><KeyboardArrowRightIcon/></span>
               {activeMenu === "2" ? <span className="pointer pointer--up"><KeyboardArrowUp/></span>: <span className="pointer pointer--down"><KeyboardArrowDown/></span> }
-            </NavLink>
+            </button>
             <div className={`submenu ${activeMenu === "2" ? "submenu--visible":"" }`}>
-              <button type="button" onClick={()=>setActiveMenu("0")} className="menu-button menu-button--submenu">Rozwiązania specjalne<span className="pointer pointer--left"><KeyboardArrowLeftIcon/></span></button>
+              <button type="button" onClick={()=>{setActiveMenu("0");setActiveHandySubmenu("0");setOpenNavigation(false)}} className="menu-button menu-button--submenu">Rozwiązania specjalne<span className="pointer pointer--left"><KeyboardArrowLeftIcon/></span></button>
               <ul className="submenu__list">
                 <li className="submenu__item">
                   <button type="button" data-number-hs="21" onClick={(e)=> setActiveHandySubmenu(e.target.dataset.numberHs)} className={`menu-button ${activeHandySubmenu==="21" ? 'active':''}`}>Pralnie samoobsługowe
@@ -337,11 +336,11 @@ function Navigation() {
                     }
                   </button>
                   <div className={`handy-submenu ${activeHandySubmenu === "23" ? "handy-submenu--visible":""}`}>
-                      <Link className="handy-submenu__title" onClick={()=>{ setActiveMenu("0");setOpenNavigation(false)}} to="/rozwiazania-specjalne/softwash#softwash">Urządzenia softwash</Link>
+                      <Link className="handy-submenu__title" onClick={()=>{ setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} to="/rozwiazania-specjalne/softwash#softwash">Urządzenia softwash</Link>
                       <ul className="handy-submenu__list">
-                        <li className="handy-submenu__item"><Link onClick={()=>{ setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/rozwiazania-specjalne/softwash#pralnicowirowki"><span>pralnicowirówki wysokoobrotowe</span><b>SW</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{ setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/rozwiazania-specjalne/softwash#psuszarki-swt"><span>suszarki</span><b>SWT</b></Link></li>
-                        <li className="handy-submenu__item"><Link onClick={()=>{ setActiveMenu("0");setOpenNavigation(false)}} className="handy-submenu__link" to="/rozwiazania-specjalne/softwash#psuszarki-swt-hp"><span>suszarki</span><b>SWT HP</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{ setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/rozwiazania-specjalne/softwash#pralnicowirowki"><span>pralnicowirówki wysokoobrotowe</span><b>SW</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{ setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/rozwiazania-specjalne/softwash#psuszarki-swt"><span>suszarki</span><b>SWT</b></Link></li>
+                        <li className="handy-submenu__item"><Link onClick={()=>{ setActiveMenu("0");setOpenNavigation(false);setActiveHandySubmenu("0")}} className="handy-submenu__link" to="/rozwiazania-specjalne/softwash#psuszarki-swt-hp"><span>suszarki</span><b>SWT HP</b></Link></li>
                       </ul>
                   </div>
                 </li>
@@ -349,10 +348,10 @@ function Navigation() {
             </div>
 
           </li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/technologie">Technologie</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/dodatkowe-wyposazenie">Akcesoria</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/wiadomosci">Wiadomości</NavLink></li>
-          <li className="menu__item"><NavLink className="menu__link" onClick={()=>{setActiveMenu("0");setOpenNavigation(false)}} to="/kontakt">Kontakt</NavLink></li>
+          <li className="menu__item"><NavLink className={`menu__link ${activeMenu==="5"?"active":""}`} onClick={()=>{setActiveMenu("5");setOpenNavigation(false);setActiveHandySubmenu("0")}} to="/technologie">Technologie</NavLink></li>
+          <li className="menu__item"><NavLink className={`menu__link ${activeMenu==="6"?"active":""}`} onClick={()=>{setActiveMenu("6");setOpenNavigation(false);setActiveHandySubmenu("0")}} to="/dodatkowe-wyposazenie">Akcesoria</NavLink></li>
+          <li className="menu__item"><NavLink className={`menu__link ${activeMenu==="7"?"active":""}`} onClick={()=>{setActiveMenu("7");setOpenNavigation(false);setActiveHandySubmenu("0")}} to="/wiadomosci">Wiadomości</NavLink></li>
+          <li className="menu__item"><NavLink className={`menu__link ${activeMenu==="8"?"active":""}`} onClick={()=>{setActiveMenu("8");setOpenNavigation(false);setActiveHandySubmenu("0")}} to="/kontakt">Kontakt</NavLink></li>
         </ul>
       </div>
     </nav>
