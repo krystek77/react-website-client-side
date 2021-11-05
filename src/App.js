@@ -4,7 +4,7 @@ import './index.css';
 
 import Layout from './components/Layout/Layout';
 
-import {Home,About,Customers,Products, DedicatedSolutions, Technologies,AdditionalEquipment,News,Contact,NotFound} from './components/pages';
+import {Home,About,Customers,Products, DedicatedSolutions, Technologies,AdditionalEquipment,News,Contact,NotFound} from './pages';
 
 const App = () => {
   return (

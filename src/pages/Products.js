@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import { dataProducts as allProducts } from '../../constants/products';
-import { dataControls as allControls } from '../../constants/control-options';
+import { dataProducts as allProducts } from '../constants/products';
+import { dataControls as allControls } from '../constants/control-options';
 
-import Slider from '../ProductDetails/Slider/Slider';
-import List from '../List/List';
-import Accordion from '../Accordion/Accordion';
-import TechnicalData from '../ProductDetails/TechnicalData/TechnicalData';
-import InformationMaterials from '../ProductDetails/InformationMaterials/InformationMaterials';
+import Slider from '../components/ProductDetails/Slider/Slider';
+import List from '../components/List/List';
+import Accordion from '../components/Accordion/Accordion';
+import TechnicalData from '../components/ProductDetails/TechnicalData/TechnicalData';
+import InformationMaterials from '../components/ProductDetails/InformationMaterials/InformationMaterials';
 
-import '../ProductDetails/ProductDetails.css';
+import '../components/ProductDetails/ProductDetails.css'; // I have to change that
 
 
 const Products = (props) => {
