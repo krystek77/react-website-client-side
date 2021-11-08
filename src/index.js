@@ -8,21 +8,8 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 import App from './App';
 
-import {createStore, combineReducers,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
-import {composeWithDevTools} from 'redux-devtools-extension';
-import thunk from 'redux-thunk';
-
-function postReducer(state=[],action){
-  return state;
-}
-
-const middleware = [
-  thunk
-]
-
-const reducers = combineReducers({posts:postReducer})
-const store = createStore(reducers,composeWithDevTools(applyMiddleware(...middleware)));
+import store from './store'
 
 const theme = createTheme({
   typography:{
@@ -38,7 +25,8 @@ const theme = createTheme({
 });
 
 console.log(theme);
-console.log(store)
+console.log(store.getState());
+
 
 ReactDOM.render(
   <Router>
