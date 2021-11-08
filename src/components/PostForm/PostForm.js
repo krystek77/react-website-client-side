@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React,{useState} from 'react';
+import {useDispatch} from 'react-redux';
+import {createPost} from '../../actions/posts'
 import FileBase64 from 'react-file-base64';
 import {Box, TextField,Button} from '@mui/material';
 import useStyles from './styles';
@@ -7,11 +9,12 @@ import useStyles from './styles';
 function PostForm(){
     const [postData,setPostData]= useState({creator:"",title:"",contents:"",tags:"",selectedImage:""})
     const classes = useStyles();
-    console.log(postData);
+    const dispatch = useDispatch();
     
     const handlePostData=(e)=>{
         e.preventDefault();
-        //SEND
+        const formatedPostData = {...postData,tags:postData.tags.split(',')}
+        dispatch(createPost(formatedPostData));
         clear();
     }
     const clear = () => {

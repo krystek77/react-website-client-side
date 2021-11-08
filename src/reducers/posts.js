@@ -1,4 +1,8 @@
 /* eslint-disable no-unused-vars */
 export default function reducer(state=[],action){
-    return state;
+    switch(action.type){
+        case "GET_POSTS":return action.payload;
+        case "CREATE_POST":return [...state,action.payload];
+        default: return state;
+    }
 }

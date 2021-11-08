@@ -13,7 +13,7 @@ import theme from './muitheme'
 import store from './store';
 
 // console.log(theme);
-// console.log(store.getState());
+console.log(store.getState());
 
 ReactDOM.render(
   <Router>

@@ -2,7 +2,11 @@
 import {makeStyles} from '@mui/styles';
 export default makeStyles((theme)=>({
     post:{
-        position:"relative"
+        position:"relative",
+        height:"100%",
+        display:"flex",
+        flexDirection:"column",
+        margin:0,
     },
     ['post__topbar']:{
         position:'absolute',
@@ -21,7 +25,8 @@ export default makeStyles((theme)=>({
         color:theme.palette.secondary.contrastText
     },
     ['post__content']:{
-        paddingBottom:0
+        paddingBottom:0,
+        flexGrow:1
     },
     ['post__title']:{
         color:theme.palette.secondary.dark,
@@ -50,7 +55,7 @@ export default makeStyles((theme)=>({
     ['post__text']:{
         textSize:16,
         fontWeight:300,
-        marginBottom:16
+        marginBottom:16,
     },
     ['post__author']:{
         display:'block',
