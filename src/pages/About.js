@@ -6,7 +6,7 @@ const useStyles = makeStyles((theme)=>({
 
 }))
 
-import Hero from '../Hero/Hero';
+import Hero from '../components/Hero/Hero';
 
 
 function About() {

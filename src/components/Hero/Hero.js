@@ -20,7 +20,7 @@ function Hero(props){
 }
 
 Hero.propTypes = {
-    bgImage:PropTypes.string.isRequired,
+    bgImage:PropTypes.string,
     title:PropTypes.string.isRequired,
     subtitle:PropTypes.string,
     blendColor:PropTypes.string,

@@ -4,7 +4,7 @@ import { Container, Grid, Card, CardHeader, CardContent, List, ListItem, CardAct
 import { Phone, Email, ExpandMore, Expand } from '@mui/icons-material';
 import { makeStyles, styled } from '@mui/styles';
 
-import Hero from '../Hero/Hero';
+import Hero from '../components/Hero/Hero';
 
 const useStyles = makeStyles((theme) => ({
   ['address-wrapper']: {
