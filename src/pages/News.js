@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useEffect,useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getPosts } from '../actions/posts';
 import { Container, Typography } from '@mui/material';
@@ -12,12 +13,13 @@ import useStyles from './styles';
 function News() {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const [currentPostID,setCurrentPostID] = useState(null);
 
   useEffect(() => {
     console.log("mounted news")
     dispatch(getPosts());
     return () => {console.log("unmounted news")};
-  }, [dispatch]);
+  }, [dispatch,currentPostID]);
 
   console.log('news');
 
@@ -28,12 +30,12 @@ function News() {
       <Container className={classes['page__section']} component="section" maxWidth="false">
         <Container className={classes['page__header']} component="header" maxWidth="false">
           <Typography className={`${classes['page__title']} ${classes['page__title--center']}`} variant="h2" component="h2">
-            Formularz dodawania wiadomości
+            {currentPostID ? "Formularz edytowania wiadomości" : "Formularz dodawania wiadomości"}
           </Typography>
         </Container>
 
         <Container maxWidth="md">
-          <PostForm />
+          <PostForm currentPostID={currentPostID} setCurrentPostID={setCurrentPostID} />
         </Container>
       </Container>
 
@@ -46,7 +48,7 @@ function News() {
           </Typography>
         </Container>
 
-        <Posts />
+        <Posts setCurrentPostID={setCurrentPostID}/>
       </Container>
     </div>
   );

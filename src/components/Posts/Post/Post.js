@@ -10,15 +10,15 @@ import 'moment/locale/pl';
 moment.locale("pl")
 
 
-function Post({ post }) {
+function Post({ post,setCurrentPostID }) {
   const classes = useStyles();
-  const { createdAt, selectedImage, title, contents, creator, tags } = post;
+  const { _id,createdAt, selectedImage, title, contents, creator, tags } = post;
 
   return (
     <Card className={classes.post} sx={{ margin: '0 16px 16px' }}>
       <div className={classes['post__topbar']}>
         <Typography className={classes['post__date']} variant="body1"> {moment(createdAt).fromNow()} </Typography>
-        <IconButton className={`${classes['post__btn']} ${classes['post__btn--edit']}`}> <MoreVert /> </IconButton>
+        <IconButton className={`${classes['post__btn']} ${classes['post__btn--edit']}`} onClick={()=>setCurrentPostID(_id)}> <MoreVert /> </IconButton>
       </div>
       <CardMedia component="img" image={selectedImage} alt="some image" height="200" />
       <CardContent className={classes['post__content']}>
