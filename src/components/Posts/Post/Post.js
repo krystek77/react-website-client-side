@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {deletePost} from '../../../actions/posts';
+import {deletePost,likePost} from '../../../actions/posts';
 
 import { Card, CardContent, Typography, IconButton, Button, CardActions, CardMedia, Divider } from '@mui/material';
 import { MoreVert, Favorite, Delete } from '@mui/icons-material';
@@ -16,9 +16,9 @@ moment.locale("pl")
 
 function Post({ post,setCurrentPostID }) {
   const classes = useStyles();
-  const { _id,createdAt, selectedImage, title, contents, creator, tags } = post;
+  const { _id,createdAt, selectedImage, title, contents, creator, tags,likeCount } = post;
   const dispatch = useDispatch();
-
+  console.log("POST")
   return (
     <Card className={classes.post} sx={{ margin: '0 16px 16px' }}>
       <div className={classes['post__topbar']}>
@@ -48,7 +48,7 @@ function Post({ post,setCurrentPostID }) {
       <Divider light />
       <CardActions disableSpacing>
         <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="text"> czytaj </Button>
-        <Button className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}> 0 </Button>
+        <Button onClick={()=>dispatch(likePost(_id))} className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}>{likeCount}</Button>
         <IconButton onClick={()=>dispatch(deletePost(_id))} color="secondary" className={`${classes['post__btn']} ${classes['post__btn--delete']}`}><Delete /></IconButton>
       </CardActions>
     </Card>

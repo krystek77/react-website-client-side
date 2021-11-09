@@ -1,8 +1,16 @@
 /* eslint-disable no-unused-vars */
 import { makeStyles } from '@mui/styles';
-import { textAlign } from '@mui/system';
 export default makeStyles((theme) => ({
   page: {
+  },
+  ['page--news']:{
+  },
+  ['page-wrapper']:{
+    display:"flex",
+    flexDirection:"column-reverse",
+    [theme.breakpoints.up("md")]:{
+      flexDirection:"column"
+    }
   },
   ['page__section']:{
     paddingLeft:0,
