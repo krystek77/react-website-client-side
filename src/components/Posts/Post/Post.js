@@ -1,8 +1,12 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import React from 'react';
+import {useDispatch} from 'react-redux';
+import {deletePost} from '../../../actions/posts';
+
 import { Card, CardContent, Typography, IconButton, Button, CardActions, CardMedia, Divider } from '@mui/material';
 import { MoreVert, Favorite, Delete } from '@mui/icons-material';
+
 import useStyles from './styles';
 
 import moment from 'moment';
@@ -13,6 +17,7 @@ moment.locale("pl")
 function Post({ post,setCurrentPostID }) {
   const classes = useStyles();
   const { _id,createdAt, selectedImage, title, contents, creator, tags } = post;
+  const dispatch = useDispatch();
 
   return (
     <Card className={classes.post} sx={{ margin: '0 16px 16px' }}>
@@ -44,7 +49,7 @@ function Post({ post,setCurrentPostID }) {
       <CardActions disableSpacing>
         <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="text"> czytaj </Button>
         <Button className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}> 0 </Button>
-        <IconButton color="secondary" className={`${classes['post__btn']} ${classes['post__btn--delete']}`}> <Delete /> </IconButton>
+        <IconButton onClick={()=>dispatch(deletePost(_id))} color="secondary" className={`${classes['post__btn']} ${classes['post__btn--delete']}`}><Delete /></IconButton>
       </CardActions>
     </Card>
   );

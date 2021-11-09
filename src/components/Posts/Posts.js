@@ -10,11 +10,6 @@ import Post from './Post/Post';
 function Posts({setCurrentPostID}) {
   const classes = useStyles();
   const posts = useSelector((state)=>state.posts);
-  
-  useEffect(()=>{
-    console.log("mounted posts",posts)
-    return ()=>{console.log("unmounted posts")}
-  })
 
   return posts.length!==0 && (
     <Grid className={classes.posts} container>
