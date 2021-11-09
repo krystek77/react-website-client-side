@@ -1,30 +1,27 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
+
 import { CssBaseline } from '@mui/material';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
+import { Provider } from 'react-redux';
+
 import App from './App';
 
-const theme = createTheme({
-  typography:{
-  },
-  palette:{
-    primary:{
-      main:"#FF0101",
-    },
-    secondary:{
-      main:"#283845",
-    }
-  },
-});
+import theme from './muitheme'
+import store from './store';
 
-console.log(theme);
+// console.log(theme);
+console.log(store.getState());
 
 ReactDOM.render(
   <Router>
     <CssBaseline />
     <ThemeProvider theme={theme}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </ThemeProvider>
   </Router>,
   document.getElementById('root')
