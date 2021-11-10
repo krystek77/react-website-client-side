@@ -7,4 +7,5 @@ export {default as Technologies} from './Technologies';
 export {default as AdditionalEquipment} from './AdditionalEquipment';
 export {default as News} from './News';
 export {default as Contact} from './Contact';
+export {default as Auth} from './Auth';
 export {default as NotFound} from './404';

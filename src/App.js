@@ -4,7 +4,7 @@ import './index.css';
 
 import Layout from './components/Layout/Layout';
 
-import {Home,About,Customers,Products, DedicatedSolutions, Technologies,AdditionalEquipment,News,Contact,NotFound} from './pages';
+import {Home,About,Customers,Products, DedicatedSolutions, Technologies,AdditionalEquipment,News,Contact,Auth,NotFound} from './pages';
 
 const App = () => {
   return (
@@ -18,6 +18,7 @@ const App = () => {
           <Route path="/dodatkowe-wyposazenie" component={AdditionalEquipment} />
           <Route path="/wiadomosci" component={News} />
           <Route path="/kontakt" component={Contact} />
+          <Route path="/autoryzacja" component={Auth}/>
           <Route path="/" exact component={Home} />
           <Route component={NotFound} />
         </Switch>
