@@ -11,7 +11,7 @@ import './Layout.css';
 function Layout({ children }) {
   return (
     <div className="layout">
-      <div className="layout__topbar">
+      <div className="layout__toolbar">
         <Toolbar />
         <Navigation />
       </div>
