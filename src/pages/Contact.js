@@ -1,107 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { Container, Grid, Card, CardHeader, CardContent, List, ListItem, CardActions, Collapse, ButtonBase, IconButton, Button, CardMedia, Avatar, Typography, Paper } from '@mui/material';
+import { Grid, Card, CardHeader, CardContent, List, ListItem, CardActions, Collapse, ButtonBase, IconButton, Button, CardMedia, Avatar, Typography, Paper } from '@mui/material';
 import { Phone, Email, ExpandMore, Expand } from '@mui/icons-material';
-import { makeStyles, styled } from '@mui/styles';
+import { styled } from '@mui/styles';
+import useStyles from './styles';
 
 import Hero from '../components/Hero/Hero';
-
-const useStyles = makeStyles((theme) => ({
-  ['address-wrapper']: {
-    backgroundColor: theme.palette.secondary.main,
-    marginTop: 48,
-  },
-  address: {
-    paddingTop: 24,
-    paddingBottom: 24,
-    paddingLeft:24,
-    paddingRight:24,
-    maxWidth: 1200,
-    margin: '0 auto',
-    borderRadius: 0,
-    backgroundColor: 'transparent',
-    '& $header': {
-      '& span:first-child': {
-        color: theme.palette.secondary.contrastText,
-        fontSize: 18,
-      },
-      '& span:last-child': {
-        color: theme.palette.secondary.contrastText,
-        fontSize: 18,
-        fontWeight: 300,
-      },
-    },
-    '& $description': {
-      color: theme.palette.secondary.contrastText,
-      fontSize: 16,
-      maxWidth: 900,
-      fontWeight: 200,
-      fontStyle:'italic',
-      lineHeight:1.5
-    },
-    '& button': {
-      color: 'white',
-      '& svg': {
-        color: 'red',
-      },
-    },
-  },
-  collapse:{
-    backgroundColor:theme.palette.secondary.contrastText
-  },
-
-  contactPage: {
-    paddingTop: 80,
-    paddingBottom: 80,
-    maxWidth:1200,
-    margin:'0 auto',
-    paddingLeft:24,
-    paddingRight:24
-  },
-  title: {
-    fontWeight: 700,
-    textAlign:"center",
-    '&.titleLast': {
-      paddingBottom: 24,
-    },
-  },
-
-  header: {
-    '& span': {
-      fontWeight: 600,
-    },
-    '& span:last-of-type': {
-      color: theme.palette.primary.main,
-      fontWeight: 400,
-    },
-    '& .MuiAvatar-root': {
-      backgroundColor: theme.palette.secondary.main,
-    },
-  },
-  content: {
-    padding: 0,
-  },
-  image: {
-    marginBottom: 16,
-  },
-  description: {
-    paddingLeft: 16,
-    paddingRight: 16,
-  },
-  titleList: {
-    paddingLeft: 16,
-    paddingRight: 16,
-  },
-  list: {
-    paddingLeft: 16,
-    paddingRight: 16,
-  },
-  listItem: {
-    padding: 0,
-    fontSize: 14,
-    opacity: 0.6,
-  },
-}));
 
 const ExpandMoreButton = styled((props) => {
   const { expand, ...other } = props;

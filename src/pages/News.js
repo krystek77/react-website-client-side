@@ -24,35 +24,40 @@ function News() {
   console.log('news');
 
   return (
-    <div className={`${classes['page']} ${classes['page--news']}`}>
-      <Hero title="Bądź na bieżąco" subtitle="wszystko co warto wiedzieć w pralnictwie" blendColor="green" />
-      <div className={classes['page-wrapper']}>
-        {/** form post */}
-        <Container className={classes['page__section']} component="section" maxWidth="false">
-          <Container className={classes['page__header']} component="header" maxWidth="false">
-            <Typography className={`${classes['page__title']} ${classes['page__title--center']}`} variant="h2" component="h2">
-              {currentPostID ? "Formularz edytowania wiadomości" : "Formularz dodawania wiadomości"}
-            </Typography>
+      <React.Fragment>
+        
+        <Hero title="Bądź na bieżąco" subtitle="wszystko co warto wiedzieć w pralnictwie" blendColor="green" />
+        <Container maxWidth="false" className={`${classes.page} ${classes.pageNews}`}>
+          
+          {/** form post */}
+
+          <Container className={classes.pageNewsSection} component="section" maxWidth="false">
+            <Container className={classes.pageNewsHeader} component="header" maxWidth="false">
+              <Typography className={`${classes.pageNewsTitle} ${classes.pageNewsTitleCenter}`} variant="h2" component="h2">
+                {currentPostID ? "Formularz edytowania wiadomości" : "Formularz dodawania wiadomości"}
+              </Typography>
+            </Container>
+
+            <Container maxWidth="md">
+              <PostForm currentPostID={currentPostID} setCurrentPostID={setCurrentPostID} />
+            </Container>
           </Container>
 
-          <Container maxWidth="md">
-            <PostForm currentPostID={currentPostID} setCurrentPostID={setCurrentPostID} />
+          {/** posts */}
+
+          <Container className={classes.pageNewsSection} component="main" maxWidth="false">
+            <Container className={classes.pageNewsHeader} component="header" maxWidth="false">
+              <Typography className={classes.pageNewsTitle} variant="h2" component="h2">
+                Wiadomości
+              </Typography>
+            </Container>
+
+            <Posts setCurrentPostID={setCurrentPostID}/>
           </Container>
         </Container>
 
-        {/** posts */}
-
-        <Container className={classes['page__section']} component="main" maxWidth="false">
-          <Container className={classes['page__header']} component="header" maxWidth="false">
-            <Typography className={`${classes['page__title']}`} variant="h2" component="h2">
-              Wiadomości
-            </Typography>
-          </Container>
-
-          <Posts setCurrentPostID={setCurrentPostID}/>
-        </Container>
-      </div>
-    </div>
+      </React.Fragment>
+    
   );
 }
 export default News;

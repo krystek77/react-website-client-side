@@ -16,18 +16,18 @@ export default makeStyles((theme) => ({
   pageAuth: {
     paddingTop: 48,
   },
-  pageAuthAvatar:{
-    backgroundColor:theme.palette.secondary.main,
-    color:theme.palette.secondary.contrastText,
-    width:48,
-    height:48,
-    margin:"0 auto",
-    marginBottom:32
+  pageAuthAvatar: {
+    backgroundColor: theme.palette.secondary.main,
+    color: theme.palette.secondary.contrastText,
+    width: 48,
+    height: 48,
+    margin: '0 auto',
+    marginBottom: 32,
   },
   pageAuthTitle: {
     fontWeight: 500,
     marginBottom: 48,
-    color:theme.palette.secondary.main
+    color: theme.palette.secondary.main,
   },
   pageAuthForm: {
     marginBottom: 48,
@@ -37,11 +37,10 @@ export default makeStyles((theme) => ({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  pageAuthFormControlSwitch:{
-    '& .MuiSvgIcon-root':{
-      transform:'rotate(180deg)',
-    }
-    
+  pageAuthFormControlSwitch: {
+    '& .MuiSvgIcon-root': {
+      transform: 'rotate(180deg)',
+    },
   },
   pageAuthFormControlActions: {
     marginTop: 48,
@@ -49,36 +48,38 @@ export default makeStyles((theme) => ({
   pageAuthInput: {},
   pageAuthLabel: {},
   pageAuthIconInput: {
-    color:theme.palette.secondary.main
+    color: theme.palette.secondary.main,
   },
   pageAuthButton: {
     marginLeft: 'auto',
   },
-  pageAuthButtonSwitch:{
-    color:theme.palette.secondary.main
+  pageAuthButtonSwitch: {
+    color: theme.palette.secondary.main,
   },
 
- /**
-   * end auth page
+  /**
+   * news page
    */
 
-  ['page-wrapper']: {
+  pageNews: {
+    paddingLeft: 0,
+    paddingRight: 0,
     display: 'flex',
     flexDirection: 'column-reverse',
     [theme.breakpoints.up('md')]: {
       flexDirection: 'column',
     },
   },
-  ['page__section']: {
+  pageNewsSection: {
     paddingLeft: 0,
     paddingRight: 0,
   },
-  ['page__header']: {
+  pageNewsHeader: {
     width: '100%',
     backgroundColor: theme.palette.secondary.main,
     marginBottom: 48,
   },
-  ['page__title']: {
+  pageNewsTitle: {
     fontWeight: 700,
     fontSize: 24,
     padding: '48px 24px',
@@ -86,7 +87,7 @@ export default makeStyles((theme) => ({
     textTransform: 'uppercase',
     color: theme.palette.secondary.contrastText,
   },
-  ['page__title--center']: {
+  pageNewsTitleCenter: {
     textAlign: 'center',
   },
 }));
