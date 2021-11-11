@@ -1,12 +1,17 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
 import React from "react";
-import './Toolbar.css';
+import { Container } from "@mui/material";
 import {ContactMail} from '@mui/icons-material';
 
-function Toolbar(){
-    return <div className="toolbar">
-        <div className="toolbar__menu">
-            <button type="button" className="toolbar__mail"><ContactMail/></button>
-        </div>
-    </div>
+import useStyles from '../../styles/toolbar';
+
+
+function Toolbar(){ 
+    const classes = useStyles();
+
+    return <Container component="div" maxWidth="false" className={`${classes.toolbar}`}>
+        Toolbar
+    </Container>
 }
 export default Toolbar;

@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+
 import { Container, Grid, Card, CardHeader, CardContent, List, ListItem, CardActions, Collapse, ButtonBase, IconButton, Button, CardMedia, Avatar, Typography, Paper, Divider } from '@mui/material';
 import { Phone, Email, ExpandMore } from '@mui/icons-material';
-import { styled } from '@mui/styles';
-import useStyles from './styles';
-
 import Hero from '../components/Hero/Hero';
+
+import { styled } from '@mui/styles';
+import useStyles from '../styles/contact';
+
 
 const ExpandMoreButton = styled((props) => {
   const { expand, ...other } = props;

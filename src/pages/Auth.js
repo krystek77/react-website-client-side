@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Container, Typography, Box, TextField, FormControl, InputLabel, Input, InputAdornment, IconButton, Button,Avatar } from '@mui/material';
 import { Visibility, VisibilityOff, Login, SwitchLeft, VpnKey } from '@mui/icons-material';
 
-import useStyles from './styles';
+import useStyles from '../styles/auth';
 
 function Auth() {
   const classes = useStyles();
