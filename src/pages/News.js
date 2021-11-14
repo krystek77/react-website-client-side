@@ -2,13 +2,13 @@
 import React, { useEffect,useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getPosts } from '../actions/posts';
-import { Container, Typography } from '@mui/material';
 
+import { Container, Typography } from '@mui/material';
 import Hero from '../components/Hero/Hero';
 import PostForm from '../components/PostForm/PostForm';
 import Posts from '../components/Posts/Posts';
 
-import useStyles from './styles';
+import useStyles from '../styles/news';
 
 function News() {
   const classes = useStyles();
