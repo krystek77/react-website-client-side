@@ -1,19 +1,30 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { Container, Typography, Box, TextField, FormControl, InputLabel, Input, InputAdornment, IconButton, Button,Avatar } from '@mui/material';
 import { Visibility, VisibilityOff, Login, SwitchLeft, VpnKey } from '@mui/icons-material';
+import {useDispatch} from 'react-redux';
+import {signin,signup} from '../actions/users';
 
 import useStyles from '../styles/auth';
 
 function Auth() {
   const classes = useStyles();
-  const [authData, setAuthData] = useState({ email: '', password: '', confirmPassword: '', firstName: '', lastName: '' });
+  const [authData, setAuthData] = useState({ firstName: '', lastName: '',email: '', password: '', confirmPassword: '',createdAt:'' });
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);
   const [isSignup,setIsSignup] = useState(false);
 
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const handleAuth = (e) => {
     e.preventDefault();
+    if(isSignup){
+      dispatch(signup(authData,history));
+    } else {
+      dispatch(signin(authData,history));
+    }
     clear();
   };
   const clear = () => {
