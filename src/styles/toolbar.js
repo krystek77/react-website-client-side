@@ -58,5 +58,11 @@ export default makeStyles((theme) => ({
   toolbarButtonContact:{
     borderRadius:"4px",
     padding:6
-  }
+  },
+  toolbarAdminPanel:{
+    paddingRight:24
+  },
+  toolbarAdminPanelAddUser:{
+    borderRadius:4
+  },
 }));
