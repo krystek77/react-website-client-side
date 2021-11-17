@@ -38,9 +38,14 @@ function Toolbar() {
             <Avatar className={classes.toolbarUserAvatar} alt="Krystian" src="./assets/images/contact/firma.webpa">
               {'Krystian'.charAt(0)}
             </Avatar>
-            <Typography className={classes.toolbarUserName} component="p" variant="body1">
-              {`Witaj, ${user.user.email}`}
-            </Typography>
+            <div className={classes.toolbarUserData}>
+              <Typography className={classes.toolbarUserName} component="p" variant="body1">
+                {`Witaj, ${user.user.email}`}
+              </Typography>
+              <Typography className={classes.toolbarUserRoles} component="span" variant="caption">
+                {`role: ${user.user.roles.join(',')}`}
+              </Typography>
+            </div>
             <Button className={`${classes.toolbarButton} ${classes.toolbarButtonLogout}`} type="button" aria-label="logout" onClick={logout} onMouseDown={logout} startIcon={<Logout />}>
               wyloguj
             </Button>
