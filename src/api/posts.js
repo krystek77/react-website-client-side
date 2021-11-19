@@ -7,7 +7,6 @@ API.interceptors.request.use((req)=>{
         console.log(JSON.parse(localStorage.getItem('userProfile')).token);
         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('userProfile')).token}`;
     }
-    console.log("before send request to backend for posts");
     return req;
 })
 

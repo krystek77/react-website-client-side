@@ -35,21 +35,21 @@ function Toolbar() {
       <div className={classes.toolbarUserPanel}>
         {user ? (
           <React.Fragment>
-            <Avatar className={classes.toolbarUserAvatar} alt="Krystian" src="./assets/images/contact/firma.webpa">
+            <Avatar className={classes.toolbarUserAvatar} alt="Krystian" src={user.user.selectedImage || '../assets/images/users/default-avatar.png'}>
               {'Krystian'.charAt(0)}
             </Avatar>
             <div className={classes.toolbarUserData}>
               <Typography className={classes.toolbarUserName} component="p" variant="body1">
-                {`Witaj, ${user.user.email}`}
+                {`Witaj, ${user.user.firstName}`}
               </Typography>
               <Typography className={classes.toolbarUserRoles} component="span" variant="caption">
-                {`role: ${user.user.roles.join(', ')}`}
+                {`rola: ${user.user.role}`}
               </Typography>
             </div>
             {/** admin panel */}
-            {user.user.roles.some((role) => role === 'admin') && (
+            {user.user.role === 'admin' && (
               <div className={classes.toolbarAdminPanel}>
-                <IconButton className={`${classes.toolbarButton}  ${classes.toolbarAdminPanelAddUser}`} component={Link} to="/autoryzacja" type="button" aria-label="add user">
+                <IconButton className={`${classes.toolbarButton}  ${classes.toolbarAdminPanelAddUser}`} component={Link} to="/admin/utworz-konto-uzytkownika" type="button" aria-label="add user">
                   <PersonAdd />
                 </IconButton>
               </div>
@@ -61,7 +61,7 @@ function Toolbar() {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Button className={`${classes.toolbarButton}  ${classes.toolbarButtonLogout}`} component={Link} to="/autoryzacja" type="button" aria-label="login" startIcon={<Login />}>
+            <Button className={`${classes.toolbarButton}  ${classes.toolbarButtonLogout}`} component={Link} to="/logowanie" type="button" aria-label="login" startIcon={<Login />}>
               zaloguj
             </Button>
           </React.Fragment>

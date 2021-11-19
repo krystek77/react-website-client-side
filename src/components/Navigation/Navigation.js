@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 
-import React,{useState} from 'react';
-import {Link, NavLink} from 'react-router-dom'
+import React,{useState,useEffect} from 'react';
+import {Link, NavLink,useLocation} from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 import MenuOpenIcon from '@mui/icons-material/MenuOpen';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
@@ -15,6 +15,7 @@ function Navigation() {
   const [openNavigation,setOpenNavigation] = useState(false);
   const [activeMenu,setActiveMenu] = useState("0");
   const [activeHandySubmenu,setActiveHandySubmenu] = useState("0");
+  const location = useLocation();
 
   function toggleMenu(){
     setOpenNavigation(!openNavigation);
@@ -26,6 +27,9 @@ function Navigation() {
   }
 
   console.log("[Navigation.js] - render");
+  useEffect(()=>{
+    setActiveMenu("0");
+  },[location]);
 
   return (
     <nav className="navbar">
