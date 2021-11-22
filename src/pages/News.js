@@ -15,13 +15,13 @@ function News() {
   const dispatch = useDispatch();
   const [currentPostID,setCurrentPostID] = useState(null);
 
-  useEffect(() => {
-    console.log("mounted news")
-    dispatch(getPosts());
-    return () => {console.log("unmounted news")};
-  }, [dispatch,currentPostID]);
 
-  console.log('news');
+  useEffect(() => {
+    console.log("[News.js]- mounted");
+    console.log(currentPostID)
+    dispatch(getPosts());
+    return () => {console.log("[News.js]-unmounted")};
+  }, [dispatch,currentPostID]);
 
   return (
       <React.Fragment>
@@ -30,21 +30,9 @@ function News() {
         <Container maxWidth="false" className={`${classes.page} ${classes.pageNews}`}>
           
           {/** form post */}
-
-          <Container className={classes.pageNewsSection} component="section" maxWidth="false">
-            <Container className={classes.pageNewsHeader} component="header" maxWidth="false">
-              <Typography className={`${classes.pageNewsTitle} ${classes.pageNewsTitleCenter}`} variant="h2" component="h2">
-                {currentPostID ? "Formularz edytowania wiadomości" : "Formularz dodawania wiadomości"}
-              </Typography>
-            </Container>
-
-            <Container maxWidth="md">
-              <PostForm currentPostID={currentPostID} setCurrentPostID={setCurrentPostID} />
-            </Container>
-          </Container>
-
+          <PostForm currentPostID={currentPostID} setCurrentPostID={setCurrentPostID} />
+          
           {/** posts */}
-
           <Container className={classes.pageNewsSection} component="main" maxWidth="false">
             <Container className={classes.pageNewsHeader} component="header" maxWidth="false">
               <Typography className={classes.pageNewsTitle} variant="h2" component="h2">

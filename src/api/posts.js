@@ -1,15 +1,5 @@
-import axios from 'axios';
+import API from './index';
 
-const API = axios.create({baseURL:'http://localhost:4000'})
-API.interceptors.request.use((req)=>{
-    
-    if(localStorage.getItem('userProfile')){
-        console.log(JSON.parse(localStorage.getItem('userProfile')).token);
-        req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('userProfile')).token}`;
-    }
-    console.log("before send request to backend for posts");
-    return req;
-})
 
 export const getPosts = () => API.get('/posts');
 export const createPost = (newPost) => API.post('/posts', newPost);

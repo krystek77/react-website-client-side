@@ -12,8 +12,8 @@ export default makeStyles((theme) => ({
     justifyContent:"flex-end",
     alignItems:"center",
     backgroundColor:theme.palette.primary.main,
-    paddingTop:8,
-    paddingBottom:8
+    paddingTop:12,
+    paddingBottom:12
   },
   toolbarUserPanel:{
     display:"flex",
@@ -24,11 +24,24 @@ export default makeStyles((theme) => ({
     color:theme.palette.secondary.contrastText,
     marginRight:8
   },
+  toolbarUserData:{
+    marginRight:12,
+    paddingRight:12,
+    borderRight:`1px solid ${theme.palette.primary.light}`,
+    lineHeight:1
+  },
   toolbarUserName:{
-    marginRight:24,
     color:theme.palette.secondary.contrastText,
-    fontSize:12,
+    fontSize:14,
     fontWeight:700
+  },
+  toolbarUserRoles:{
+    fontSize:11,
+    display:"inline-block",
+    backgroundColor:theme.palette.primary.light,
+    color:theme.palette.primary.contrastText,
+    padding:"2px 8px",
+    borderRadius:10
   },
   toolbarButton:{
     color:theme.palette.primary.contrastText,
@@ -45,5 +58,11 @@ export default makeStyles((theme) => ({
   toolbarButtonContact:{
     borderRadius:"4px",
     padding:6
-  }
+  },
+  toolbarAdminPanel:{
+    paddingRight:24
+  },
+  toolbarAdminPanelAddUser:{
+    borderRadius:4
+  },
 }));
