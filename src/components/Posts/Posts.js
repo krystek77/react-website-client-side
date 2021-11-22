@@ -5,12 +5,22 @@ import {useSelector} from 'react-redux';
 import { Grid } from '@mui/material';
 import useStyles from './styles';
 
+import {getPosts} from '../../actions/posts'
 import Post from './Post/Post';
 
 function Posts({setCurrentPostID}) {
   const classes = useStyles();
   const posts = useSelector((state)=>state.posts);
-  console.log("POSTS")
+
+
+  useEffect(()=>{
+      console.log("[Posts.js] - mounted, useSelector");
+
+    return ()=>{
+      console.log("[Posts.js] - unmounted, useSelector");
+    }
+  })
+
   return posts.length!==0 && (
     <Grid className={classes.posts} container>
         {posts.map((post)=>{

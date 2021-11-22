@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useDispatch} from 'react-redux';
 import {deletePost,likePost} from '../../../actions/posts';
 
@@ -16,9 +16,16 @@ moment.locale("pl")
 
 function Post({ post,setCurrentPostID }) {
   const classes = useStyles();
-  const { _id,createdAt, selectedImage, title, contents, creator, tags,likeCount } = post;
+  const { _id,createdAt, selectedImage, title, contents, tags,likeCount,author } = post;
   const dispatch = useDispatch();
-  console.log("POST")
+
+  useEffect(()=>{
+    console.log("[Post.js] - mounted");
+    return ()=>{
+      console.log("[Post.js] - unmounted");
+    }
+  })
+
   return (
     <Card className={classes.post} sx={{ margin: '0 16px 16px' }}>
       <div className={classes['post__topbar']}>
@@ -43,7 +50,7 @@ function Post({ post,setCurrentPostID }) {
         )}
 
         <Typography className={classes['post__text']} variant="body2"> {contents.substring(0,150).concat(" ...")} </Typography>
-        <Typography className={classes['post__author']} variant="caption"> autor: <b>{creator}</b></Typography>
+        <Typography className={classes['post__author']} variant="caption"> autor: <b>{author}</b></Typography>
       </CardContent>
       <Divider light />
       <CardActions disableSpacing>
