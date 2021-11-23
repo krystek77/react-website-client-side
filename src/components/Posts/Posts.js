@@ -5,12 +5,12 @@ import {useSelector} from 'react-redux';
 import { Grid } from '@mui/material';
 import useStyles from './styles';
 
-import {getPosts} from '../../actions/posts'
 import Post from './Post/Post';
 
 function Posts({setCurrentPostID}) {
   const classes = useStyles();
   const posts = useSelector((state)=>state.posts);
+  console.log(posts)
 
 
   useEffect(()=>{

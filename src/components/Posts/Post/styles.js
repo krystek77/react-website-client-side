@@ -65,9 +65,11 @@ export default makeStyles((theme)=>({
         fontWeight:600
     },
     ['post__btn--favorite']:{
-        marginLeft:"auto"
+        marginLeft:"auto",
+        paddingRight:0
     },
-    ['post__btn--delte']:{
-        color:theme.palette.secondary.main
+    ['post__btn--delete']:{
+        color:theme.palette.secondary.main,
+        paddingLeft:0,
     }
 }))
