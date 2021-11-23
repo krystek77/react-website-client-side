@@ -31,7 +31,7 @@ function Post({ post, setCurrentPostID }) {
     <Card className={classes.post} sx={{ margin: '0 16px 16px' }}>
       <div className={classes['post__topbar']}>
         <Typography className={classes['post__date']} variant="body1">{moment(createdAt).fromNow()}</Typography>
-        <IconButton disabled={!userProfile || !(userProfile?.user._id === author)} className={`${classes['post__btn']} ${classes['post__btn--edit']}`} onClick={() => setCurrentPostID(_id)}>
+        <IconButton disabled={!userProfile || !(userProfile?.user._id === author._id)} className={`${classes['post__btn']} ${classes['post__btn--edit']}`} onClick={() => setCurrentPostID(_id)}>
           <MoreVert />
         </IconButton>
       </div>
@@ -53,17 +53,17 @@ function Post({ post, setCurrentPostID }) {
           </div>
         )}
         <Typography className={classes['post__text']} variant="body2"> {contents.substring(0, 150).concat(' ...')} </Typography>
-        <Typography className={classes['post__author']} variant="caption"> autor: <b>{author}</b> </Typography>
+        <Typography className={classes['post__author']} variant="caption"> autor: <b>{author?.firstName}</b> </Typography>
       </CardContent>
       <Divider light />
       <CardActions disableSpacing>
         <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="text">
           czytaj
         </Button>
-        <Button onClick={() => dispatch(likePost(_id))} disabled={!userProfile || userProfile?.user._id === author} className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}>
+        <Button onClick={() => dispatch(likePost(_id))} disabled={!userProfile || userProfile?.user._id === author._id} className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}>
           {likes.length}
         </Button>
-        <IconButton disabled={!userProfile || !(userProfile?.user._id === author)} onClick={() => dispatch(deletePost(_id))} color="secondary" className={`${classes['post__btn']} ${classes['post__btn--delete']}`}>
+        <IconButton disabled={!userProfile || !(userProfile?.user._id === author._id)} onClick={() => dispatch(deletePost(_id))} color="secondary" className={`${classes['post__btn']} ${classes['post__btn--delete']}`}>
           <Delete />
         </IconButton>
       </CardActions>

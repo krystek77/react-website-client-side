@@ -24,7 +24,7 @@ function PostForm({ currentPostID, setCurrentPostID }) {
     } else {
       dispatch(createPost(formatedData));
     }
-
+    
     clear();
   };
 
