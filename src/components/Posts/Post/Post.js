@@ -31,7 +31,7 @@ function Post({ post, setCurrentPostID }) {
     <Card className={classes.post} sx={{ margin: '0 16px 16px' }}>
       <div className={classes['post__topbar']}>
         <Typography className={classes['post__date']} variant="body1">{moment(createdAt).fromNow()}</Typography>
-        <IconButton className={`${classes['post__btn']} ${classes['post__btn--edit']}`} onClick={() => setCurrentPostID(_id)}>
+        <IconButton disabled={!userProfile || !(userProfile?.user._id === author)} className={`${classes['post__btn']} ${classes['post__btn--edit']}`} onClick={() => setCurrentPostID(_id)}>
           <MoreVert />
         </IconButton>
       </div>
