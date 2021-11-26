@@ -2,6 +2,7 @@ import ActionTypes from '../constants/actionTypes';
 const initialState = { authData: null };
 
 const reducer = (state = initialState, action) => {
+  // console.log(action.payload)
   switch (action.type) {
     case ActionTypes.SIGNIN:
       localStorage.setItem('userProfile', JSON.stringify(action.payload));

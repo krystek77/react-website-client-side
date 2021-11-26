@@ -25,9 +25,9 @@ const Products = (props) => {
   useEffect(()=>{
     console.log('[Products.js] - useEffect product');
     if (props.location.hash) {
-      console.log('hash');
+      // console.log('hash');
       const target = document.getElementById(props.location.hash.slice(1)); //do not get element
-      console.log(target);
+      // console.log(target);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       }

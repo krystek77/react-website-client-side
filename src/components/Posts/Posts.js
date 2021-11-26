@@ -10,7 +10,7 @@ import Post from './Post/Post';
 function Posts({setCurrentPostID}) {
   const classes = useStyles();
   const posts = useSelector((state)=>state.posts);
-  console.log(posts)
+  // console.log(posts)
 
 
   useEffect(()=>{

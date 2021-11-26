@@ -163,6 +163,6 @@ const ProductDetails = (props) => {
 
 ProductDetails.propTypes = {
   product:PropTypes.object,
-  controls:PropTypes.object
+  controls:PropTypes.array
 }
 export default ProductDetails;
