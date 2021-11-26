@@ -10,7 +10,7 @@ import Post from './Post/Post';
 function Posts({ setCurrentPostID }) {
   const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
-  console.log(posts)
+
 
   useEffect(() => {
     console.log('[Posts.js] - mounted');
