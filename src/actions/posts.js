@@ -4,8 +4,10 @@ import ActionTypes from '../constants/actionTypes';
 
 export const getPosts = () => async (dispatch) => {
   try {
+    dispatch({ type: ActionTypes.START_LOADING_POSTS });
     const { data } = await api.getPosts();
     dispatch({ type: ActionTypes.GET_POSTS, payload: data });
+    dispatch({ type: ActionTypes.END_LOADING_POSTS });
   } catch (error) {
     console.log(error.message);
   }

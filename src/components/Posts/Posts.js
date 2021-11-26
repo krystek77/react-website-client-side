@@ -1,34 +1,47 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React, {useEffect} from 'react';
-import {useSelector} from 'react-redux';
-import { Grid } from '@mui/material';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Grid, Typography, CircularProgress } from '@mui/material';
 import useStyles from './styles';
 
 import Post from './Post/Post';
+import { typography } from '@mui/system';
 
-function Posts({setCurrentPostID}) {
+function Posts({ setCurrentPostID }) {
+  const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
-  const posts = useSelector((state)=>state.posts);
-  // console.log(posts)
 
+  useEffect(() => {
+    console.log('[Posts.js] - mounted');
+    return () => {
+      console.log('[Posts.js] - unmounted');
+    };
+  });
+  
+  if (isLoading) {
+    return (
+      <div className={classes.loading}>
+        <Typography component="p" variant="h6" className={classes.loadingText}>
+          Ładowanie wiadomości ...
+        </Typography>
+        <CircularProgress className={classes.loadingImage} size={60} />
+      </div>
+    );
+  }
 
-  useEffect(()=>{
-      console.log("[Posts.js] - mounted, useSelector");
-
-    return ()=>{
-      console.log("[Posts.js] - unmounted, useSelector");
-    }
-  })
-
-  return posts.length!==0 && (
-    <Grid className={classes.posts} container>
-        {posts.map((post)=>{
+  return (
+    posts.length !== 0 && (
+      <Grid className={classes.posts} container>
+        {posts.map((post) => {
           return (
-            <Grid className={classes['post-wrapper']} key={post._id} item xs={12} sm={6} md={4} lg={3}><Post post={post} setCurrentPostID={setCurrentPostID}/></Grid>
-          )
+            <Grid className={classes['post-wrapper']} key={post._id} item xs={12} sm={6} md={4} lg={3}>
+              <Post post={post} setCurrentPostID={setCurrentPostID} />
+            </Grid>
+          );
         })}
-    </Grid>
+      </Grid>
+    )
   );
 }
 
