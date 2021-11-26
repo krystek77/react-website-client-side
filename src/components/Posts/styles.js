@@ -28,4 +28,10 @@ export default makeStyles((theme) => ({
   loadingImage: {
       color:theme.palette.secondary.dark
   },
+  //Feedback
+  feedBack:{
+    marginBottom: 48,
+    color:theme.palette.secondary.dark,
+    textAlign:"center"
+  }
 }));

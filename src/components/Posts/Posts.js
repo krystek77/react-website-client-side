@@ -6,11 +6,11 @@ import { Grid, Typography, CircularProgress } from '@mui/material';
 import useStyles from './styles';
 
 import Post from './Post/Post';
-import { typography } from '@mui/system';
 
 function Posts({ setCurrentPostID }) {
   const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
+  console.log(posts)
 
   useEffect(() => {
     console.log('[Posts.js] - mounted');
@@ -18,7 +18,7 @@ function Posts({ setCurrentPostID }) {
       console.log('[Posts.js] - unmounted');
     };
   });
-  
+  //Spinner
   if (isLoading) {
     return (
       <div className={classes.loading}>
@@ -27,6 +27,14 @@ function Posts({ setCurrentPostID }) {
         </Typography>
         <CircularProgress className={classes.loadingImage} size={60} />
       </div>
+    );
+  }
+  //Feedback
+  if (!posts.length && !isLoading) {
+    return (
+      <Typography component="p" variant="h6" className={classes.feedBack}>
+        --- Brak wiadomości ---
+      </Typography>
     );
   }
 
