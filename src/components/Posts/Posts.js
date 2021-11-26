@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { useSelector } from 'react-redux';
 import { Grid, Typography, CircularProgress } from '@mui/material';
 import useStyles from './styles';
@@ -51,6 +51,10 @@ function Posts({ setCurrentPostID }) {
       </Grid>
     )
   );
+}
+
+Posts.propTypes = {
+  setCurrentPostID:PropTypes.func
 }
 
 export default Posts;
