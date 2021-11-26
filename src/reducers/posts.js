@@ -1,7 +1,7 @@
 import ActionTypes from '../constants/actionTypes';
 const initialState = { isLoading: true, posts: [] };
 export default function reducer(state = initialState, action) {
-  // console.log(action.payload)
+  console.log("POSTS REDUCER",action.payload)
   if (state === undefined || state === null) return initialState;
   switch (action.type) {
     case ActionTypes.START_LOADING_POSTS:
@@ -13,11 +13,11 @@ export default function reducer(state = initialState, action) {
     case ActionTypes.CREATE_POST:
       return { ...state, posts: [...state.posts, action.payload] };
     case ActionTypes.UPDATE_POST:
-      return { ...state, posts: state.map((post) => (post._id === action.payload._id ? action.payload : post)) };
+      return { ...state, posts: state.posts.map((post) => (post._id === action.payload._id ? action.payload : post)) };
     case ActionTypes.LIKE_POST:
-      return { ...state, posts: state.map((post) => (post._id === action.payload._id ? action.payload : post)) };
+      return { ...state, posts: state.posts.map((post) => (post._id === action.payload._id ? action.payload : post)) };
     case ActionTypes.DELETE_POST:
-      return { ...state, posts: state.filter((post) => post._id !== action.payload) };
+      return { ...state, posts: state.posts.filter((post) => post._id !== action.payload) };
     default:
       return state;
   }

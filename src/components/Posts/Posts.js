@@ -1,7 +1,8 @@
 
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useSelector,useDispatch } from 'react-redux';
+import {getPosts} from '../../actions/posts'
 import { Grid, Typography, CircularProgress } from '@mui/material';
 import useStyles from './styles';
 
@@ -10,14 +11,16 @@ import Post from './Post/Post';
 function Posts({ setCurrentPostID }) {
   const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
-
+  const dispatch = useDispatch();
+  console.log(posts)
 
   useEffect(() => {
     console.log('[Posts.js] - mounted');
+    dispatch(getPosts())
     return () => {
       console.log('[Posts.js] - unmounted');
     };
-  });
+  },[dispatch]);
   //Spinner
   if (isLoading) {
     return (

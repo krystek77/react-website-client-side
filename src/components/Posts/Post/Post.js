@@ -16,7 +16,7 @@ function Post({ post, setCurrentPostID }) {
   const classes = useStyles();
   const { _id, createdAt, selectedImage, title, contents, tags, author, likes } = post;
   const userProfile = JSON.parse(localStorage.getItem('userProfile'));
-
+  console.log(post)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -91,7 +91,7 @@ Post.propTypes = {
       _id:PropTypes.string,
       firstName:PropTypes.string
     }),
-    likes: PropTypes.string,
+    likes: PropTypes.arrayOf(PropTypes.string),
   }),
 };
 export default Post;
