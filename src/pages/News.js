@@ -18,7 +18,7 @@ function News() {
 
   useEffect(() => {
     console.log("[News.js]- mounted");
-    console.log(currentPostID)
+    // console.log(currentPostID)
     dispatch(getPosts());
     return () => {console.log("[News.js]-unmounted")};
   }, [dispatch,currentPostID]);

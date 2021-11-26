@@ -1,9 +1,9 @@
 import ActionTypes from '../constants/actionTypes';
 export default function reducer(state = [], action) {
-  console.log(action.payload)
+  // console.log(action.payload)
   switch (action.type) {
     case ActionTypes.GET_POSTS:
-      return action.payload;
+      return action.payload ? action.payload : [];
     case ActionTypes.CREATE_POST:
       return [...state, action.payload];
     case ActionTypes.UPDATE_POST: 
