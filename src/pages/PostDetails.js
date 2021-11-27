@@ -1,10 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
+import { Link,useParams } from 'react-router-dom';
+import { Divider, Button } from '@mui/material';
+import {KeyboardReturn} from '@mui/icons-material';
 import moment from 'moment';
 import 'moment/locale/pl';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
 import { getPostById } from '../actions/posts';
 
 moment.locale('pl');
@@ -15,7 +17,6 @@ function PostDetails() {
   const { isLoading, post } = useSelector((state) => state.posts);
   const { id } = useParams();
   const dispatch = useDispatch();
-
 
   useEffect(() => {
     console.log('[PostDetails] - mounted');
@@ -36,6 +37,11 @@ function PostDetails() {
         {post.tags.map((tag) => (
           <span key={tag}>{tag}</span>
         ))}
+        <div>Autor: {post.author.firstName}</div>
+        <Divider light/>
+        <Button component={Link} to="/wiadomosci" variant="contained" size="small" startIcon={<KeyboardReturn />}>
+          Wszystkie wiadomości
+        </Button>
       </div>
     </React.Fragment>
   ) : null;
