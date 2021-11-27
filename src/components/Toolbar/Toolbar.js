@@ -35,7 +35,7 @@ function Toolbar() {
       <div className={classes.toolbarUserPanel}>
         {user ? (
           <React.Fragment>
-            <Avatar className={classes.toolbarUserAvatar} alt="Krystian" src={user.user.selectedImage || '../assets/images/users/default-avatar.png'}>
+            <Avatar className={classes.toolbarUserAvatar} alt="Krystian" src={user.user.selectedImage || '../assets/images/users/default_user_avatar.png'}>
               {'Krystian'.charAt(0)}
             </Avatar>
             <div className={classes.toolbarUserData}>

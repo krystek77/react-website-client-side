@@ -20,7 +20,7 @@ const Products = (props) => {
     if (allControls.length) {
       setControls(allControls);
     }
-  }, []);
+  }, [props.match.params.name]);
 
   useEffect(()=>{
     console.log('[Products.js] - useEffect product');

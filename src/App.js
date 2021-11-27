@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Navigation from './components/Navigation/Navigation';
 import Toolbar from './components/Toolbar/Toolbar';
-import { Home, About, Customers, Products, DedicatedSolutions, Technologies, AdditionalEquipment, News, Contact, Signin, NotFound, CreateAccount } from './pages';
+import { Home, About, Customers, Products, DedicatedSolutions, Technologies, AdditionalEquipment,PostDetails, News, Contact, Signin, NotFound, CreateAccount } from './pages';
 
 import ContactForm from './components/ContactForm/ContactForm';
 import Footer from './components/Footer/Footer';
@@ -22,6 +22,7 @@ const App = () => {
         <Route path="/rozwiazania-specjalne/:name" render={(props) => <DedicatedSolutions {...props} />} />
         <Route path="/technologie" component={Technologies} />
         <Route path="/dodatkowe-wyposazenie" component={AdditionalEquipment} />
+        <Route path="/wiadomosci/:id" component={PostDetails}/>
         <Route path="/wiadomosci" component={News} />
         <Route path="/kontakt" component={Contact} />
         <Route path="/logowanie" component={Signin} />

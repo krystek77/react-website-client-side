@@ -11,20 +11,18 @@ function PostForm({ currentPostID, setCurrentPostID }) {
   const [postData, setPostData] = useState({ title: '', contents: '', tags: '', selectedImage: '' });
   const classes = useStyles();
   const dispatch = useDispatch();
-  const post = useSelector((state) => (currentPostID ? state.posts.find((post) => post._id === currentPostID) : null));
-
+  const post = useSelector((state) => (currentPostID ? state.posts.posts.find((post) => post._id === currentPostID) : null));
   const user = JSON.parse(localStorage.getItem('userProfile'));
 
   const handlePostData = (e) => {
     e.preventDefault();
-    const formatedData = { ...postData, tags: postData.tags.split(','), author: user.user._id };
+    const formatedData = { ...postData, tags: postData.tags.split(',') };
     
     if (currentPostID) {
       dispatch(updatePost(currentPostID, formatedData));
     } else {
       dispatch(createPost(formatedData));
     }
-    
     clear();
   };
 

@@ -1,11 +1,11 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/prop-types */
 import React, { useEffect } from 'react';
+import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deletePost, likePost } from '../../../actions/posts';
 
 import { Card, CardContent, Typography, IconButton, Button, CardActions, CardMedia, Divider } from '@mui/material';
-import { MoreVert, Favorite, Delete } from '@mui/icons-material';
+import { MoreVert, Favorite, Delete, DoubleArrow } from '@mui/icons-material';
 
 import useStyles from './styles';
 
@@ -17,20 +17,22 @@ function Post({ post, setCurrentPostID }) {
   const classes = useStyles();
   const { _id, createdAt, selectedImage, title, contents, tags, author, likes } = post;
   const userProfile = JSON.parse(localStorage.getItem('userProfile'));
-
+  console.log(post)
   const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   console.log('[Post.js] - mounted');
-  //   return () => {
-  //     console.log('[Post.js] - unmounted');
-  //   };
-  // });
+  useEffect(() => {
+    console.log('[Post.js] - mounted');
+    return () => {
+      console.log('[Post.js] - unmounted');
+    };
+  });
 
   return (
     <Card className={classes.post} sx={{ margin: '0 16px 16px' }}>
       <div className={classes['post__topbar']}>
-        <Typography className={classes['post__date']} variant="body1">{moment(createdAt).fromNow()}</Typography>
+        <Typography className={classes['post__date']} variant="body1">
+          {moment(createdAt).fromNow()}
+        </Typography>
         <IconButton disabled={!userProfile || !(userProfile?.user._id === author._id)} className={`${classes['post__btn']} ${classes['post__btn--edit']}`} onClick={() => setCurrentPostID(_id)}>
           <MoreVert />
         </IconButton>
@@ -52,12 +54,18 @@ function Post({ post, setCurrentPostID }) {
             })}
           </div>
         )}
-        <Typography className={classes['post__text']} variant="body2"> {contents.substring(0, 150).concat(' ...')} </Typography>
-        <Typography className={classes['post__author']} variant="caption"> autor: <b>{author?.firstName}</b> </Typography>
+        <Typography className={classes['post__text']} variant="body2">
+          {' '}
+          {contents.substring(0, 150).concat(' ...')}{' '}
+        </Typography>
+        <Typography className={classes['post__author']} variant="caption">
+          {' '}
+          autor: <b>{author?.firstName}</b>{' '}
+        </Typography>
       </CardContent>
       <Divider light />
       <CardActions disableSpacing>
-        <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="text">
+        <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="contained" size="small" component={Link} to={`/wiadomosci/${post._id}`} endIcon={<DoubleArrow/>}>
           czytaj
         </Button>
         <Button onClick={() => dispatch(likePost(_id))} disabled={!userProfile || userProfile?.user._id === author._id} className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}>
@@ -71,4 +79,20 @@ function Post({ post, setCurrentPostID }) {
   );
 }
 
+Post.propTypes = {
+  setCurrentPostID: PropTypes.func,
+  post: PropTypes.shape({
+    _id: PropTypes.string,
+    createdAt: PropTypes.string,
+    selectedImage: PropTypes.string,
+    title: PropTypes.string,
+    contents: PropTypes.string,
+    tags: PropTypes.arrayOf(PropTypes.string),
+    author: PropTypes.shape({
+      _id:PropTypes.string,
+      firstName:PropTypes.string
+    }),
+    likes: PropTypes.arrayOf(PropTypes.string),
+  }),
+};
 export default Post;

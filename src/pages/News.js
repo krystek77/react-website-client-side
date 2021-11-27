@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect,useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getPosts } from '../actions/posts';
+// import { useDispatch } from 'react-redux';
+// import { getPosts } from '../actions/posts';
 
 import { Container, Typography } from '@mui/material';
 import Hero from '../components/Hero/Hero';
@@ -12,16 +12,16 @@ import useStyles from '../styles/news';
 
 function News() {
   const classes = useStyles();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [currentPostID,setCurrentPostID] = useState(null);
 
 
   useEffect(() => {
     console.log("[News.js]- mounted");
     // console.log(currentPostID)
-    dispatch(getPosts());
+    // dispatch(getPosts());
     return () => {console.log("[News.js]-unmounted")};
-  }, [dispatch,currentPostID]);
+  }, [currentPostID]);
 
   return (
       <React.Fragment>

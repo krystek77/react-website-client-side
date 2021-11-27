@@ -5,6 +5,7 @@ export {default as Products} from './Products';
 export {default as DedicatedSolutions} from './DedicatedSolutions';
 export {default as Technologies} from './Technologies';
 export {default as AdditionalEquipment} from './AdditionalEquipment';
+export {default as PostDetails} from './PostDetails';
 export {default as News} from './News';
 export {default as Contact} from './Contact';
 export {default as Signin} from './Signin';
