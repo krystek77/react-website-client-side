@@ -3,7 +3,8 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useSelector,useDispatch } from 'react-redux';
 import {getPosts} from '../../actions/posts'
-import { Grid, Typography, CircularProgress } from '@mui/material';
+import { Grid, Typography} from '@mui/material';
+import Loading from '../Loading/Loading';
 import useStyles from './styles';
 
 import Post from './Post/Post';
@@ -21,17 +22,9 @@ function Posts({ setCurrentPostID }) {
       console.log('[Posts.js] - unmounted');
     };
   },[dispatch]);
-  //Spinner
-  if (isLoading) {
-    return (
-      <div className={classes.loading}>
-        <Typography component="p" variant="h6" className={classes.loadingText}>
-          Ładowanie wiadomości ...
-        </Typography>
-        <CircularProgress className={classes.loadingImage} size={60} />
-      </div>
-    );
-  }
+
+  if (isLoading) return <Loading message="Pobieranie wiadomości"/>
+
   //Feedback
   if (!posts.length && !isLoading) {
     return (
