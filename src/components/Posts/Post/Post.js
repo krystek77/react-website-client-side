@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { deletePost, likePost } from '../../../actions/posts';
 
 import { Card, CardContent, Typography, IconButton, Button, CardActions, CardMedia, Divider } from '@mui/material';
-import { MoreVert, Favorite, Delete } from '@mui/icons-material';
+import { MoreVert, Favorite, Delete, DoubleArrow } from '@mui/icons-material';
 
 import useStyles from './styles';
 
@@ -65,7 +65,7 @@ function Post({ post, setCurrentPostID }) {
       </CardContent>
       <Divider light />
       <CardActions disableSpacing>
-        <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="text" component={Link} to={`/wiadomosci/${post._id}`}>
+        <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="contained" size="small" component={Link} to={`/wiadomosci/${post._id}`} endIcon={<DoubleArrow/>}>
           czytaj
         </Button>
         <Button onClick={() => dispatch(likePost(_id))} disabled={!userProfile || userProfile?.user._id === author._id} className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}>
