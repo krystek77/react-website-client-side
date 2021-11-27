@@ -12,6 +12,7 @@ import { getPostById } from '../actions/posts';
 moment.locale('pl');
 
 import Hero from '../components/Hero/Hero';
+import Loading from '../components/Loading/Loading';
 
 function PostDetails() {
   const { isLoading, post } = useSelector((state) => state.posts);
@@ -26,9 +27,11 @@ function PostDetails() {
     };
   }, [dispatch, id]);
 
+  if(isLoading) return <Loading mt={48} message="Pobieranie szczegółów ..."/>
+
   return post ? (
     <React.Fragment>
-      <Hero title={post.title} bgBase64={post.selectedImage} />
+      <Hero title={post.title} bgBase64={post.selectedImage} mt={48} />
       <div>
         <span>ID: {post._id}</span>
         <p>{moment(post.createdAt).calendar()}</p>

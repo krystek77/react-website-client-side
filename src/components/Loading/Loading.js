@@ -4,12 +4,12 @@ import { CircularProgress, Typography } from '@mui/material';
 
 import useStyles from './styles';
 
-function Loading({ message }) {
-  const classes = useStyles();
+function Loading(props) {
+  const classes = useStyles(props);
   return  (
     <div className={classes.loading}>
       <Typography component="p" variant="h6" className={classes.loadingText}>
-        {message}
+        {props.message}
       </Typography>
       <CircularProgress className={classes.loadingImage} size={60} />
     </div>
@@ -17,5 +17,6 @@ function Loading({ message }) {
 }
 Loading.propTypes = {
   message: PropTypes.string,
+  mt:PropTypes.number,
 };
 export default Loading;

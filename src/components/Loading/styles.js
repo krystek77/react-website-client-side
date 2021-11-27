@@ -12,6 +12,7 @@ export default makeStyles((theme)=>({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 48,
+    marginTop: (props) => (props.mt ? props.mt : 0),
   },
   loadingText: {
     marginBottom: 24,
