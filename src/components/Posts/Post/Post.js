@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import {Link} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deletePost, likePost } from '../../../actions/posts';
@@ -64,7 +65,7 @@ function Post({ post, setCurrentPostID }) {
       </CardContent>
       <Divider light />
       <CardActions disableSpacing>
-        <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="text">
+        <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="text" component={Link} to={`/wiadomosci/${post._id}`}>
           czytaj
         </Button>
         <Button onClick={() => dispatch(likePost(_id))} disabled={!userProfile || userProfile?.user._id === author._id} className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}>

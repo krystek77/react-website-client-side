@@ -2,6 +2,17 @@
 import * as api from '../api/posts';
 import ActionTypes from '../constants/actionTypes';
 
+export const getPostById = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: ActionTypes.START_LOADING_POSTS });
+    const { data } = await api.getPostById(id);
+    dispatch({ type: ActionTypes.GET_POST_BY_ID, payload: data });
+    dispatch({ type: ActionTypes.END_LOADING_POSTS });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const getPosts = () => async (dispatch) => {
   try {
     dispatch({ type: ActionTypes.START_LOADING_POSTS });
