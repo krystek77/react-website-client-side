@@ -16,8 +16,8 @@ function PostForm({ currentPostID, setCurrentPostID }) {
 
   const handlePostData = (e) => {
     e.preventDefault();
-    const formatedData = { ...postData, tags: postData.tags.split(',') };
-    
+    const formatedData = { ...postData, tags: postData.tags.split(','), author: user.user._id };
+
     if (currentPostID) {
       dispatch(updatePost(currentPostID, formatedData));
     } else {
