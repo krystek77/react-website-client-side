@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Container, IconButton, Button, Avatar, Typography } from '@mui/material';
 import { ContactMail, Login, Logout, PersonAdd } from '@mui/icons-material';
@@ -13,7 +13,7 @@ function Toolbar() {
   const classes = useStyles();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('userProfile')));
   const dispatch = useDispatch();
-  const history = useNavigate();
+  const history = useHistory();
   const location = useLocation();
 
   useEffect(() => {
@@ -27,7 +27,7 @@ function Toolbar() {
   const logout = () => {
     // console.log('Log out user');
     dispatch({ type: ActionTypes.LOGOUT });
-    history('/');
+    history.push('/');
   };
 
   return (
