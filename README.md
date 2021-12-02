@@ -1,1 +1,2 @@
-# Web application
+# Client-side part of MERN web apploication
+
