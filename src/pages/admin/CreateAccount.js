@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Container, Typography, Box, TextField, FormControl, InputLabel, Input, InputAdornment, IconButton, Button, Avatar, Divider,FormControlLabel,RadioGroup,Radio,FormLabel } from '@mui/material';
 import { Visibility, VisibilityOff, Login, VpnKey } from '@mui/icons-material';
 import { useDispatch } from 'react-redux';
@@ -24,7 +24,7 @@ function CreateAccount() {
   const classes = useStyles();
 
   const dispatch = useDispatch();
-  const history = useHistory();
+  const history = useNavigate();
 
   const handleCreateAccount = (e) => {
     e.preventDefault();
