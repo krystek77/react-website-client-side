@@ -44,7 +44,7 @@ function News() {
             </Typography>
           </Container>
 
-          <Container maxWidth="false" className={classes.pageNewsPosts}>
+          <Container maxWidth="xl" className={classes.pageNewsPosts}>
             <Posts setCurrentPostID={setCurrentPostID} />
 
             <div className={classes.pageNewsFilter}>
