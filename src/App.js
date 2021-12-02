@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
 import Navigation from './components/Navigation/Navigation';
@@ -15,7 +15,7 @@ const App = () => {
     <Layout>
       <Navigation />
       <Toolbar />
-      <Switch>
+      <Routes>
         <Route path="/o-nas" component={About} />
         <Route path="/klienci" component={Customers} />
         <Route path="/produkty/:name" render={(props) => <Products {...props} />} />
@@ -29,7 +29,7 @@ const App = () => {
         <Route path="/admin/utworz-konto-uzytkownika" component={CreateAccount}/>
         <Route path="/" exact component={Home} />
         <Route component={NotFound} />
-      </Switch>
+      </Routes>
       <ContactForm />
       <Footer />
     </Layout>
