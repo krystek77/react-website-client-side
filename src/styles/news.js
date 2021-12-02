@@ -27,10 +27,12 @@ export default makeStyles((theme) => ({
   pageNewsTitle: {
     fontWeight: 700,
     fontSize: 24,
-    padding: '48px 24px',
+    padding: '48px 40px',
     textAlign: 'left',
     textTransform: 'uppercase',
     color: theme.palette.secondary.contrastText,
+    maxWidth:1536,
+    margin:"0 auto"
   },
   pageNewsTitleCenter: {
     textAlign: 'center',
