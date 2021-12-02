@@ -31,7 +31,7 @@ function Posts({ setCurrentPostID }) {
       <Grid className={classes.posts} container>
         {posts.map((post) => {
           return (
-            <Grid className={classes['post-wrapper']} key={post._id} item xs={12} sm={6} md={4} lg={3}>
+            <Grid className={classes['post-wrapper']} key={post._id} item xs={12} sm={6} md={4}>
               <Post post={post} setCurrentPostID={setCurrentPostID} />
             </Grid>
           );
