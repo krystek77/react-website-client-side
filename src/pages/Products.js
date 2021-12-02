@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import {useParams,useLocation} from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import { dataProducts as allProducts } from '../constants/products';
@@ -7,16 +6,13 @@ import { dataControls as allControls } from '../constants/control-options';
 
 import ProductDetails from '../components/ProductDetails/ProductDetails';
 
-const Products = () => {
+const Products = (props) => {
   const [product, setProduct] = useState(null);
   const [controls, setControls] = useState([]);
-  const params = useParams();
-  const location = useLocation();
- 
 
   useEffect(() => {
     console.log('[Product.js] - useEffect');
-    const product = allProducts.find((p) => p.pathname === params.name);
+    const product = allProducts.find((p) => p.pathname === props.match.params.name);
 
     if (product) {
       setProduct(product);
@@ -24,19 +20,19 @@ const Products = () => {
     if (allControls.length) {
       setControls(allControls);
     }
-  }, [params.name]);
+  }, [props.match.params.name]);
 
   useEffect(()=>{
     console.log('[Products.js] - useEffect product');
-    if (location.hash) {
+    if (props.location.hash) {
       // console.log('hash');
-      const target = document.getElementById(location.hash.slice(1)); //do not get element
+      const target = document.getElementById(props.location.hash.slice(1)); //do not get element
       // console.log(target);
       if (target) {
         target.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  },[product,location.hash])
+  },[product,props])
 
   console.log('[Products.js] - render');
 
