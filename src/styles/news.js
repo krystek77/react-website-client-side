@@ -35,4 +35,42 @@ export default makeStyles((theme) => ({
   pageNewsTitleCenter: {
     textAlign: 'center',
   },
+  pageNewsPosts: {
+    // border: '1px solid red',
+    display: 'flex',
+    flexWrap: 'wrap',
+    paddingLeft: 0,
+    paddingRight: 0,
+    marginBottom: 48,
+
+    [theme.breakpoints.up('lg')]: {
+      flexWrap: 'nowrap',
+      paddingLeft: 24,
+      paddingRight: 24,
+    },
+  },
+  pageNewsFilter: {
+    // border: '1px solid blue',
+    minWidth: 360,
+    padding: 8,
+    flexGrow:1,
+    [theme.breakpoints.up('lg')]: {
+      flexGrow:0,
+    },
+  },
+  pageNewsSearch: {
+    marginBottom: 24,
+  },
+  pageNewsTags: {
+    padding: 8,
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap:"wrap",
+    border:`1px solid rgba(0,0,0,0.23)`,
+    borderRadius:4
+  },
+  pageNewsTag: {
+    margin:4,
+    flexShrink:0,
+  },
 }));
