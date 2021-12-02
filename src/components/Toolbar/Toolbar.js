@@ -27,7 +27,7 @@ function Toolbar() {
   const logout = () => {
     // console.log('Log out user');
     dispatch({ type: ActionTypes.LOGOUT });
-    history.push('/');
+    history('/');
   };
 
   return (

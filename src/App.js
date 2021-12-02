@@ -16,19 +16,19 @@ const App = () => {
       <Navigation />
       <Toolbar />
       <Routes>
-        <Route path="/o-nas" component={About} />
-        <Route path="/klienci" component={Customers} />
-        <Route path="/produkty/:name" render={(props) => <Products {...props} />} />
-        <Route path="/rozwiazania-specjalne/:name" render={(props) => <DedicatedSolutions {...props} />} />
-        <Route path="/technologie" component={Technologies} />
-        <Route path="/dodatkowe-wyposazenie" component={AdditionalEquipment} />
-        <Route path="/wiadomosci/:id" component={PostDetails}/>
-        <Route path="/wiadomosci" component={News} />
-        <Route path="/kontakt" component={Contact} />
-        <Route path="/logowanie" component={Signin} />
-        <Route path="/admin/utworz-konto-uzytkownika" component={CreateAccount}/>
-        <Route path="/" exact component={Home} />
-        <Route component={NotFound} />
+        <Route path="/o-nas" element={<About/>} />
+        <Route path="/klienci" element={<Customers/>} />
+        <Route path="/produkty/:name" element={<Products/>} />
+        <Route path="/rozwiazania-specjalne/:name" element={<DedicatedSolutions/>} />
+        <Route path="/technologie" element={<Technologies/>} />
+        <Route path="/dodatkowe-wyposazenie" element={<AdditionalEquipment/>} />
+        <Route path="/wiadomosci/:id" element={<PostDetails/>}/>
+        <Route path="/wiadomosci" element={<News/>} />
+        <Route path="/kontakt" element={<Contact/>} />
+        <Route path="/logowanie" element={<Signin/>} />
+        <Route path="/admin/utworz-konto-uzytkownika" element={<CreateAccount/>}/>
+        <Route path="/" exact element={<Home/>} />
+        <Route component={<NotFound/>} />
       </Routes>
       <ContactForm />
       <Footer />
