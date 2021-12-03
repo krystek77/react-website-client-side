@@ -8,13 +8,13 @@ import { ThemeProvider } from '@mui/material/styles';
 import { Provider } from 'react-redux';
 
 import App from './App';
-import './index.css'
+import './index.css';
 
-import theme from './muitheme'
+import theme from './muitheme';
 import store from './store';
 
 // console.log(theme);
-console.log(store.getState());
+// console.log(store.getState());
 
 ReactDOM.render(
   <Router>

@@ -1,19 +1,33 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Container, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, Button, Pagination } from '@mui/material';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { Container, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, Button, Pagination, PaginationItem } from '@mui/material';
 
 import Hero from '../components/Hero/Hero';
 import PostForm from '../components/PostForm/PostForm';
 import Posts from '../components/Posts/Posts';
 import { Search, Tag } from '@mui/icons-material';
+import { getPostsBySearch } from '../actions/posts';
 import useStyles from '../styles/news';
+
+const useQuery = (searchQuery) => {
+  return new URLSearchParams(searchQuery);
+};
 
 function News() {
   const classes = useStyles();
   const [currentPostID, setCurrentPostID] = useState(null);
-
   const [search, setSearch] = useState('');
   const [tags, setTags] = useState('');
+  const query = useQuery(useLocation().search);
+  const page = parseInt(query.get('page')) || 1;
+  const searchQuery = query.get('searchQuery');
+  const history = useNavigate();
+  const dispatch = useDispatch();
+
+  console.log(page);
+  console.log(searchQuery);
 
   const handleSearch = (e) => {
     if (e.charCode === 13) {
@@ -26,7 +40,13 @@ function News() {
     setTags(tags);
   };
   const searchPosts = (e) => {
-    console.log('search posts ...');
+    if (search.trim() || tags) {
+      console.log('search posts ...');
+      dispatch(getPostsBySearch({ search: search, tags: tags }));
+      history(`/wiadomosci/szukaj?searchQuery=${search || 'none'}&tags=${tags || ''}`);
+    } else {
+      history('/wiadomosci');
+    }
   };
 
   useEffect(() => {
@@ -101,7 +121,16 @@ function News() {
           </Container>
 
           <Container className={classes.pageNewsPagination}>
-            <Pagination count={10} variant="outlined" shape="rounded" />
+            <Pagination
+              count={10}
+              page={page}
+              onChange={() => {
+                console.log('change page');
+              }}
+              variant="outlined"
+              shape="rounded"
+              renderItem={(item) => <PaginationItem {...item} component={Link} to={`/wiadomosci?page=${page}`} />}
+            />
           </Container>
         </Container>
       </Container>
