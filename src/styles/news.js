@@ -43,7 +43,7 @@ export default makeStyles((theme) => ({
     flexWrap: 'wrap',
     paddingLeft: 0,
     paddingRight: 0,
-    marginBottom: 48,
+    marginBottom: 24,
 
     [theme.breakpoints.up('lg')]: {
       flexWrap: 'nowrap',
@@ -54,7 +54,8 @@ export default makeStyles((theme) => ({
   pageNewsFilter: {
     // border: '1px solid blue',
     minWidth: 360,
-    padding: 8,
+    paddingLeft: 8,
+    paddingRight: 8,
     flexGrow: 1,
     [theme.breakpoints.up('lg')]: {
       flexGrow: 0,
@@ -71,4 +72,11 @@ export default makeStyles((theme) => ({
   pageNewsTagsInput: {},
   pageNewsTagsIcon: {},
   pageNewsTag: {},
+  // Pagination section of page news
+  pageNewsPagination: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 24,
+  },
 }));

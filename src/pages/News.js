@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Container, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, Button } from '@mui/material';
+import { Container, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, Button, Pagination } from '@mui/material';
 
 import Hero from '../components/Hero/Hero';
 import PostForm from '../components/PostForm/PostForm';
@@ -98,6 +98,10 @@ function News() {
                 szukaj
               </Button>
             </div>
+          </Container>
+
+          <Container className={classes.pageNewsPagination}>
+            <Pagination count={10} variant="outlined" shape="rounded" />
           </Container>
         </Container>
       </Container>
