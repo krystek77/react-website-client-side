@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
-import { Container, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment } from '@mui/material';
-
+import { Container, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, Button } from '@mui/material';
 
 import Hero from '../components/Hero/Hero';
 import PostForm from '../components/PostForm/PostForm';
 import Posts from '../components/Posts/Posts';
-import { Search } from '@mui/icons-material';
+import { Search, Tag } from '@mui/icons-material';
 import useStyles from '../styles/news';
 
 function News() {
@@ -14,16 +13,24 @@ function News() {
   const [currentPostID, setCurrentPostID] = useState(null);
 
   const [search, setSearch] = useState('');
+  const [tags, setTags] = useState('');
 
   const handleSearch = (e) => {
     if (e.charCode === 13) {
-      console.log('Search ....');
+      searchPosts();
     }
+  };
+  const handleTags = (e) => {
+    const tags = e.target.value.replace(' ', '');
+    // console.log(tags)
+    setTags(tags);
+  };
+  const searchPosts = (e) => {
+    console.log('search posts ...');
   };
 
   useEffect(() => {
     console.log('[News.js]- mounted');
-
     return () => {
       console.log('[News.js]-unmounted');
     };
@@ -57,6 +64,7 @@ function News() {
                   onKeyPress={handleSearch}
                   onChange={(e) => setSearch(e.target.value)}
                   label="Szukaj wiadomości"
+                  placeholder="wpisz szukaną frazę"
                   startAdornment={
                     <InputAdornment position="start">
                       <Search />
@@ -64,6 +72,31 @@ function News() {
                   }
                 />
               </FormControl>
+
+              <FormControl fullWidth className={classes.pageNewsTags}>
+                <InputLabel className={classes.pageNewsTagsLabel} htmlFor="tags">
+                  Szukaj według tagów
+                </InputLabel>
+                <OutlinedInput
+                  className={classes.pageNewsTagsInput}
+                  id="tags"
+                  type="text"
+                  value={tags}
+                  onKeyPress={handleSearch}
+                  onChange={handleTags}
+                  label="Szukaj według tagów"
+                  placeholder="np.: nowe,2021,ewelina"
+                  startAdornment={
+                    <InputAdornment className={classes.pageNewsTagsIcon} position="start">
+                      <Tag />
+                    </InputAdornment>
+                  }
+                />
+              </FormControl>
+
+              <Button onClick={searchPosts} type="button" fullWidth size="small" variant="contained">
+                szukaj
+              </Button>
             </div>
           </Container>
         </Container>
