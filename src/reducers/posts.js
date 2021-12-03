@@ -1,11 +1,13 @@
 import ActionTypes from '../constants/actionTypes';
 const initialState = { isLoading: true, posts: [], post: null };
 export default function reducer(state = initialState, action) {
-  console.log('POSTS REDUCER', action.payload);
+  // console.log('POSTS REDUCER', action.payload);
   if (state === undefined || state === null) return initialState;
   switch (action.type) {
     case ActionTypes.START_LOADING_POSTS:
       return { ...state, isLoading: true };
+    case ActionTypes.GET_POSTS_BY_SEARCH:
+      return { ...state, posts: action.payload };
     case ActionTypes.GET_POST_BY_ID:
       return { ...state, post: action.payload };
     case ActionTypes.GET_POSTS:

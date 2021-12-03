@@ -5,7 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout/Layout';
 import Navigation from './components/Navigation/Navigation';
 import Toolbar from './components/Toolbar/Toolbar';
-import { Home, About, Customers, Products, DedicatedSolutions, Technologies, AdditionalEquipment,PostDetails, News, Contact, Signin, NotFound, CreateAccount } from './pages';
+import { Home, About, Customers, Products, DedicatedSolutions, Technologies, AdditionalEquipment, PostDetails, News, Contact, Signin, NotFound, CreateAccount } from './pages';
 
 import ContactForm from './components/ContactForm/ContactForm';
 import Footer from './components/Footer/Footer';
@@ -16,19 +16,20 @@ const App = () => {
       <Navigation />
       <Toolbar />
       <Routes>
-        <Route path="/o-nas" element={<About/>} />
-        <Route path="/klienci" element={<Customers/>} />
-        <Route path="/produkty/:name" element={<Products/>} />
-        <Route path="/rozwiazania-specjalne/:name" element={<DedicatedSolutions/>} />
-        <Route path="/technologie" element={<Technologies/>} />
-        <Route path="/dodatkowe-wyposazenie" element={<AdditionalEquipment/>} />
-        <Route path="/wiadomosci/:id" element={<PostDetails/>}/>
-        <Route path="/wiadomosci" element={<News/>} />
-        <Route path="/kontakt" element={<Contact/>} />
-        <Route path="/logowanie" element={<Signin/>} />
-        <Route path="/admin/utworz-konto-uzytkownika" element={<CreateAccount/>}/>
-        <Route path="/" exact element={<Home/>} />
-        <Route component={<NotFound/>} />
+        <Route path="/o-nas" element={<About />} />
+        <Route path="/klienci" element={<Customers />} />
+        <Route path="/produkty/:name" element={<Products />} />
+        <Route path="/rozwiazania-specjalne/:name" element={<DedicatedSolutions />} />
+        <Route path="/technologie" element={<Technologies />} />
+        <Route path="/dodatkowe-wyposazenie" element={<AdditionalEquipment />} />
+        <Route path="/wiadomosci/:id" element={<PostDetails />} />
+        <Route path="/wiadomosci/szukaj" element={<News />} />
+        <Route path="/wiadomosci" element={<News />} />
+        <Route path="/kontakt" element={<Contact />} />
+        <Route path="/logowanie" element={<Signin />} />
+        <Route path="/admin/utworz-konto-uzytkownika" element={<CreateAccount />} />
+        <Route path="/" exact element={<Home />} />
+        <Route component={<NotFound />} />
       </Routes>
       <ContactForm />
       <Footer />

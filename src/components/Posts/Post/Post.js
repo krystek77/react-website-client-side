@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { deletePost, likePost } from '../../../actions/posts';
@@ -17,7 +17,7 @@ function Post({ post, setCurrentPostID }) {
   const classes = useStyles();
   const { _id, createdAt, selectedImage, title, contents, tags, author, likes } = post;
   const userProfile = JSON.parse(localStorage.getItem('userProfile'));
-  console.log(post)
+  // console.log(post)
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -65,7 +65,7 @@ function Post({ post, setCurrentPostID }) {
       </CardContent>
       <Divider light />
       <CardActions disableSpacing>
-        <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="contained" size="small" component={Link} to={`/wiadomosci/${post._id}`} endIcon={<DoubleArrow/>}>
+        <Button className={`${classes['post__btn']} ${classes['post__btn--more']}`} variant="contained" size="small" component={Link} to={`/wiadomosci/${post._id}`} endIcon={<DoubleArrow />}>
           czytaj
         </Button>
         <Button onClick={() => dispatch(likePost(_id))} disabled={!userProfile || userProfile?.user._id === author._id} className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}>
@@ -89,8 +89,8 @@ Post.propTypes = {
     contents: PropTypes.string,
     tags: PropTypes.arrayOf(PropTypes.string),
     author: PropTypes.shape({
-      _id:PropTypes.string,
-      firstName:PropTypes.string
+      _id: PropTypes.string,
+      firstName: PropTypes.string,
     }),
     likes: PropTypes.arrayOf(PropTypes.string),
   }),

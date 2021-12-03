@@ -31,8 +31,8 @@ export default makeStyles((theme) => ({
     textAlign: 'left',
     textTransform: 'uppercase',
     color: theme.palette.secondary.contrastText,
-    maxWidth:1536,
-    margin:"0 auto"
+    maxWidth: 1536,
+    margin: '0 auto',
   },
   pageNewsTitleCenter: {
     textAlign: 'center',
@@ -43,7 +43,7 @@ export default makeStyles((theme) => ({
     flexWrap: 'wrap',
     paddingLeft: 0,
     paddingRight: 0,
-    marginBottom: 48,
+    marginBottom: 24,
 
     [theme.breakpoints.up('lg')]: {
       flexWrap: 'nowrap',
@@ -54,25 +54,29 @@ export default makeStyles((theme) => ({
   pageNewsFilter: {
     // border: '1px solid blue',
     minWidth: 360,
-    padding: 8,
-    flexGrow:1,
+    paddingLeft: 8,
+    paddingRight: 8,
+    flexGrow: 1,
     [theme.breakpoints.up('lg')]: {
-      flexGrow:0,
+      flexGrow: 0,
     },
   },
   pageNewsSearch: {
     marginBottom: 24,
   },
+  // Tags section of page news
   pageNewsTags: {
-    padding: 8,
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap:"wrap",
-    border:`1px solid rgba(0,0,0,0.23)`,
-    borderRadius:4
+    marginBottom: 24,
   },
-  pageNewsTag: {
-    margin:4,
-    flexShrink:0,
+  pageNewsTagsLabel: {},
+  pageNewsTagsInput: {},
+  pageNewsTagsIcon: {},
+  pageNewsTag: {},
+  // Pagination section of page news
+  pageNewsPagination: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 24,
   },
 }));

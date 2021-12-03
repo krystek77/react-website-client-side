@@ -2,6 +2,20 @@
 import * as api from '../api/posts';
 import ActionTypes from '../constants/actionTypes';
 
+export const getPostsBySearch = (searchQuery) => async (dispatch) => {
+  console.log('ACTION GETPOSTBYSEARCH', searchQuery);
+
+  try {
+    dispatch({ type: ActionTypes.START_LOADING_POSTS });
+    const { data } = await api.getPostsBySearch(searchQuery);
+    console.log(data);
+    dispatch({ type: ActionTypes.GET_POSTS_BY_SEARCH, payload: data });
+    dispatch({ type: ActionTypes.END_LOADING_POSTS });
+  } catch (error) {
+    console.log(error.message);
+  }
+};
+
 export const getPostById = (id) => async (dispatch) => {
   try {
     dispatch({ type: ActionTypes.START_LOADING_POSTS });
