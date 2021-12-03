@@ -8,7 +8,7 @@ import Hero from '../components/Hero/Hero';
 import PostForm from '../components/PostForm/PostForm';
 import Posts from '../components/Posts/Posts';
 import { Search, Tag } from '@mui/icons-material';
-import { getPostsBySearch } from '../actions/posts';
+import { getPostsBySearch, getPosts } from '../actions/posts';
 import useStyles from '../styles/news';
 
 const useQuery = (searchQuery) => {
@@ -45,8 +45,14 @@ function News() {
       dispatch(getPostsBySearch({ search: search, tags: tags }));
       history(`/wiadomosci/szukaj?searchQuery=${search || 'none'}&tags=${tags || ''}`);
     } else {
+      dispatch(getPosts());
       history('/wiadomosci');
     }
+  };
+
+  const clear = () => {
+    setSearch('');
+    setTags('');
   };
 
   useEffect(() => {
