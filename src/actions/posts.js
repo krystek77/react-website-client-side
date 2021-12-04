@@ -27,10 +27,10 @@ export const getPostById = (id) => async (dispatch) => {
   }
 };
 
-export const getPosts = () => async (dispatch) => {
+export const getPosts = (page) => async (dispatch) => {
   try {
     dispatch({ type: ActionTypes.START_LOADING_POSTS });
-    const { data } = await api.getPosts();
+    const { data } = await api.getPosts(page);
     dispatch({ type: ActionTypes.GET_POSTS, payload: data });
     dispatch({ type: ActionTypes.END_LOADING_POSTS });
   } catch (error) {

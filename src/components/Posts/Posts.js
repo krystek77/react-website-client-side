@@ -9,7 +9,7 @@ import Feedback from '../Feedback/Feedback';
 
 import useStyles from './styles';
 
-function Posts({ setCurrentPostID }) {
+function Posts({ setCurrentPostID,page }) {
   const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
   const dispatch = useDispatch();
@@ -17,15 +17,17 @@ function Posts({ setCurrentPostID }) {
 
   useEffect(() => {
     console.log('[Posts.js] - mounted');
-    dispatch(getPosts());
+    dispatch(getPosts(page));
     return () => {
       console.log('[Posts.js] - unmounted');
     };
-  }, [dispatch]);
+  }, [dispatch,page]);
 
   if (isLoading) return <Loading message="Ładowanie wiadomości" />;
   if (!posts.length && !isLoading) return <Feedback message="--- Brak wiadomości ---" />;
 
+
+  console.log("POSTS RELOADED");
   return (
     posts.length !== 0 && (
       <Grid className={classes.posts} container>
@@ -43,6 +45,7 @@ function Posts({ setCurrentPostID }) {
 
 Posts.propTypes = {
   setCurrentPostID: PropTypes.func,
+  page:PropTypes.number
 };
 
 export default Posts;

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch,useSelector } from 'react-redux';
 import { Container, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, Button, Pagination, PaginationItem } from '@mui/material';
 
 import Hero from '../components/Hero/Hero';
@@ -22,12 +22,11 @@ function News() {
   const [tags, setTags] = useState('');
   const query = useQuery(useLocation().search);
   const page = parseInt(query.get('page')) || 1;
-  const searchQuery = query.get('searchQuery');
+  // const searchQuery = query.get('searchQuery');
   const history = useNavigate();
   const dispatch = useDispatch();
 
-  console.log(page);
-  console.log(searchQuery);
+  const {numberOfPages} = useSelector((state)=>state.posts)
 
   const handleSearch = (e) => {
     if (e.charCode === 13) {
@@ -45,7 +44,7 @@ function News() {
       dispatch(getPostsBySearch({ search: search, tags: tags }));
       history(`/wiadomosci/szukaj?searchQuery=${search || 'none'}&tags=${tags || ''}`);
     } else {
-      dispatch(getPosts());
+      dispatch(getPosts(page));
       history('/wiadomosci');
     }
   };
@@ -57,11 +56,14 @@ function News() {
 
   useEffect(() => {
     console.log('[News.js]- mounted');
+
     return () => {
       console.log('[News.js]-unmounted');
     };
   }, [currentPostID]);
 
+  console.log(page);
+  console.log("NEWS RELOADED")
   return (
     <React.Fragment>
       <Hero title="Bądź na bieżąco" subtitle="wszystko co warto wiedzieć w pralnictwie" blendColor="green" />
@@ -78,7 +80,7 @@ function News() {
           </Container>
 
           <Container maxWidth="xl" className={classes.pageNewsPosts}>
-            <Posts setCurrentPostID={setCurrentPostID} />
+            <Posts setCurrentPostID={setCurrentPostID} page={page} />
 
             <div className={classes.pageNewsFilter}>
               <FormControl fullWidth className={classes.pageNewsSearch}>
@@ -128,14 +130,14 @@ function News() {
 
           <Container className={classes.pageNewsPagination}>
             <Pagination
-              count={10}
+              count={numberOfPages}
               page={page}
               onChange={() => {
                 console.log('change page');
               }}
               variant="outlined"
               shape="rounded"
-              renderItem={(item) => <PaginationItem {...item} component={Link} to={`/wiadomosci?page=${page}`} />}
+              renderItem={(item) => <PaginationItem {...item} component={Link} to={`/wiadomosci?page=${item.page}`} />}
             />
           </Container>
         </Container>
