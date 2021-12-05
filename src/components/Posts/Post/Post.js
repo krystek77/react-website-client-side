@@ -37,7 +37,7 @@ function Post({ post, setCurrentPostID }) {
           <MoreVert />
         </IconButton>
       </div>
-      <CardMedia component="img" image={selectedImage} alt="some image" height="200" />
+      <CardMedia component="img" image={selectedImage} alt="some image" height="260" />
       <CardContent className={classes['post__content']}>
         <Typography className={classes['post__title']} variant="h6">
           {title}
