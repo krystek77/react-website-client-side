@@ -1,5 +1,5 @@
 import ActionTypes from '../constants/actionTypes';
-const initialState = { isLoading: true, posts: [], post: null };
+const initialState = { isLoading: true, posts: [], post: null,numberOfPages:0 };
 export default function reducer(state = initialState, action) {
   // console.log('POSTS REDUCER', action.payload);
   if (state === undefined || state === null) return initialState;
@@ -11,7 +11,7 @@ export default function reducer(state = initialState, action) {
     case ActionTypes.GET_POST_BY_ID:
       return { ...state, post: action.payload };
     case ActionTypes.GET_POSTS:
-      return { ...state, posts: action.payload };
+      return { ...state, posts: action.payload.posts,numberOfPages:action.payload.numberOfPages };
     case ActionTypes.END_LOADING_POSTS:
       return { ...state, isLoading: false };
     case ActionTypes.CREATE_POST:

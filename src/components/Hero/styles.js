@@ -32,7 +32,7 @@ export default makeStyles((theme) => ({
   },
   ['hero__content']: {
     backgroundColor: 'rgba(0,0,0,0.65)',
-    maxWidth: 400,
+    maxWidth: 680,
     padding: 32,
     borderRadius: 4,
   },
@@ -40,6 +40,7 @@ export default makeStyles((theme) => ({
     color: theme.palette.secondary.contrastText,
     marginBottom: 0,
     lineHeight: 1.15,
+    fontSize:24
   },
   ['hero__subtitle']: {
     color: theme.palette.secondary.contrastText,
