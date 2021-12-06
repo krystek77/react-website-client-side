@@ -22,7 +22,6 @@ function News() {
   const [tags, setTags] = useState('');
   const query = useQuery(useLocation().search);
   const page = parseInt(query.get('page')) || 1;
-  // const searchQuery = query.get('searchQuery');
   const history = useNavigate();
   const dispatch = useDispatch();
 
@@ -35,7 +34,6 @@ function News() {
   };
   const handleTags = (e) => {
     const tags = e.target.value.replace(' ', '');
-    // console.log(tags)
     setTags(tags);
   };
   const searchPosts = (e) => {
@@ -49,21 +47,9 @@ function News() {
     }
   };
 
-  const clear = () => {
-    setSearch('');
-    setTags('');
-  };
+  
+  console.log("NEWS RELOADED");
 
-  useEffect(() => {
-    console.log('[News.js]- mounted');
-
-    return () => {
-      console.log('[News.js]-unmounted');
-    };
-  }, [currentPostID]);
-
-  console.log(page);
-  console.log("NEWS RELOADED")
   return (
     <React.Fragment>
       <Hero title="Bądź na bieżąco" subtitle="wszystko co warto wiedzieć w pralnictwie" blendColor="green" />
@@ -80,7 +66,7 @@ function News() {
           </Container>
 
           <Container maxWidth="xl" className={classes.pageNewsPosts}>
-            <Posts setCurrentPostID={setCurrentPostID} page={page} />
+            <Posts setCurrentPostID={setCurrentPostID} page={page}/>
 
             <div className={classes.pageNewsFilter}>
               <FormControl fullWidth className={classes.pageNewsSearch}>

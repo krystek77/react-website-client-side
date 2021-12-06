@@ -13,7 +13,6 @@ function Posts({ setCurrentPostID,page }) {
   const { posts, isLoading } = useSelector((state) => state.posts);
   const classes = useStyles();
   const dispatch = useDispatch();
-  // console.log(posts);
 
   useEffect(() => {
     console.log('[Posts.js] - mounted');
