@@ -1,8 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { Link,useParams } from 'react-router-dom';
-import { Divider, Button } from '@mui/material';
+import { Container, Typography, Divider, Button } from '@mui/material';
 import {KeyboardReturn} from '@mui/icons-material';
+import useStyles  from '../styles/PostDetails';
 import moment from 'moment';
 import 'moment/locale/pl';
 
@@ -19,6 +20,8 @@ function PostDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
 
+  const classes = useStyles();
+
   useEffect(() => {
     console.log('[PostDetails] - mounted');
     dispatch(getPostById(id));
@@ -32,20 +35,20 @@ function PostDetails() {
   return post ? (
     <React.Fragment>
       <Hero title={post.title} bgBase64={post.selectedImage} mt={48} />
-      <div>
+      <Container fixed className={classes.post}>
         <span>ID: {post._id}</span>
         <p>{moment(post.createdAt).calendar()}</p>
-        <h2>{post.title}</h2>
-        <p>{post.contents}</p>
+        <Typography className={classes.postTitle} variant="h4" component="h2">{post.title}</Typography>
+        <Typography className={classes.postContents}>{post.contents}</Typography>
         {post.tags.map((tag) => (
           <span key={tag}>{tag}</span>
         ))}
         <div>Autor: {post.author.firstName}</div>
-        <Divider light/>
-        <Button component={Link} to="/wiadomosci" variant="contained" size="small" startIcon={<KeyboardReturn />}>
+        <Divider className={classes.postDivider} light/>
+        <Button component={Link} to="/wiadomosci" variant="contained" size="medium" startIcon={<KeyboardReturn />}>
           Wszystkie wiadomości
         </Button>
-      </div>
+      </Container>
     </React.Fragment>
   ) : null;
 }
