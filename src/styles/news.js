@@ -11,9 +11,9 @@ export default makeStyles((theme) => ({
     paddingRight: 0,
     display: 'flex',
     flexDirection: 'column-reverse',
-    [theme.breakpoints.up('md')]: {
-      flexDirection: 'column',
-    },
+    // [theme.breakpoints.up('md')]: {
+    //   flexDirection: 'column',
+    // },
   },
   pageNewsSection: {
     paddingLeft: 0,
