@@ -3,6 +3,10 @@ import { makeStyles } from '@mui/styles';
 
 export default makeStyles((theme) => ({
   post: {
+    marginTop: 48,
+    marginBottom: 48,
+  },
+  postData: {
     marginBottom: 24,
   },
   postTitle: {
@@ -15,7 +19,25 @@ export default makeStyles((theme) => ({
     marginBottom: 24,
     fontWeight: 300,
   },
+  postTag: {
+    marginRight: 8,
+    marginBottom: 24,
+    backgroundColor: theme.palette.secondary.light,
+    color: theme.palette.secondary.contrastText,
+    border: `1px solid ${theme.palette.secondary.main}`,
+  },
+  postAuthor: {
+    marginBottom: 24,
+  },
+  postAuthorName: {
+    fontWeight: '600',
+  },
   postDivider: {
     marginBottom: 24,
+  },
+  postReturnButton: {
+    display: 'flex',
+    maxWidth: 'max-content',
+    marginLeft: 'auto',
   },
 }));

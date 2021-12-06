@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
-import { Link,useParams } from 'react-router-dom';
-import { Container, Typography, Divider, Button } from '@mui/material';
-import {KeyboardReturn} from '@mui/icons-material';
-import useStyles  from '../styles/PostDetails';
+import { Link, useParams } from 'react-router-dom';
+import { Container, Typography, Chip, Divider, Button } from '@mui/material';
+import { KeyboardReturn } from '@mui/icons-material';
+import useStyles from '../styles/PostDetails';
 import moment from 'moment';
 import 'moment/locale/pl';
 
@@ -30,22 +30,30 @@ function PostDetails() {
     };
   }, [dispatch, id]);
 
-  if(isLoading) return <Loading mt={48} message="Pobieranie szczegółów ..."/>
+  if (isLoading) return <Loading mt={48} message="Pobieranie szczegółów ..." />;
 
   return post ? (
     <React.Fragment>
       <Hero title={post.title} bgBase64={post.selectedImage} mt={48} />
       <Container fixed className={classes.post}>
-        <span>ID: {post._id}</span>
-        <p>{moment(post.createdAt).calendar()}</p>
-        <Typography className={classes.postTitle} variant="h4" component="h2">{post.title}</Typography>
+        <Typography className={classes.postData} variant="body2">
+          Data utworzenia: {moment(post.createdAt).calendar()}
+        </Typography>
+        <Typography className={classes.postTitle} variant="h4" component="h2">
+          {post.title}
+        </Typography>
         <Typography className={classes.postContents}>{post.contents}</Typography>
         {post.tags.map((tag) => (
-          <span key={tag}>{tag}</span>
+          <Chip className={classes.postTag} key={tag} label={tag} variant="filled" size="small" />
         ))}
-        <div>Autor: {post.author.firstName}</div>
-        <Divider className={classes.postDivider} light/>
-        <Button component={Link} to="/wiadomosci" variant="contained" size="medium" startIcon={<KeyboardReturn />}>
+        <Typography className={classes.postAuthor} variant="caption" component="p">
+          autor:{' '}
+          <Typography className={classes.postAuthorName} component="span" variant="caption">
+            {post.author.firstName}
+          </Typography>
+        </Typography>
+        <Divider className={classes.postDivider} light />
+        <Button className={classes.postReturnButton} component={Link} to="/wiadomosci" variant="contained" size="small" startIcon={<KeyboardReturn />}>
           Wszystkie wiadomości
         </Button>
       </Container>
