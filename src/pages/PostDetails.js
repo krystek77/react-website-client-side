@@ -1,14 +1,16 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
-import { Container, Typography, Chip, Divider, Button, IconButton } from '@mui/material';
+import { Container, Grid, Typography, Chip, Divider, Button, IconButton } from '@mui/material';
 import { KeyboardReturn, Favorite, Delete } from '@mui/icons-material';
 import useStyles from '../styles/PostDetails';
 import moment from 'moment';
 import 'moment/locale/pl';
+import Post from '../components/Posts/Post/Post';
+import Feedback from '../components/Feedback/Feedback';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { getPostById, deletePost, likePost } from '../actions/posts';
+import { getPostById, deletePost, likePost, getPostsBySearch } from '../actions/posts';
 
 moment.locale('pl');
 
@@ -16,7 +18,7 @@ import Hero from '../components/Hero/Hero';
 import Loading from '../components/Loading/Loading';
 
 function PostDetails() {
-  const { isLoading, post } = useSelector((state) => {
+  const { isLoading, post, posts } = useSelector((state) => {
     console.log('Invoke useSelector from PostDetails');
     return state.posts;
   });
@@ -35,14 +37,27 @@ function PostDetails() {
     };
   }, [dispatch, id]);
 
+  useEffect(() => {
+    console.log('When first mounted and post was changed');
+    if (post) {
+      dispatch(getPostsBySearch({ search: 'none', tags: post?.tags }));
+    }
+    return () => {};
+  }, [dispatch, post]);
+
   if (isLoading) return <Loading mt={48} message="Pobieranie szczegółów ..." />;
-  console.log('PostDetails RELOAD');
-  console.log(post);
 
   const handleDeletePost = () => {
     dispatch(deletePost(post._id));
     history('/wiadomosci');
   };
+
+  console.log('PostDetails RELOAD');
+  console.log(post);
+  console.log(posts);
+  //remove current post from featured posts
+  const featuredPosts = posts.filter((post) => post._id !== id);
+  console.log('featured posts', featuredPosts);
 
   return post ? (
     <React.Fragment>
@@ -76,6 +91,24 @@ function PostDetails() {
           Wszystkie wiadomości
         </Button>
       </Container>
+      {/** Featured posts */}
+      <Grid className={classes.pagePostDetailsFeaturedPosts} container component="section">
+        <Typography className={classes.pagePostDetailsFeaturedPostsTitle} component="h2" variant="h2">
+          Polecane wiadomości
+        </Typography>
+        {featuredPosts.length !== 0 ? (
+          featuredPosts.map((post) => {
+            return (
+              <Grid className={classes.pagePostDetailsFeaturedPostsPost} item key={post._id} xs={12} sm={6} md={4} lg={3}>
+                <Post post={post} />
+              </Grid>
+            );
+          })
+        ) : (
+          <Feedback message="--- brak polecanych wiadomości ---" />
+        )}
+      </Grid>
+      {/**END Featured posts */}
     </React.Fragment>
   ) : null;
 }
