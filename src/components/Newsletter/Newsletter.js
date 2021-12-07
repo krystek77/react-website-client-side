@@ -14,7 +14,7 @@ function Newsletter() {
   };
 
   const signinToNewsletter = () => {
-    console.log('Signin to newsletter');
+    console.log('Signin to newsletter', email);
     clear();
   };
   const clear = () => setEmail('');
@@ -31,6 +31,9 @@ function Newsletter() {
           </Typography>
         </Grid>
         <Grid className={classes.newsletterForm} item xs={12} md={6}>
+          <Typography className={classes.newsletterFormTitle} variant="h6">
+            Newsletter - dołącz do nas
+          </Typography>
           <TextField
             className={classes.newsletterFormInput}
             fullWidth
