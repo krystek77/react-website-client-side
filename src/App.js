@@ -8,6 +8,7 @@ import Navigation from './components/Navigation/Navigation';
 import { Home, About, Customers, Products, DedicatedSolutions, Technologies, AdditionalEquipment, PostDetails, News, Contact, Signin, NotFound, CreateAccount } from './pages';
 
 import Newsletter from './components/Newsletter/Newsletter';
+import Gallery  from './components/Gallery/Gallery';
 import ContactForm from './components/ContactForm/ContactForm';
 import Footer from './components/Footer/Footer';
 
@@ -33,6 +34,7 @@ const App = () => {
         <Route component={<NotFound />} />
       </Routes>
       <Newsletter />
+      <Gallery/>
       <ContactForm />
       <Footer />
     </Layout>
