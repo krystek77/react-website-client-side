@@ -2,9 +2,16 @@
 import { makeStyles } from '@mui/styles';
 
 export default makeStyles((theme) => ({
+  pageHome: {
+    paddingLeft: 0,
+    paddingRight: 0,
+  },
+  pageHomeMain: {
+    padding: 48,
+  },
   pageHomeLatestPosts: {
     padding: '48px 24px',
-    backgroundColor: theme.palette.secondary.light,
+    backgroundColor: '#f1f9ff',
   },
   pageHomeLatestPostsTitle: {
     fontWeight: 700,
@@ -13,7 +20,7 @@ export default makeStyles((theme) => ({
     paddingBottom: 48,
     paddingLeft: 24,
     paddingRight: 24,
-    color: theme.palette.secondary.contrastText,
+    color: theme.palette.secondary.main,
   },
   pageHomeLatestPostsPost: {
     padding: 8,

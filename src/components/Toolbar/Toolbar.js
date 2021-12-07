@@ -1,20 +1,20 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import useStyles from '../../styles/toolbar';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Container, IconButton, Button, Avatar, Typography } from '@mui/material';
 import { ContactMail, Login, Logout, PersonAdd } from '@mui/icons-material';
 import ActionTypes from '../../constants/actionTypes';
 
-import useStyles from '../../styles/toolbar';
-
 function Toolbar() {
-  const classes = useStyles();
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('userProfile')));
   const dispatch = useDispatch();
   const history = useNavigate();
   const location = useLocation();
+
+  const classes = useStyles();
 
   useEffect(() => {
     console.log('[Toolbar.js] - mount');
@@ -61,12 +61,12 @@ function Toolbar() {
           </React.Fragment>
         ) : (
           <React.Fragment>
-            <Button className={`${classes.toolbarButton}  ${classes.toolbarButtonLogout}`} component={Link} to="/logowanie" type="button" aria-label="login" startIcon={<Login />}>
+            <Button className={`${classes.toolbarButton}  ${classes.toolbarButtonLogout}`} size="small" component={Link} to="/logowanie" type="button" aria-label="login" startIcon={<Login />}>
               zaloguj
             </Button>
           </React.Fragment>
         )}
-        <IconButton className={`${classes.toolbarButton} ${classes.toolbarButtonContact}`}>
+        <IconButton className={`${classes.toolbarButton} ${classes.toolbarButtonContact}`} size="small">
           <ContactMail />
         </IconButton>
       </div>
