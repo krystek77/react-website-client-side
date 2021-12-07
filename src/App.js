@@ -7,6 +7,7 @@ import Navigation from './components/Navigation/Navigation';
 import Toolbar from './components/Toolbar/Toolbar';
 import { Home, About, Customers, Products, DedicatedSolutions, Technologies, AdditionalEquipment, PostDetails, News, Contact, Signin, NotFound, CreateAccount } from './pages';
 
+import Newsletter from './components/Newsletter/Newsletter';
 import ContactForm from './components/ContactForm/ContactForm';
 import Footer from './components/Footer/Footer';
 
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/" exact element={<Home />} />
         <Route component={<NotFound />} />
       </Routes>
+      <Newsletter />
       <ContactForm />
       <Footer />
     </Layout>
