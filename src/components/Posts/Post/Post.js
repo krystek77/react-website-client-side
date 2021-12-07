@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
+import ActionTypes from '../../../constants/actionTypes';
 import { deletePost, likePost } from '../../../actions/posts';
 
 import { Card, CardContent, Typography, IconButton, Button, CardActions, CardMedia, Divider } from '@mui/material';
@@ -13,11 +14,12 @@ import moment from 'moment';
 import 'moment/locale/pl';
 moment.locale('pl');
 
-function Post({ post, setCurrentPostID }) {
+function Post({ post }) {
   const classes = useStyles();
   const { _id, createdAt, selectedImage, title, contents, tags, author, likes } = post;
   const userProfile = JSON.parse(localStorage.getItem('userProfile'));
   const dispatch = useDispatch();
+  const history = useNavigate();
 
   useEffect(() => {
     console.log('[Post.js] - mounted');
@@ -25,6 +27,11 @@ function Post({ post, setCurrentPostID }) {
       console.log('[Post.js] - unmounted');
     };
   });
+
+  const setCurrentPostID = (currentPostID) => {
+    dispatch({ type: ActionTypes.SET_CURRENT_POST_ID, payload: currentPostID });
+    history('/wiadomosci');
+  };
 
   return (
     <Card className={classes.post} sx={{ margin: '0 16px 16px' }}>
@@ -80,7 +87,6 @@ function Post({ post, setCurrentPostID }) {
 }
 
 Post.propTypes = {
-  setCurrentPostID: PropTypes.func,
   post: PropTypes.shape({
     _id: PropTypes.string,
     createdAt: PropTypes.string,

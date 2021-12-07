@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Container, Typography, FormControl, InputLabel, OutlinedInput, InputAdornment, Button, Pagination, PaginationItem } from '@mui/material';
 
 import Hero from '../components/Hero/Hero';
@@ -17,7 +17,6 @@ const useQuery = (searchQuery) => {
 
 function News() {
   const classes = useStyles();
-  const [currentPostID, setCurrentPostID] = useState(null);
   const [search, setSearch] = useState('');
   const [tags, setTags] = useState('');
   const query = useQuery(useLocation().search);
@@ -25,7 +24,7 @@ function News() {
   const history = useNavigate();
   const dispatch = useDispatch();
 
-  const {numberOfPages} = useSelector((state)=>state.posts)
+  const { numberOfPages } = useSelector((state) => state.posts);
 
   const handleSearch = (e) => {
     if (e.charCode === 13) {
@@ -47,15 +46,14 @@ function News() {
     }
   };
 
-  
-  console.log("NEWS RELOADED");
+  console.log('NEWS RELOADED');
 
   return (
     <React.Fragment>
       <Hero title="Bądź na bieżąco" subtitle="wszystko co warto wiedzieć w pralnictwie" blendColor="green" />
       <Container maxWidth="false" className={`${classes.page} ${classes.pageNews}`}>
         {/** form post */}
-        <PostForm currentPostID={currentPostID} setCurrentPostID={setCurrentPostID} />
+        <PostForm />
 
         {/** posts */}
         <Container className={classes.pageNewsSection} component="main" maxWidth="false">
@@ -66,7 +64,7 @@ function News() {
           </Container>
 
           <Container maxWidth="xl" className={classes.pageNewsPosts}>
-            <Posts setCurrentPostID={setCurrentPostID} page={page}/>
+            <Posts page={page} />
 
             <div className={classes.pageNewsFilter}>
               <FormControl fullWidth className={classes.pageNewsSearch}>

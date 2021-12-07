@@ -1,5 +1,5 @@
 import ActionTypes from '../constants/actionTypes';
-const initialState = { isLoading: true, posts: [], post: null, numberOfPages: 0 };
+const initialState = { isLoading: true, posts: [], post: null, numberOfPages: 0, currentPostID: null };
 export default function reducer(state = initialState, action) {
   console.log('POSTS REDUCER', action.payload);
   if (state === undefined || state === null) return initialState;
@@ -22,6 +22,8 @@ export default function reducer(state = initialState, action) {
       return { ...state, posts: state.posts.map((post) => (post._id === action.payload._id ? action.payload : post)), post: action.payload };
     case ActionTypes.DELETE_POST:
       return { ...state, posts: state.posts.filter((post) => post._id !== action.payload), post: null };
+    case ActionTypes.SET_CURRENT_POST_ID:
+      return { ...state, currentPostID: action.payload };
     default:
       return state;
   }

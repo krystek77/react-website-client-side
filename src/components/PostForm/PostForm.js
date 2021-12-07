@@ -2,17 +2,20 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ActionTypes from '../../constants/actionTypes';
 import { createPost, updatePost } from '../../actions/posts';
 import FileBase64 from 'react-file-base64';
 import { Box, TextField, Button, Container, Typography } from '@mui/material';
 import useStyles from './styles';
 
-function PostForm({ currentPostID, setCurrentPostID }) {
+function PostForm() {
   const [postData, setPostData] = useState({ title: '', contents: '', tags: '', selectedImage: '' });
-  const classes = useStyles();
-  const dispatch = useDispatch();
+  const currentPostID = useSelector((state) => (state.posts.currentPostID ? state.posts.currentPostID : null));
   const post = useSelector((state) => (currentPostID ? state.posts.posts.find((post) => post._id === currentPostID) : null));
   const user = JSON.parse(localStorage.getItem('userProfile'));
+  const dispatch = useDispatch();
+
+  const classes = useStyles();
 
   const handlePostData = (e) => {
     e.preventDefault();
@@ -28,14 +31,14 @@ function PostForm({ currentPostID, setCurrentPostID }) {
 
   const clear = () => {
     setPostData({ title: '', contents: '', tags: '', selectedImage: '' });
-    setCurrentPostID(null);
+    dispatch({ type: ActionTypes.SET_CURRENT_POST_ID, payload: null });
   };
 
   useEffect(() => {
     if (post) {
       setPostData({ ...post, tags: post.tags.join(',') });
     }
-  }, [post]);
+  }, [post, currentPostID]);
 
   return (
     user && (
