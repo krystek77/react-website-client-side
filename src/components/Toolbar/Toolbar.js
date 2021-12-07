@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import useStyles from '../../styles/toolbar';
+import ActionTypes from '../../constants/actionTypes';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { Container, IconButton, Button, Avatar, Typography } from '@mui/material';
 import { ContactMail, Login, Logout, PersonAdd } from '@mui/icons-material';
-import ActionTypes from '../../constants/actionTypes';
+
+import useStyles from '../../styles/toolbar';
 
 function Toolbar() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem('userProfile')));

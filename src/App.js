@@ -3,8 +3,8 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import Layout from './components/Layout/Layout';
-import Navigation from './components/Navigation/Navigation';
 import Toolbar from './components/Toolbar/Toolbar';
+import Navigation from './components/Navigation/Navigation';
 import { Home, About, Customers, Products, DedicatedSolutions, Technologies, AdditionalEquipment, PostDetails, News, Contact, Signin, NotFound, CreateAccount } from './pages';
 
 import Newsletter from './components/Newsletter/Newsletter';
