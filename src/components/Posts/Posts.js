@@ -32,7 +32,7 @@ function Posts({ page }) {
         {posts.map((post) => {
           return (
             <Grid className={classes['post-wrapper']} key={post._id} item xs={12} sm={6} md={4}>
-              <Post post={post} />
+              <Post post={post} page={page} />
             </Grid>
           );
         })}

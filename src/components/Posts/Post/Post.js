@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import ActionTypes from '../../../constants/actionTypes';
-import { deletePost, likePost } from '../../../actions/posts';
+import { deletePost, likePost, getPosts } from '../../../actions/posts';
 
 import { Card, CardContent, Typography, IconButton, Button, CardActions, CardMedia, Divider } from '@mui/material';
 import { MoreVert, Favorite, Delete, DoubleArrow } from '@mui/icons-material';
@@ -14,7 +14,7 @@ import moment from 'moment';
 import 'moment/locale/pl';
 moment.locale('pl');
 
-function Post({ post }) {
+function Post({ post, page }) {
   const classes = useStyles();
   const { _id, createdAt, selectedImage, title, contents, tags, author, likes } = post;
   const userProfile = JSON.parse(localStorage.getItem('userProfile'));
@@ -31,6 +31,11 @@ function Post({ post }) {
   const setCurrentPostID = (currentPostID) => {
     dispatch({ type: ActionTypes.SET_CURRENT_POST_ID, payload: currentPostID });
     history('/wiadomosci');
+  };
+
+  const deleteSeclectedPost = (postIdToDelete) => {
+    dispatch(deletePost(postIdToDelete));
+    dispatch(getPosts(page));
   };
 
   return (
@@ -77,7 +82,7 @@ function Post({ post }) {
           <Button onClick={() => dispatch(likePost(_id))} disabled={!userProfile || userProfile?.user._id === author._id} className={`${classes['post__btn']} ${classes['post__btn--favorite']}`} startIcon={<Favorite />}>
             {likes.length}
           </Button>
-          <IconButton disabled={!userProfile || !(userProfile?.user._id === author._id)} onClick={() => dispatch(deletePost(_id))} color="secondary" className={`${classes['post__btn']} ${classes['post__btn--delete']}`}>
+          <IconButton disabled={!userProfile || !(userProfile?.user._id === author._id)} onClick={() => deleteSeclectedPost(_id)} color="secondary" className={`${classes['post__btn']} ${classes['post__btn--delete']}`}>
             <Delete />
           </IconButton>
         </React.Fragment>
@@ -100,5 +105,6 @@ Post.propTypes = {
     }),
     likes: PropTypes.arrayOf(PropTypes.string),
   }),
+  page: PropTypes.number,
 };
 export default Post;
