@@ -8,7 +8,7 @@ export default makeStyles((theme) => ({
   companyData: {
     marginTop: 48,
     padding: '48px 24px',
-    backgroundColor: theme.palette.secondary.dark,
+    // backgroundColor: theme.palette.secondary.dark,
   },
   companyDataAdress: {
     backgroundColor: 'transparent',
@@ -17,9 +17,9 @@ export default makeStyles((theme) => ({
     padding: '0 24px',
   },
   companyDataName: {
-    color: theme.palette.secondary.contrastText,
+    color: theme.palette.secondary.main,
     '& .MuiTypography-root': {
-      color: theme.palette.secondary.contrastText,
+      color: theme.palette.secondary.main,
       fontSize: 20,
       fontWeight: 500,
     },
@@ -30,14 +30,14 @@ export default makeStyles((theme) => ({
   },
   companyDataDescription: {},
   companyDataText: {
-    color: theme.palette.secondary.contrastText,
+    color: theme.palette.secondary.maint,
     fontSize: 18,
     fontWeight: 300,
     lineHeight: 1.5,
     maxWidth: 900,
   },
   companyDataContact: {
-    color: theme.palette.secondary.contrastText,
+    color: theme.palette.secondary.main,
     '& .MuiSvgIcon-root': {
       color: theme.palette.primary.main,
     },
