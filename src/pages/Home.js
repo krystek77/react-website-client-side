@@ -8,6 +8,7 @@ import useStyles from '../styles/home';
 import Hero from '../components/Hero/Hero';
 import Loading from '../components/Loading/Loading';
 import Feedback from '../components/Feedback/Feedback';
+import SectionTitle from '../components/SectionTitle/SectionTitle';
 import Post from '../components/Posts/Post/Post';
 
 function Home() {
@@ -32,9 +33,7 @@ function Home() {
       </Container>
       {/** Latest posts */}
       <Grid className={classes.pageHomeLatestPosts} container component="section">
-        <Typography className={classes.pageHomeLatestPostsTitle} component="h2" variant="h2">
-          Najnowsze wiadomości
-        </Typography>
+        <SectionTitle title="Najnowsze wiadomości" />
         {posts.slice(0, 4).map((post) => {
           return (
             <Grid className={classes.pageHomeLatestPostsPost} item key={post._id} xs={12} sm={6} md={6} lg={3}>
