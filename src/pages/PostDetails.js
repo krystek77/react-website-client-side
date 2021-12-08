@@ -3,11 +3,8 @@ import React, { useEffect } from 'react';
 import { Link, useParams, useNavigate } from 'react-router-dom';
 import { Container, Grid, Typography, Chip, Divider, Button, IconButton } from '@mui/material';
 import { KeyboardReturn, Favorite, Delete } from '@mui/icons-material';
-import useStyles from '../styles/PostDetails';
 import moment from 'moment';
 import 'moment/locale/pl';
-import Post from '../components/Posts/Post/Post';
-import Feedback from '../components/Feedback/Feedback';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { getPostById, deletePost, likePost, getPostsBySearch } from '../actions/posts';
@@ -15,13 +12,15 @@ import { getPostById, deletePost, likePost, getPostsBySearch } from '../actions/
 moment.locale('pl');
 
 import Hero from '../components/Hero/Hero';
+import SectionTitle from '../components/SectionTitle/SectionTitle';
+import Post from '../components/Posts/Post/Post';
+import Feedback from '../components/Feedback/Feedback';
 import Loading from '../components/Loading/Loading';
 
+import useStyles from '../styles/PostDetails';
+
 function PostDetails() {
-  const { isLoading, post, posts } = useSelector((state) => {
-    console.log('Invoke useSelector from PostDetails');
-    return state.posts;
-  });
+  const { isLoading, post, posts } = useSelector((state) => state.posts);
   const userProfile = JSON.parse(localStorage.getItem('userProfile'));
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -38,7 +37,7 @@ function PostDetails() {
   }, [dispatch, id]);
 
   useEffect(() => {
-    console.log('When first mounted and post was changed');
+    // console.log('When first mounted and post was changed');
     if (post) {
       dispatch(getPostsBySearch({ search: 'none', tags: post?.tags }));
     }
@@ -52,12 +51,12 @@ function PostDetails() {
     history('/wiadomosci');
   };
 
-  console.log('PostDetails RELOAD');
-  console.log(post);
-  console.log(posts);
+  // console.log('PostDetails RELOAD');
+  // console.log(post);
+  // console.log(posts);
   //remove current post from featured posts
   const featuredPosts = posts.filter((post) => post._id !== id);
-  console.log('featured posts', featuredPosts);
+  // console.log('featured posts', featuredPosts);
 
   return post ? (
     <React.Fragment>
@@ -93,9 +92,7 @@ function PostDetails() {
       </Container>
       {/** Featured posts */}
       <Grid className={classes.pagePostDetailsFeaturedPosts} container component="section">
-        <Typography className={classes.pagePostDetailsFeaturedPostsTitle} component="h2" variant="h2">
-          Polecane wiadomości
-        </Typography>
+        <SectionTitle title="Polecane wiadomości" />
         {featuredPosts.length !== 0 ? (
           featuredPosts.map((post) => {
             return (
