@@ -7,38 +7,18 @@ export default makeStyles((theme) => ({
    */
 
   pageNews: {
+    paddingTop: 48,
     paddingLeft: 0,
     paddingRight: 0,
     display: 'flex',
     flexDirection: 'column-reverse',
-    // [theme.breakpoints.up('md')]: {
-    //   flexDirection: 'column',
-    // },
   },
   pageNewsSection: {
     paddingLeft: 0,
     paddingRight: 0,
   },
-  pageNewsHeader: {
-    width: '100%',
-    backgroundColor: theme.palette.secondary.main,
-    marginBottom: 48,
-  },
-  pageNewsTitle: {
-    fontWeight: 700,
-    fontSize: 24,
-    padding: '48px 40px',
-    textAlign: 'left',
-    textTransform: 'uppercase',
-    color: theme.palette.secondary.contrastText,
-    maxWidth: 1536,
-    margin: '0 auto',
-  },
-  pageNewsTitleCenter: {
-    textAlign: 'center',
-  },
+
   pageNewsPosts: {
-    // border: '1px solid red',
     display: 'flex',
     flexWrap: 'wrap',
     paddingLeft: 0,
@@ -52,7 +32,6 @@ export default makeStyles((theme) => ({
     },
   },
   pageNewsFilter: {
-    // border: '1px solid blue',
     minWidth: 360,
     paddingLeft: 8,
     paddingRight: 8,

@@ -7,8 +7,10 @@ import { Container, Typography, FormControl, InputLabel, OutlinedInput, InputAdo
 import Hero from '../components/Hero/Hero';
 import PostForm from '../components/PostForm/PostForm';
 import Posts from '../components/Posts/Posts';
+import SectionTitle from '../components/SectionTitle/SectionTitle';
 import { Search, Tag } from '@mui/icons-material';
 import { getPostsBySearch, getPosts } from '../actions/posts';
+
 import useStyles from '../styles/news';
 
 const useQuery = (searchQuery) => {
@@ -37,7 +39,6 @@ function News() {
   };
   const searchPosts = (e) => {
     if (search.trim() || tags) {
-      console.log('search posts ...');
       dispatch(getPostsBySearch({ search: search, tags: tags }));
       history(`/wiadomosci/szukaj?searchQuery=${search || 'none'}&tags=${tags || ''}`);
     } else {
@@ -46,7 +47,7 @@ function News() {
     }
   };
 
-  console.log('NEWS RELOADED');
+  // console.log('NEWS RELOADED');
 
   return (
     <React.Fragment>
@@ -55,17 +56,13 @@ function News() {
         {/** form post */}
         <PostForm />
 
-        {/** posts */}
         <Container className={classes.pageNewsSection} component="main" maxWidth="false">
-          <Container className={classes.pageNewsHeader} component="header" maxWidth="false">
-            <Typography className={classes.pageNewsTitle} variant="h2" component="h2">
-              Wiadomości
-            </Typography>
-          </Container>
+          <SectionTitle title="Wiadomości" />
 
           <Container maxWidth="xl" className={classes.pageNewsPosts}>
+            {/** posts */}
             <Posts page={page} />
-
+            {/** search forms */}
             <div className={classes.pageNewsFilter}>
               <FormControl fullWidth className={classes.pageNewsSearch}>
                 <InputLabel htmlFor="search">Szukaj wiadomości</InputLabel>
@@ -113,16 +110,7 @@ function News() {
           </Container>
 
           <Container className={classes.pageNewsPagination}>
-            <Pagination
-              count={numberOfPages}
-              page={page}
-              onChange={() => {
-                console.log('change page');
-              }}
-              variant="outlined"
-              shape="rounded"
-              renderItem={(item) => <PaginationItem {...item} component={Link} to={`/wiadomosci?page=${item.page}`} />}
-            />
+            <Pagination count={numberOfPages} page={page} variant="outlined" shape="rounded" renderItem={(item) => <PaginationItem {...item} component={Link} to={`/wiadomosci?page=${item.page}`} />} />
           </Container>
         </Container>
       </Container>
