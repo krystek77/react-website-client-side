@@ -11,14 +11,10 @@ export default makeStyles((theme) => ({
     margin: '0 auto',
   },
   newsletterInformation: {
-    marginBottom: 48,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     padding: '24px 24px',
-    [theme.breakpoints.up('md')]: {
-      marginBottom: 0,
-    },
   },
   newsletterInformationTitle: {
     color: theme.palette.primary.contrastText,
@@ -42,9 +38,8 @@ export default makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
-    // border: `1px dotted ${theme.palette.primary.dark}`,
     padding: '24px 24px',
-    borderRadius:8,
+    borderRadius: 8,
     '& label': {
       color: theme.palette.primary.contrastText,
     },
@@ -72,10 +67,10 @@ export default makeStyles((theme) => ({
     },
   },
   newsletterFormTitle: {
-    fontWeight: 900,
+    fontWeight: 500,
     color: theme.palette.primary.contrastText,
-    marginBottom: 24,
-    textAlign:'center'
+    marginBottom: 18,
+    textAlign: 'center',
   },
   newsletterFormInput: {
     marginBottom: 24,
