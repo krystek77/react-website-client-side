@@ -3,6 +3,7 @@ import { makeStyles } from '@mui/styles';
 
 export default makeStyles((theme) => ({
   sectionTitle: {
+    width: '100%',
     fontSize: 32,
     fontWeight: 800,
     textTransform: 'uppercase',
