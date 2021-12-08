@@ -8,16 +8,6 @@ export default makeStyles((theme) => ({
     paddingTop: 48,
     paddingBottom: 48,
   },
-  imageListSectionTitle: {
-    fontSize: 32,
-    fontWeight: 800,
-    textTransform: 'uppercase',
-    textAlign: 'center',
-    paddingBottom: 48,
-    paddingLeft: 24,
-    paddingRight: 24,
-    color: '#1E1E1E',
-  },
   imageList: {
     marginBottom: 0,
     overflow: 'hidden',

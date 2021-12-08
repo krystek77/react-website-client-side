@@ -1,15 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React from 'react';
 import { Container, Typography, ImageList, ImageListItem, ImageListItemBar } from '@mui/material';
+import SectionTitle from '../SectionTitle/SectionTitle';
 import useStyles from './styles';
 
 function Gallery() {
   const classes = useStyles();
   return (
     <Container maxWidth="false" component="section" className={classes.imageListSection}>
-      <Typography className={classes.imageListSectionTitle} component="h2" variant="h2">
-        Wybrane realizacje pralni
-      </Typography>
+      <SectionTitle title="Wybrane realizacje pralni" />
       <ImageList className={classes.imageList} rowHeight={150} gap={5} cols={6}>
         <ImageListItem className={classes.imageListItem} cols={2} rows={1}>
           <img className={classes.imageListItemImage} src="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=300&h=150&fit=crop&auto=format" loading="lazy" alt="1" />
