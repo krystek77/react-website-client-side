@@ -3,9 +3,9 @@ import React, { useState, useEffect } from 'react';
 import { Container, Box, ImageList, ImageListItem, ImageListItemBar, Typography } from '@mui/material';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import CustomNodal from '../CustomModal/CustomModal';
+import GalleryForm from '../GalleryForm/GalleryForm';
 
 import galleryData from '../../constants/gallery';
-
 import useStyles from './styles';
 
 function Gallery() {
@@ -59,6 +59,9 @@ function Gallery() {
           </ImageList>
         ) : null}
         {/** END dynamic photo gallery */}
+        {/** form for adding photos to gallery */}
+        <GalleryForm/>
+        {/** END form for adding photos to gallery*/}
       </Container>
     </React.Fragment>
   );
