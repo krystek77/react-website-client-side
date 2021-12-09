@@ -26,14 +26,17 @@ export default makeStyles((theme) => ({
   },
   customModalTitle: {
     textAlign: 'center',
+    fontWeight: 400,
+    textTransform: 'uppercase',
     marginBottom: 24,
+    color: '#1E1E1E',
   },
   customModalContent: {
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    border: '1px dotted black',
+    // border: '1px dotted black',
     maxWidth: 900,
     margin: '0 auto',
     marginBottom: 24,
