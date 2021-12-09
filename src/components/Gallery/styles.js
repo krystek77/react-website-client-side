@@ -14,6 +14,7 @@ export default makeStyles((theme) => ({
   },
   imageListItem: {
     // border: '1px solid green',
+    cursor: 'pointer',
     '& $imageListItemImage': {
       width: 'auto',
     },
@@ -21,5 +22,30 @@ export default makeStyles((theme) => ({
   imageListItemImage: {},
   imageListItemCaption: {
     background: 'linear-gradient(to bottom,rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+  },
+  //image modal
+  imageModalInner: {
+    height: 560,
+    overflow: 'hidden',
+    marginBottom: 8,
+  },
+  imageModalImage: {
+    display: 'block',
+    width: 900,
+    maxWidth: '100%',
+    height: '100%',
+    borderRadius: 4,
+    border: `10px solid ${theme.palette.secondary.main}`,
+    objectFit: 'cover',
+    objectPosition: '50% 50%',
+  },
+  imageModalCaption: {
+    fontSize: 12,
+    color: '#1E1E1E',
+  },
+  imageModalCaptionValue: {
+    fontSize: 14,
+    fontWeight: 600,
+    paddingLeft: 8,
   },
 }));
