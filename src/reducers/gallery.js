@@ -1,5 +1,5 @@
 import ActionTypes from '../constants/actionTypes';
-const initialState = { isloading: true, photos: [] };
+const initialState = { isLoading: true, photos: [] };
 
 export default function reducer(state = initialState, action) {
   if (state === undefined || state === null) {
@@ -12,6 +12,10 @@ export default function reducer(state = initialState, action) {
       return { ...state, photos: [...state.photos, action.payload] };
     case ActionTypes.UPDATE_PHOTO:
       return state;
+    case ActionTypes.START_LOADING_PHOTOS:
+      return { ...state, isLoading: true };
+    case ActionTypes.END_LOADING_PHOTOS:
+      return { ...state, isLoading: false };
     default:
       return state;
   }

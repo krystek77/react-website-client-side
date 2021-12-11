@@ -4,6 +4,8 @@ import { Container, Box, ImageList, ImageListItem, ImageListItemBar, Typography 
 import SectionTitle from '../SectionTitle/SectionTitle';
 import CustomNodal from '../CustomModal/CustomModal';
 import GalleryForm from '../GalleryForm/GalleryForm';
+import Loading from '../Loading/Loading';
+import Feedback from '../Feedback/Feedback';
 
 import { getPhotos } from '../../actions/gallery';
 import { useDispatch, useSelector } from 'react-redux';
@@ -13,11 +15,11 @@ import useStyles from './styles';
 function Gallery() {
   const [currentPhoto, setCurrentPhoto] = useState(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
-  const { photos } = useSelector((state) => state.gallery);
+  const { isLoading, photos } = useSelector((state) => state.gallery);
   const dispatch = useDispatch();
 
   const classes = useStyles();
-
+  
   const handleCloseModal = () => {
     setIsOpenModal(false);
     setCurrentPhoto(null);
@@ -32,6 +34,9 @@ function Gallery() {
     dispatch(getPhotos());
     return () => {};
   }, [dispatch]);
+
+  if(isLoading) return <Loading message="Ładowanie zdjęć" mt={48}/>
+  if(!photos.length && !isLoading) return <Feedback message="--- Brak zdjęć ---"/>
 
   return (
     <React.Fragment>
