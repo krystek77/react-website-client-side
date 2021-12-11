@@ -5,13 +5,16 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 import CustomNodal from '../CustomModal/CustomModal';
 import GalleryForm from '../GalleryForm/GalleryForm';
 
-import galleryData from '../../constants/gallery';
+import { getPhotos } from '../../actions/gallery';
+import { useDispatch, useSelector } from 'react-redux';
+
 import useStyles from './styles';
 
 function Gallery() {
-  const [data, setData] = useState([]);
   const [currentPhoto, setCurrentPhoto] = useState(null);
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const { photos } = useSelector((state) => state.gallery);
+  const dispatch = useDispatch();
 
   const classes = useStyles();
 
@@ -26,9 +29,9 @@ function Gallery() {
   const SIZE = 150;
 
   useEffect(() => {
-    setData(galleryData);
+    dispatch(getPhotos());
     return () => {};
-  }, []);
+  }, [dispatch]);
 
   return (
     <React.Fragment>
@@ -48,9 +51,9 @@ function Gallery() {
           </CustomNodal>
         )}
         {/** dynamic photo gallery */}
-        {galleryData.length !== 0 ? (
+        {photos.length !== 0 ? (
           <ImageList className={classes.imageList} rowHeight={150} gap={5} cols={6}>
-            {galleryData.map((item) => (
+            {photos.map((item) => (
               <ImageListItem key={item._id} className={classes.imageListItem} cols={item.cols} rows={item.rows} onClick={() => handleOpenModal(item)}>
                 <img className={classes.imageListItemImage} src={`${item.image}?w=${SIZE * item.cols}&h=${SIZE * item.rows}&fit=crop&auto=format`} loading="lazy" alt="1" />
                 <ImageListItemBar className={classes.imageListItemCaption} title={item.title} position="top" />
@@ -60,7 +63,7 @@ function Gallery() {
         ) : null}
         {/** END dynamic photo gallery */}
         {/** form for adding photos to gallery */}
-        <GalleryForm/>
+        <GalleryForm />
         {/** END form for adding photos to gallery*/}
       </Container>
     </React.Fragment>

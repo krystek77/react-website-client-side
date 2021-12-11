@@ -2,9 +2,11 @@ import {combineReducers} from 'redux';
 import posts from './posts';
 import users from './users';
 import admin from './admin';
+import gallery from './gallery';
 
 export default combineReducers({
     posts,
     users,
-    admin
+    admin,
+    gallery
 })
