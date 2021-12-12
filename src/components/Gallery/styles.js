@@ -11,6 +11,7 @@ export default makeStyles((theme) => ({
   imageList: {
     marginBottom: 0,
     overflow: 'hidden',
+    transform:"translateZ(0)"
   },
   imageListItem: {
     // border: '1px solid green',
@@ -47,5 +48,8 @@ export default makeStyles((theme) => ({
     fontSize: 14,
     fontWeight: 600,
     paddingLeft: 8,
+  },
+  imageListItemActionButton: {
+    color: theme.palette.secondary.contrastText,
   },
 }));

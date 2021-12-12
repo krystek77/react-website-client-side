@@ -1,7 +1,7 @@
 import ActionTypes from '../constants/actionTypes';
 const initialState = { isLoading: true, posts: [], post: null, numberOfPages: 0, currentPostID: null };
 export default function reducer(state = initialState, action) {
-  console.log('POSTS REDUCER', action.payload);
+
   if (state === undefined || state === null) return initialState;
   switch (action.type) {
     case ActionTypes.START_LOADING_POSTS:

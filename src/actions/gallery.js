@@ -2,7 +2,15 @@
 import * as API from '../api/gallery';
 import ActionTypes from '../constants/actionTypes';
 
-export const addPhoto = (photo) => async (dispatch) => {};
+export const addPhoto = (photo,history) => async (dispatch) => {
+  try {
+    const { data } = await API.addPhoto(photo);
+    dispatch({ type: ActionTypes.ADD_PHOTO, payload: data });
+    history("/");
+  } catch (error) {
+    console.log(error.message);
+  }
+};
 export const updatePhoto = (id, photo) => async (dispatch) => {};
 export const getPhotos = () => async (dispatch) => {
   try {

@@ -2,6 +2,7 @@ import ActionTypes from '../constants/actionTypes';
 const initialState = { isLoading: true, photos: [] };
 
 export default function reducer(state = initialState, action) {
+  console.log("R:photos")
   if (state === undefined || state === null) {
     return initialState;
   }
