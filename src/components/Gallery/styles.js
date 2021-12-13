@@ -128,6 +128,12 @@ export default makeStyles((theme) => ({
     fontWeight: 600,
     paddingLeft: 8,
   },
+  imageModalCaptionCreatedAt: {
+    marginBottom: 8,
+    '& $imageModalCaptionValue': {
+      fontWeight: 400,
+    },
+  },
   imageListItemActionButton: {
     color: theme.palette.secondary.contrastText,
   },

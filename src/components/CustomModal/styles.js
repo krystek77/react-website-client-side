@@ -26,9 +26,9 @@ export default makeStyles((theme) => ({
   },
   customModalTitle: {
     textAlign: 'center',
-    fontWeight: 400,
+    fontWeight: 600,
     textTransform: 'uppercase',
-    marginBottom: 24,
+    marginBottom: 8,
     color: '#1E1E1E',
   },
   customModalContent: {

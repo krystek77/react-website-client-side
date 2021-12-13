@@ -8,6 +8,10 @@ import GalleryForm from '../GalleryForm/GalleryForm';
 import Loading from '../Loading/Loading';
 import Feedback from '../Feedback/Feedback';
 
+import moment from 'moment';
+import 'moment/locale/pl';
+moment.locale('pl');
+
 import { getPhotos } from '../../actions/gallery';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -52,6 +56,12 @@ function Gallery() {
         <SectionTitle title="Wybrane realizacje pralni" />
         {currentPhoto && (
           <CustomNodal open={isOpenModal} handleClose={handleCloseModal} title={currentPhoto.title}>
+            <Typography className={`${classes.imageModalCaption} ${classes.imageModalCaptionCreatedAt}`} variant="body2" component="p">
+              data dodania:
+              <Typography className={classes.imageModalCaptionValue} component="span" variant="body2">
+                {moment(currentPhoto.createdAt).format('LL')}
+              </Typography>
+            </Typography>
             <Box className={classes.imageModalInner}>
               <img className={classes.imageModalImage} src={currentPhoto.image} alt={currentPhoto.title} />
             </Box>
