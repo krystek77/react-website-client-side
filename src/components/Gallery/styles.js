@@ -10,7 +10,7 @@ export default makeStyles((theme) => ({
     gridTemplateColumns: 'repeat(6,1fr)',
     gridTemplateRows: 'repeat(4, 150px)',
     gap: 5,
-    transform: 'translateZ(10px)',
+    transform: 'translateZ(0)',
   },
   imageListInner: {
     position: 'relative',

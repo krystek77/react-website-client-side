@@ -24,6 +24,7 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
     e.preventDefault();
     if (photo) {
       console.log('Dispatch update');
+      dispatch(updatePhoto(photo._id, photoData));
     } else {
       console.log('Dispatch add photo');
       dispatch(addPhoto(photoData, history));
