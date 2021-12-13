@@ -74,8 +74,10 @@ function Gallery() {
         {photos.length !== 0 ? (
           <div className={classes.imageList}>
             {photos.map((item, index) => (
-              <button type="button" className={`${classes.imageListItem} ${classes[`position${index}`]}`} key={item._id} onClick={() => handleOpenModal(item)}>
-                <img className={classes.imageListImage} src={item.image} alt={item.title} />
+              <div key={item._id} className={`${classes.imageListInner} ${classes[`position${index}`]}`}>
+                <button type="button" className={`${classes.imageListItem}`} onClick={() => handleOpenModal(item)}>
+                  <img className={classes.imageListImage} src={item.image} alt={item.title} />
+                </button>
                 <div className={classes.imageListBar}>
                   <Typography className={classes.imageListTitle} variant="caption">
                     {item.title}
@@ -84,7 +86,7 @@ function Gallery() {
                     <MoreVert />
                   </IconButton>
                 </div>
-              </button>
+              </div>
             ))}
           </div>
         ) : null}

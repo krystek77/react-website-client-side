@@ -10,12 +10,18 @@ export default makeStyles((theme) => ({
     gridTemplateColumns: 'repeat(6,1fr)',
     gridTemplateRows: 'repeat(4, 150px)',
     gap: 5,
+    transform: 'translateZ(10px)',
+  },
+  imageListInner: {
+    position: 'relative',
   },
   imageListItem: {
     border: `1px solid ${theme.palette.secondary.dark}`,
-    position: 'relative',
     padding: 0,
     cursor: 'pointer',
+    display: 'block',
+    width: '100%',
+    height: '100%',
   },
   imageListImage: {
     objectFit: 'cover',
