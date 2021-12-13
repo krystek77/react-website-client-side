@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
@@ -15,19 +15,14 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
   const [photoData, setPhotoData] = useState({ title: '', image: '', equipment: '' });
   const photo = useSelector((state) => (currentPhotoID ? state.gallery.photos.find((photo) => photo._id === currentPhotoID) : null));
   const dispatch = useDispatch();
-  const history = useNavigate();
   const classes = useStyles();
-  console.log(currentPhotoID);
-  console.log(photo);
 
   const handlePhotoData = (e) => {
     e.preventDefault();
     if (photo) {
-      console.log('Dispatch update');
       dispatch(updatePhoto(photo._id, photoData));
     } else {
-      console.log('Dispatch add photo');
-      dispatch(addPhoto(photoData, history));
+      dispatch(addPhoto(photoData));
     }
     clearPhotoData();
   };

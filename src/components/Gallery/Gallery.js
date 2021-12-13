@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
-import { Container, Box, ImageList, ImageListItem, ImageListItemBar, Typography, IconButton, CardMedia } from '@mui/material';
+import { Container, Box, Typography, IconButton } from '@mui/material';
 import { MoreVert } from '@mui/icons-material';
 import SectionTitle from '../SectionTitle/SectionTitle';
 import CustomNodal from '../CustomModal/CustomModal';
 import GalleryForm from '../GalleryForm/GalleryForm';
 import Loading from '../Loading/Loading';
 import Feedback from '../Feedback/Feedback';
-import { useLocation } from 'react-router-dom';
 
 import { getPhotos } from '../../actions/gallery';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,10 +19,8 @@ function Gallery() {
   const [isOpenModal, setIsOpenModal] = useState(false);
   const { isLoading, photos } = useSelector((state) => state.gallery);
   const dispatch = useDispatch();
-  const location = useLocation();
 
   const classes = useStyles();
-  console.log(photos);
   const handleCloseModal = () => {
     setIsOpenModal(false);
     setCurrentPhoto(null);
@@ -37,18 +34,14 @@ function Gallery() {
   const handleEditPhoto = (e, currentPhotoID) => {
     e.stopPropagation();
     setCurrentPhotoID(currentPhotoID);
-    console.log(e.target);
-    console.log(currentPhotoID);
-    console.log('Edit photo ....');
   };
 
   const SIZE = 150;
 
   useEffect(() => {
-    console.log('dispatch all photos');
     dispatch(getPhotos());
     return () => {};
-  }, [dispatch, location]);
+  }, [dispatch]);
 
   if (isLoading) return <Loading message="Ładowanie zdjęć" mt={48} />;
   if (!photos.length && !isLoading) return <Feedback message="--- Brak zdjęć ---" />;
