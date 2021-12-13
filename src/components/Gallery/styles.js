@@ -5,14 +5,14 @@ export default makeStyles((theme) => ({
   //imageList
   imageList: {
     width: '100%',
-    border: '1px solid red',
+    // border: '1px solid red',
     display: 'grid',
     gridTemplateColumns: 'repeat(6,1fr)',
     gridTemplateRows: 'repeat(4, 150px)',
     gap: 5,
   },
   imageListItem: {
-    border: '1px solid black',
+    border: `1px solid ${theme.palette.secondary.dark}`,
     position: 'relative',
     padding: 0,
     cursor: 'pointer',
