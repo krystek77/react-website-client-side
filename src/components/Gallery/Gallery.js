@@ -72,24 +72,21 @@ function Gallery() {
         )}
         {/** dynamic photo gallery */}
         {photos.length !== 0 ? (
-          <ImageList className={classes.imageList} rowHeight={150} gap={5} cols={6}>
-            {photos.map((item) => (
-              <ImageListItem key={item._id} className={classes.imageListItem} cols={item.cols} rows={item.rows} onClick={() => handleOpenModal(item)}>
-                <img className={classes.imageListItemImage} src={`${item.image}?w=${SIZE * item.cols}&h=${SIZE * item.rows}&fit=crop&auto=format`} alt={item.title} />
-                {/* <CardMedia className={classes.imageListItemImage}  component="img" image={item.image} sx={{ width: SIZE * item.cols, height: SIZE * item.rows }} alt={item.title}/> */}
-                <ImageListItemBar
-                  className={classes.imageListItemCaption}
-                  title={item.title}
-                  position="top"
-                  actionIcon={
-                    <IconButton className={`${classes.imageListItemActionButton} ${classes.imageListItemActionButtonEdit}`} onClick={(e) => handleEditPhoto(e, item._id)}>
-                      <MoreVert />
-                    </IconButton>
-                  }
-                />
-              </ImageListItem>
+          <div className={classes.imageList}>
+            {photos.map((item, index) => (
+              <button type="button" className={`${classes.imageListItem} ${classes[`position${index}`]}`} key={item._id} onClick={() => handleOpenModal(item)}>
+                <img className={classes.imageListImage} src={item.image} alt={item.title} />
+                <div className={classes.imageListBar}>
+                  <Typography className={classes.imageListTitle} variant="caption">
+                    {item.title}
+                  </Typography>
+                  <IconButton className={`${classes.imageListActionButton} ${classes.imageListActionButtonEdit}`} onClick={(e) => handleEditPhoto(e, item._id)}>
+                    <MoreVert />
+                  </IconButton>
+                </div>
+              </button>
             ))}
-          </ImageList>
+          </div>
         ) : null}
         {/** END dynamic photo gallery */}
         {/** form for adding photos to gallery */}
