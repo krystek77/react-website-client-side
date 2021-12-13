@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Container, Box, Typography, TextField, Slider, Button } from '@mui/material';
+import { Container, Box, TextField, Button } from '@mui/material';
 import { addPhoto, updatePhoto } from '../../actions/gallery';
 import FileBase64 from 'react-file-base64';
 import { Send, Clear } from '@mui/icons-material';
@@ -12,7 +12,7 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 import useStyles from './styles';
 
 function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
-  const [photoData, setPhotoData] = useState({ title: '', image: '', cols: 1, rows: 1, equipment: '' });
+  const [photoData, setPhotoData] = useState({ title: '', image: '', equipment: '' });
   const photo = useSelector((state) => (currentPhotoID ? state.gallery.photos.find((photo) => photo._id === currentPhotoID) : null));
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -31,7 +31,7 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
     clearPhotoData();
   };
   const clearPhotoData = () => {
-    setPhotoData({ title: '', image: '', cols: 1, rows: 1, equipment: '' });
+    setPhotoData({ title: '', image: '', equipment: '' });
     setCurrentPhotoID(null);
   };
 
@@ -46,7 +46,7 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
     { value: 3, label: '3 wiersze' },
   ];
   useEffect(() => {
-    if (photo) setPhotoData({ title: photo.title, image: photo.image, cols: photo.cols, rows: photo.rows, equipment: photo.equipment });
+    if (photo) setPhotoData({ title: photo.title, image: photo.image, equipment: photo.equipment });
     return () => {};
   }, [photo]);
 
@@ -58,18 +58,6 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
         <TextField className={classes.galleryInput} fullWidth type="text" label="dostarczone wyposażenie pralnicze" name="equipment" variant="standard" placeholder="np. Pralma-16F - szt.2, SE-16R - szt.3" value={photoData.equipment} onChange={(e) => setPhotoData({ ...photoData, equipment: e.target.value })} />
         <Box className={classes.galleryInputFile}>
           <FileBase64 type="file" multiple={false} onDone={({ base64 }) => setPhotoData({ ...photoData, image: base64 })} />
-        </Box>
-        <Box className={classes.gallerySlider}>
-          <Typography className={classes.gallerySliderLabel} id="slider-cols">
-            Szerokość zdjęcia
-          </Typography>
-          <Slider className={classes.gallerySliderInput} value={photoData.cols} onChange={(e) => setPhotoData({ ...photoData, cols: e.target.value })} aria-label="cols" aria-labelledby="slider-cols" getAriaValueText={(value) => `${value} kolumnay`} valueLabelDisplay="on" step={1} marks={marksColumns} min={1} max={3} />
-        </Box>
-        <Box className={classes.gallerySlider}>
-          <Typography className={classes.gallerySliderLabel} id="slider-rows">
-            Wysokość zdjęcia
-          </Typography>
-          <Slider className={classes.gallerySliderInput} value={photoData.rows} onChange={(e) => setPhotoData({ ...photoData, rows: e.target.value })} aria-label="rows" aria-labelledby="slider-rows" getAriaValueText={(value) => `${value} wiersze`} valueLabelDisplay="on" step={1} marks={marksRows} min={1} max={3} />
         </Box>
         <Button fullWidth className={`${classes.galleryButton} ${classes.galleryButtonSend}`} type="submit" variant="contained" size="medium" endIcon={<Send />}>
           wyślij
@@ -86,5 +74,20 @@ GalleryForm.propTypes = {
   currentPhotoID: PropTypes.string,
   setCurrentPhotoID: PropTypes.func,
 };
+
+{
+  /* <Box className={classes.gallerySlider}>
+          <Typography className={classes.gallerySliderLabel} id="slider-cols">
+            Szerokość zdjęcia
+          </Typography>
+          <Slider className={classes.gallerySliderInput} value={photoData.cols} onChange={(e) => setPhotoData({ ...photoData, cols: e.target.value })} aria-label="cols" aria-labelledby="slider-cols" getAriaValueText={(value) => `${value} kolumnay`} valueLabelDisplay="on" step={1} marks={marksColumns} min={1} max={3} />
+        </Box>
+        <Box className={classes.gallerySlider}>
+          <Typography className={classes.gallerySliderLabel} id="slider-rows">
+            Wysokość zdjęcia
+          </Typography>
+          <Slider className={classes.gallerySliderInput} value={photoData.rows} onChange={(e) => setPhotoData({ ...photoData, rows: e.target.value })} aria-label="rows" aria-labelledby="slider-rows" getAriaValueText={(value) => `${value} wiersze`} valueLabelDisplay="on" step={1} marks={marksRows} min={1} max={3} />
+        </Box> */
+}
 
 export default GalleryForm;
