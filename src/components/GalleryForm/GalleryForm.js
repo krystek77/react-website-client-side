@@ -12,7 +12,7 @@ import SectionTitle from '../SectionTitle/SectionTitle';
 import useStyles from './styles';
 
 function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
-  const [photoData, setPhotoData] = useState({ title: '', image: '', cols: 1, rows: 1 });
+  const [photoData, setPhotoData] = useState({ title: '', image: '', cols: 1, rows: 1, equipment: '' });
   const photo = useSelector((state) => (currentPhotoID ? state.gallery.photos.find((photo) => photo._id === currentPhotoID) : null));
   const dispatch = useDispatch();
   const history = useNavigate();
@@ -26,13 +26,12 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
       console.log('Dispatch update');
     } else {
       console.log('Dispatch add photo');
-      dispatch(addPhoto(photoData,history));
-
+      dispatch(addPhoto(photoData, history));
     }
     clearPhotoData();
   };
   const clearPhotoData = () => {
-    setPhotoData({ title: '', image: '', cols: 1, rows: 1 });
+    setPhotoData({ title: '', image: '', cols: 1, rows: 1, equipment: '' });
     setCurrentPhotoID(null);
   };
 
@@ -47,7 +46,7 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
     { value: 3, label: '3 wiersze' },
   ];
   useEffect(() => {
-    if (photo) setPhotoData({ title: photo.title, image: photo.image, cols: photo.cols, rows: photo.rows });
+    if (photo) setPhotoData({ title: photo.title, image: photo.image, cols: photo.cols, rows: photo.rows, equipment: photo.equipment });
     return () => {};
   }, [photo]);
 
@@ -56,6 +55,7 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
       <SectionTitle title={photo ? 'Formularz edytowania zdjęcia zrealizowanej pralni' : `Formularz dodawania zdjęcia zrealizowanej pralni`} />
       <Box className={classes.galleryForm} component="form" autoComplete="off" noValidate onSubmit={handlePhotoData}>
         <TextField className={classes.galleryInput} fullWidth type="text" label="tytuł" name="title" variant="standard" placeholder="np. Bieńkowski Resort, Kielce" value={photoData.title} onChange={(e) => setPhotoData({ ...photoData, title: e.target.value })} />
+        <TextField className={classes.galleryInput} fullWidth type="text" label="dostarczone wyposażenie pralnicze" name="equipment" variant="standard" placeholder="np. Pralma-16F - szt.2, SE-16R - szt.3" value={photoData.equipment} onChange={(e) => setPhotoData({ ...photoData, equipment: e.target.value })} />
         <Box className={classes.galleryInputFile}>
           <FileBase64 type="file" multiple={false} onDone={({ base64 }) => setPhotoData({ ...photoData, image: base64 })} />
         </Box>
