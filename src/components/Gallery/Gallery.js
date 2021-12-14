@@ -59,16 +59,22 @@ function Gallery() {
             <Typography className={`${classes.imageModalCaption} ${classes.imageModalCaptionCreatedAt}`} variant="body2" component="p">
               data dodania:
               <Typography className={classes.imageModalCaptionValue} component="span" variant="body2">
-                {moment(currentPhoto.createdAt).format('LL')}
+                {moment(currentPhoto.createdAt).format('L')}
               </Typography>
             </Typography>
             <Box className={classes.imageModalInner}>
               <img className={classes.imageModalImage} src={currentPhoto.image} alt={currentPhoto.title} />
             </Box>
-            <Typography className={classes.imageModalCaption} variant="body2" component="p">
+            <Typography className={`${classes.imageModalCaption} ${classes.imageModalCaptionEquipment}`} variant="body2" component="p">
               wyposażenie:
               <Typography className={classes.imageModalCaptionValue} component="span" variant="body2">
                 {currentPhoto.equipment}
+              </Typography>
+            </Typography>
+            <Typography className={`${classes.imageModalCaption} ${classes.imageModalCaptionDoneAt}`} variant="body2" component="p">
+              realizacja:
+              <Typography className={classes.imageModalCaptionValue} component="span" variant="body2">
+                {moment(currentPhoto.doneAt).format('LL')}
               </Typography>
             </Typography>
           </CustomNodal>

@@ -3,6 +3,9 @@ import { makeStyles } from '@mui/styles';
 export default makeStyles((theme) => ({
   gallery: {
     marginTop: 48,
+    '& .MuiOutlinedInput-root': {
+      marginBottom: 16,
+    },
   },
   galleryForm: {
     paddingLeft: 24,
@@ -14,6 +17,10 @@ export default makeStyles((theme) => ({
   galleryInputFile: {
     marginBottom: 16,
     marginTop: 8,
+  },
+  galleryInputDate: {
+    marginBottom: 8,
+    border: '1px solid red',
   },
   gallerySlider: {
     display: 'flex',

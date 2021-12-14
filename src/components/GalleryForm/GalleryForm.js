@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { Container, Box, TextField, Button } from '@mui/material';
 import { addPhoto, updatePhoto } from '../../actions/gallery';
@@ -9,10 +8,15 @@ import FileBase64 from 'react-file-base64';
 import { Send, Clear } from '@mui/icons-material';
 
 import SectionTitle from '../SectionTitle/SectionTitle';
+import moment from 'moment';
+import 'moment/locale/pl';
+moment.locale('pl');
+import AdapterDate from '@mui/lab/AdapterMoment';
+import { LocalizationProvider, DatePicker } from '@mui/lab';
 import useStyles from './styles';
 
 function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
-  const [photoData, setPhotoData] = useState({ title: '', image: '', equipment: '' });
+  const [photoData, setPhotoData] = useState({ title: '', image: '', equipment: '', doneAt: null });
   const photo = useSelector((state) => (currentPhotoID ? state.gallery.photos.find((photo) => photo._id === currentPhotoID) : null));
   const dispatch = useDispatch();
   const classes = useStyles();
@@ -20,17 +24,18 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
   const handlePhotoData = (e) => {
     e.preventDefault();
     if (photo) {
-      dispatch(updatePhoto(photo._id, photoData));
+      dispatch(updatePhoto(photo._id, { ...photoData, doneAt: photoData.doneAt.toDate() }));
     } else {
-      dispatch(addPhoto(photoData));
+      dispatch(addPhoto({ ...photoData, doneAt: photoData.doneAt.toDate() }));
     }
     clearPhotoData();
   };
   const clearPhotoData = () => {
-    setPhotoData({ title: '', image: '', equipment: '' });
+    setPhotoData({ title: '', image: '', equipment: '', doneAt: null });
     setCurrentPhotoID(null);
   };
-
+  // console.log(moment(photoData.doneAt).fromNow());
+  // console.log(photoData.doneAt?.toDate());
   const marksColumns = [
     { value: 1, label: '1 kolumna' },
     { value: 2, label: '2 kolumny' },
@@ -42,7 +47,7 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
     { value: 3, label: '3 wiersze' },
   ];
   useEffect(() => {
-    if (photo) setPhotoData({ title: photo.title, image: photo.image, equipment: photo.equipment });
+    if (photo) setPhotoData({ title: photo.title, image: photo.image, equipment: photo.equipment, doneAt: null });
     return () => {};
   }, [photo]);
 
@@ -55,6 +60,9 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
         <Box className={classes.galleryInputFile}>
           <FileBase64 type="file" multiple={false} onDone={({ base64 }) => setPhotoData({ ...photoData, image: base64 })} />
         </Box>
+        <LocalizationProvider dateAdapter={AdapterDate}>
+          <DatePicker label="Data realizacji" value={photoData.doneAt} onChange={(newDate) => setPhotoData({ ...photoData, doneAt: newDate })} mask="__.__.____" renderInput={(params) => <TextField {...params} />} />
+        </LocalizationProvider>
         <Button fullWidth className={`${classes.galleryButton} ${classes.galleryButtonSend}`} type="submit" variant="contained" size="medium" endIcon={<Send />}>
           wyślij
         </Button>

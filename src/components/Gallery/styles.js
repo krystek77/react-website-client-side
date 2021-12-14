@@ -35,7 +35,7 @@ export default makeStyles((theme) => ({
     top: 0,
     left: 0,
     width: '100%',
-    background: 'linear-gradient(to bottom,rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 70%, rgba(0,0,0,0) 100%)',
+    background: 'linear-gradient(to bottom,rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.35) 70%, rgba(0,0,0,0) 100%)',
     display: 'flex',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -125,13 +125,24 @@ export default makeStyles((theme) => ({
   },
   imageModalCaptionValue: {
     fontSize: 14,
-    fontWeight: 600,
     paddingLeft: 8,
+    fontWeight: 400,
+  },
+  imageModalCaptionEquipment: {
+    marginBottom: 4,
+    '& $imageModalCaptionValue': {
+      color: theme.palette.primary.main,
+    },
   },
   imageModalCaptionCreatedAt: {
     marginBottom: 8,
+    '& $imageModalCaptionValue': {},
+  },
+  imageModalCaptionDoneAt: {
     '& $imageModalCaptionValue': {
-      fontWeight: 400,
+      textTransform: 'lowercase',
+      fontSize: 12,
+      color: theme.palette.secondary.main,
     },
   },
   imageListItemActionButton: {
