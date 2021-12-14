@@ -24,7 +24,7 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
   const handlePhotoData = (e) => {
     e.preventDefault();
     if (photo) {
-      dispatch(updatePhoto(photo._id, { ...photoData, doneAt: photoData.doneAt.toDate() }));
+      dispatch(updatePhoto(photo._id, { ...photoData, doneAt: photoData.doneAt }));
     } else {
       dispatch(addPhoto({ ...photoData, doneAt: photoData.doneAt.toDate() }));
     }
@@ -47,7 +47,7 @@ function GalleryForm({ currentPhotoID, setCurrentPhotoID }) {
     { value: 3, label: '3 wiersze' },
   ];
   useEffect(() => {
-    if (photo) setPhotoData({ title: photo.title, image: photo.image, equipment: photo.equipment, doneAt: null });
+    if (photo) setPhotoData({ title: photo.title, image: photo.image, equipment: photo.equipment, doneAt: photo.doneAt });
     return () => {};
   }, [photo]);
 
