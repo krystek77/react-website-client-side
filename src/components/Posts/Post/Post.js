@@ -30,7 +30,7 @@ function Post({ post, page }) {
 
   const setCurrentPostID = (currentPostID) => {
     dispatch({ type: ActionTypes.SET_CURRENT_POST_ID, payload: currentPostID });
-    history('/wiadomosci');
+    history(`/wiadomosci?page=${page}`);
   };
 
   const deleteSeclectedPost = (postIdToDelete) => {
