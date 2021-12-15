@@ -2,39 +2,76 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ActionTypes from '../constants/actionTypes';
-import { getCustomerByID } from '../actions/customers';
-import { useParams } from 'react-router-dom';
-import { Container } from '@mui/material';
+import { getCustomerByID, getCustomers } from '../actions/customers';
+import { useParams, Link, useLocation } from 'react-router-dom';
+import { Container, Box, CardMedia, Typography } from '@mui/material';
 import Hero from '../components/Hero/Hero';
 import Loading from '../components/Loading/Loading';
+import SectionTitle from '../components/SectionTitle/SectionTitle';
 import useStyles from '../styles/customerDetails';
 
 function CustomerDetails() {
   const { id: _id } = useParams();
-  const { customer, isLoading } = useSelector((state) => state.customers);
+  const location = useLocation();
+  const { customer, isLoading, customers } = useSelector((state) => state.customers);
   const dispatch = useDispatch();
   const classes = useStyles();
 
   useEffect(() => {
     dispatch({ type: ActionTypes.START_LOADING_CUSTOMERS });
     dispatch(getCustomerByID(_id));
+    if (customers.length === 0) dispatch(getCustomers());
     dispatch({ type: ActionTypes.END_LOADING_CUSTOMERS });
     return () => {};
-  }, [dispatch, _id]);
+  }, [dispatch, _id, customers.length]);
 
-  if (isLoading) return <Loading message="Pobieranie szczegółów ..." />;
+  useEffect(() => {
+    let target;
+    if (location.hash) {
+      target = document.getElementById(location.hash.slice(1));
+    } else {
+      target = document.getElementById(customer?._id);
+    }
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+    return () => {};
+  }, [customer, location.hash]);
+
+  if (isLoading) return <Loading message="Pobieranie szczegółów ..." mt={48} />;
 
   return customer ? (
-    <React.Fragment>
+    <Box id={customer._id}>
       <Hero title={customer.title} subtitle={customer.subtitle} bgImage={`customers/${customer.image}`} blendColor="#666666" blendMode="screen" />
-      <Container className={`${classes.page} ${classes.pageCustomerDetails}`} maxWidth="false">
+      <Container component="section" className={`${classes.page} ${classes.pageCustomerDetails}`} maxWidth="false">
+        {/** one customer details*/}
         <Container fixed>
           <p>Customer Details width ID: {customer._id}</p>
           <img src={`../assets/images/customers/${customer.image}`} alt={customer.title} width="360" />
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil et dolorum perferendis ullam nobis. Ab earum eum delectus cumque, nesciunt cupiditate in atque odio quo eligendi dolores quibusdam? Reprehenderit, ipsum!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil et dolorum perferendis ullam nobis. Ab earum eum delectus cumque, nesciunt cupiditate in atque odio quo eligendi dolores quibusdam? Reprehenderit, ipsum!</p>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil et dolorum perferendis ullam nobis. Ab earum eum delectus cumque, nesciunt cupiditate in atque odio quo eligendi dolores quibusdam? Reprehenderit, ipsum!</p>
         </Container>
+        {/** END one customer details */}
+
+        {/** other segments */}
+        <Container maxWidth="false">
+          <SectionTitle title="Inne sektory z potrzebami prania" />
+          {customers.length !== 0 ? (
+            <Box className={classes.otherSegments}>
+              {customers.map((customer) => {
+                return (
+                  <Link className={classes.otherSegmentsItem} to={`/klienci/${customer._id}#${customer._id}`} key={customer._id}>
+                    <CardMedia className={classes.otherSegmentsImage} component="img" image={`../assets/images/customers/${customer.image}`} alt={customer.title} />
+                    <Typography className={classes.otherSegmentsTitle}>{customer.title}</Typography>
+                  </Link>
+                );
+              })}
+            </Box>
+          ) : null}
+        </Container>
+        {/** END other segments */}
       </Container>
       ;
-    </React.Fragment>
+    </Box>
   ) : null;
 }
 export default CustomerDetails;
