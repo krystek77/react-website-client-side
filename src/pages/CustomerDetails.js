@@ -6,11 +6,12 @@ import { getCustomerByID } from '../actions/customers';
 import { useParams } from 'react-router-dom';
 import { Container } from '@mui/material';
 import Hero from '../components/Hero/Hero';
+import Loading from '../components/Loading/Loading';
 import useStyles from '../styles/customerDetails';
 
 function CustomerDetails() {
   const { id: _id } = useParams();
-  const { customer } = useSelector((state) => state.customers);
+  const { customer, isLoading } = useSelector((state) => state.customers);
   const dispatch = useDispatch();
   const classes = useStyles();
 
@@ -20,7 +21,7 @@ function CustomerDetails() {
     dispatch({ type: ActionTypes.END_LOADING_CUSTOMERS });
     return () => {};
   }, [dispatch, _id]);
-
+  if (isLoading) return <Loading message="Pobieranie szczegółów ..." />;
   return customer ? (
     <React.Fragment>
       <Hero title={customer.title} subtitle={customer.subtitle} bgImage={customer.image} blendColor="black" blendMode="luminosity" />
