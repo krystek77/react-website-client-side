@@ -9,6 +9,8 @@ export default makeStyles((theme) => ({
     borderRadius: 0,
     flexDirection: 'column',
     [theme.breakpoints.up('sm')]: {
+      paddingBottom: 24,
+      borderBottom: `1px solid rgba(0,0,0,0.05)`,
       flexDirection: 'row',
       flexWrap: 'nowrap',
       '&:nth-child(even)': {
@@ -46,6 +48,7 @@ export default makeStyles((theme) => ({
     border: `10px solid ${theme.palette.primary.main}`,
     borderRadius: 4,
     backgroundColor: theme.palette.primary.dark,
+    height: 380,
     [theme.breakpoints.up('sm')]: {
       margin: 24,
     },

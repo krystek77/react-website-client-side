@@ -4,27 +4,8 @@ import { Container } from '@mui/material';
 import CustomerCard from './CustomerCard/CustomerCard';
 import useStyles from './styles';
 
-const data = [
-  {
-    _id: '1',
-    title: 'Kampingi i centra rekracji',
-    subtitle: ' Oferta dla miłośników świeżego powietrza oraz dodatkowe usługi przy niskich kosztach inwestycyjnych z Twojej strony',
-    image: 'campsite',
-  },
-
-  {
-    _id: '2',
-    title: 'Zdrowie i higiena',
-    subtitle: 'Zalety zintegrowanej pralni w szpitalach, klinikach, laboratoriach i klinikach weterynaryjnych',
-    image: 'healthandhygiene',
-  },
-  {
-    _id: '3',
-    title: 'Kawiarnie, hotele, SPA i restuaracje',
-    subtitle: 'Znajdź odpowiednie wyposażenie pralnicze do Twojego hotelu, pensjonatu oraz restauracji',
-    image: 'hotelandrestuarants',
-  },
-];
+//import temporary data
+import data from '../../constants/customers';
 
 function CustomerCards() {
   const [customers, setCustomers] = useState([]);
