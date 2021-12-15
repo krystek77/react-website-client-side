@@ -21,10 +21,12 @@ function CustomerDetails() {
     dispatch({ type: ActionTypes.END_LOADING_CUSTOMERS });
     return () => {};
   }, [dispatch, _id]);
+
   if (isLoading) return <Loading message="Pobieranie szczegółów ..." />;
+
   return customer ? (
     <React.Fragment>
-      <Hero title={customer.title} subtitle={customer.subtitle} bgImage={customer.image} blendColor="black" blendMode="luminosity" />
+      <Hero title={customer.title} subtitle={customer.subtitle} bgImage={`customers/${customer.image}`} blendColor="grey" blendMode="screen" />
       <Container className={`${classes.page} ${classes.pageCustomerDetails}`} maxWidth="false">
         Customer Details width ID: {_id}
       </Container>

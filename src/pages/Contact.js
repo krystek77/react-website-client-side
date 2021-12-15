@@ -26,7 +26,7 @@ function Contact() {
 
   return (
     <React.Fragment>
-      <Hero bgImage="contact.webp" title="Dane firmy" subtitle="skontaktuj się z nami" blendMode="normal" />
+      <Hero bgImage="hero/contact.webp" title="Dane firmy" subtitle="skontaktuj się z nami" blendMode="normal" />
       <Container maxWidth="false" className={`${classes.companyData}`}>
         <Card className={`${classes.companyDataAdress}`} elevation={0}>
           <CardHeader className={classes.companyDataName} avatar={<Avatar src="../assets/images/contact/firma.webp" alt="" />} title="P.P.U.P PRALMA sp. z o.o." subheader="Przedsiębiorstwo Produkcji Urządzeń Pralniczych Pralma sp. z o.o., 25-651 Kielce, ul. Górnicza 49a" />
