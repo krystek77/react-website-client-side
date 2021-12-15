@@ -8,6 +8,7 @@ import Navigation from './components/Navigation/Navigation';
 
 const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
+const CustomerDetails = React.lazy(() => import('./pages/CustomerDetails'));
 const Customers = React.lazy(() => import('./pages/Customers'));
 const Products = React.lazy(() => import('./pages/Products'));
 const DedicatedSolutions = React.lazy(() => import('./pages/DedicatedSolutions'));
@@ -33,7 +34,7 @@ const App = () => {
         <Toolbar />
         <Routes>
           <Route path="/o-nas" element={<About />} />
-          <Route path="/klienci/:id" element={<Customers />} />
+          <Route path="/klienci/:id" element={<CustomerDetails />} />
           <Route path="/klienci" element={<Customers />} />
           <Route path="/produkty/:name" element={<Products />} />
           <Route path="/rozwiazania-specjalne/:name" element={<DedicatedSolutions />} />

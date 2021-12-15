@@ -12,7 +12,7 @@ function Customers() {
     <React.Fragment>
       <Hero title="Sektory, którym oferujemy uslugi" subtitle="Różne potrzeby, różne pralnie..., jeden dostawca - Pralma" />
       <Container component="section" className={`${classes.page} ${classes.pageCustomers}`} maxWidth="false">
-        <SectionTitle title="Nasi odbiorcy" />
+        <SectionTitle title="Nasi Klienci" />
         {/** customer cards */}
         <CustomerCards />
         {/** END customer cards */}
