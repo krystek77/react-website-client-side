@@ -23,7 +23,7 @@ function CustomerCard(props) {
         </Button>
       </CardContent>
       <Box className={classes.customersListItemImageWrapper}>
-        <CardMedia className={classes.customersListItemImage} component="img" image={`../assets/images/customers/${image}.jpg`} alt={title} />
+        <CardMedia className={classes.customersListItemImage} component="img" image={`../assets/images/customers/${image}`} alt={title} />
       </Box>
     </Card>
   );

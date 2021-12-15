@@ -1,20 +1,28 @@
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCustomers } from '../../actions/customers';
+import ActionTypes from '../../constants/actionTypes';
 import { Container } from '@mui/material';
 import CustomerCard from './CustomerCard/CustomerCard';
+import Loading from '../Loading/Loading';
+import Feedback from '../Feedback/Feedback';
 import useStyles from './styles';
 
-//import temporary data
-import data from '../../constants/customers';
-
 function CustomerCards() {
-  const [customers, setCustomers] = useState([]);
+  const { customers, isLoading } = useSelector((state) => state.customers);
+  const dispatch = useDispatch();
   const classes = useStyles();
 
   useEffect(() => {
-    setCustomers(data);
+    dispatch({ type: ActionTypes.START_LOADING_CUSTOMERS });
+    dispatch(getCustomers());
+    dispatch({ type: ActionTypes.END_LOADING_CUSTOMERS });
     return () => {};
-  }, []);
+  }, [dispatch]);
+
+  if (isLoading) return <Loading message="Pobieranie danych ..." />;
+  if (!customers.length && !isLoading) return <Feedback message="--- Brak danych ---" />;
 
   return customers.length !== 0 ? (
     <Container className={classes.customersList}>
