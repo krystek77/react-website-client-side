@@ -26,9 +26,12 @@ function CustomerDetails() {
 
   return customer ? (
     <React.Fragment>
-      <Hero title={customer.title} subtitle={customer.subtitle} bgImage={`customers/${customer.image}`} blendColor="grey" blendMode="screen" />
+      <Hero title={customer.title} subtitle={customer.subtitle} bgImage={`customers/${customer.image}`} blendColor="#666666" blendMode="screen" />
       <Container className={`${classes.page} ${classes.pageCustomerDetails}`} maxWidth="false">
-        Customer Details width ID: {_id}
+        <Container fixed>
+          <p>Customer Details width ID: {customer._id}</p>
+          <img src={`../assets/images/customers/${customer.image}`} alt={customer.title} width="360" />
+        </Container>
       </Container>
       ;
     </React.Fragment>
