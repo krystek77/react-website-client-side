@@ -3,7 +3,7 @@ const initialState = { isLoading: true, customers: [], customer: null };
 
 export default function reducer(state = initialState, action) {
   if (state === undefined || state === null) return initialState;
-  // console.log(action.payload);
+  console.log("R:customers",action.payload?.markdown);
   switch (action.type) {
     case ActionTypes.GET_CUSTOMERS:
       return { ...state, customers: action.payload };
