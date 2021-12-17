@@ -22,10 +22,7 @@ function Post({ post, page }) {
   const history = useNavigate();
 
   useEffect(() => {
-    console.log('[Post.js] - mounted');
-    return () => {
-      console.log('[Post.js] - unmounted');
-    };
+    return () => {};
   });
 
   const setCurrentPostID = (currentPostID) => {
