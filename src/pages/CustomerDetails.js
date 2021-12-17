@@ -47,7 +47,7 @@ function CustomerDetails() {
       <Container component="section" className={`${classes.page} ${classes.pageCustomerDetails}`} maxWidth="false">
         {/** one customer details*/}
         <Container fixed>
-          <ReactMarkdown className={classes.markdown}>{customer.markdown}</ReactMarkdown>
+          <ReactMarkdown className={`${classes.markdown} ${classes[`customer_${customer.slug}`]}`}>{customer.markdown}</ReactMarkdown>
         </Container>
         {/** END one customer details */}
 

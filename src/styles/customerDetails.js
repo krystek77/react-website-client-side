@@ -47,4 +47,6 @@ export default makeStyles((theme) => ({
   markdown: {
     border: '1px solid red',
   },
+  ['customer_zdrowie-i-higiena']: {},
+  ['customer_kampingi-i-centra-rekracji']: {},
 }));
