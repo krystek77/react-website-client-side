@@ -8,6 +8,9 @@ import { Container, Box, CardMedia, Typography } from '@mui/material';
 import Hero from '../components/Hero/Hero';
 import Loading from '../components/Loading/Loading';
 import SectionTitle from '../components/SectionTitle/SectionTitle';
+
+import ReactMarkdown from 'react-markdown';
+
 import useStyles from '../styles/customerDetails';
 
 function CustomerDetails() {
@@ -44,11 +47,7 @@ function CustomerDetails() {
       <Container component="section" className={`${classes.page} ${classes.pageCustomerDetails}`} maxWidth="false">
         {/** one customer details*/}
         <Container fixed>
-          <p>Customer Details width ID: {customer._id}</p>
-          <img src={`../assets/images/customers/${customer.image}`} alt={customer.title} width="360" />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil et dolorum perferendis ullam nobis. Ab earum eum delectus cumque, nesciunt cupiditate in atque odio quo eligendi dolores quibusdam? Reprehenderit, ipsum!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil et dolorum perferendis ullam nobis. Ab earum eum delectus cumque, nesciunt cupiditate in atque odio quo eligendi dolores quibusdam? Reprehenderit, ipsum!</p>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil et dolorum perferendis ullam nobis. Ab earum eum delectus cumque, nesciunt cupiditate in atque odio quo eligendi dolores quibusdam? Reprehenderit, ipsum!</p>
+          <ReactMarkdown className={classes.markdown}>{customer.markdown}</ReactMarkdown>
         </Container>
         {/** END one customer details */}
 

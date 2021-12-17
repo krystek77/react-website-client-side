@@ -1,12 +1,24 @@
 /* eslint-disable no-unused-vars */
+import * as API from '../api/customers';
 import ActionTypes from '../constants/actionTypes';
-//temporary import data
-import data from '../constants/customers';
 
-export const getCustomers = () => {
-  return { type: ActionTypes.GET_CUSTOMERS, payload: data };
+export const getCustomers = () => async (dispatch) => {
+  try {
+    dispatch({ type: ActionTypes.START_LOADING_CUSTOMERS });
+    const { data } = await API.getCustomers();
+    dispatch({ type: ActionTypes.GET_CUSTOMERS, payload: data });
+    dispatch({ type: ActionTypes.END_LOADING_CUSTOMERS });
+  } catch (error) {
+    console.log(error.message);
+  }
 };
-export const getCustomerByID = (customerID) => {
-  const customer = data.find((c) => c._id === customerID);
-  return { type: ActionTypes.GET_CUSTOMER_BY_ID, payload: customer };
+export const getCustomerByID = (customerID) => async (dispatch) => {
+  try {
+    dispatch({ type: ActionTypes.START_LOADING_CUSTOMERS });
+    const { data } = await API.getCustomerByID(customerID);
+    dispatch({ type: ActionTypes.GET_CUSTOMER_BY_ID, payload: data });
+    dispatch({ type: ActionTypes.END_LOADING_CUSTOMERS });
+  } catch (error) {
+    console.log(error.message);
+  }
 };

@@ -25,9 +25,9 @@ export default makeStyles((theme) => ({
     height: 260,
     position: 'relative',
     cursor: 'pointer',
-    borderRadius:4,
-    overflow:"hidden",
-    boxShadow:"0px 0px 4px 0px rgba(0,0,0,0.65)",
+    borderRadius: 4,
+    overflow: 'hidden',
+    boxShadow: '0px 0px 4px 0px rgba(0,0,0,0.65)',
   },
   otherSegmentsImage: {
     width: '100%',
@@ -42,5 +42,9 @@ export default makeStyles((theme) => ({
     padding: '8px 24px',
     backgroundImage: 'linear-gradient(to top,rgba(0,0,0,1) 0%,rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.45) 100%)',
     color: theme.palette.primary.contrastText,
+  },
+  //markdown
+  markdown: {
+    border: '1px solid red',
   },
 }));

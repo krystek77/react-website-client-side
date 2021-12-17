@@ -3,13 +3,47 @@ export default [
     _id: '1',
     title: 'Kampingi i centra rekracji',
     subtitle: ' Oferta dla miłośników świeżego powietrza oraz dodatkowe usługi przy niskich kosztach inwestycyjnych z Twojej strony',
+    markdown: `
+    ## Swobodny dostęp do pralni sammobsługowej na Twoim kampingu lub centrum rekreacyjnym ma bardzo dużo korzyści!
+
+    Masz specyficzne wymagania. Twoim głównym zmartwieniem jest zadowolenie wczasowiczów, podczas gdy Ty chcesz zarabiać. 
+    Miejsce do mycia to kolejna okazja do osiągnięcia celu!
+
+    ![Kampingi i centra rekreacyjne](../assets/images/customers/campsite.jpg)
+
+    Pralnia pomoże Ci wyróżnić się na tle konkurencji, 
+    oferując Twoim wczasowiczom użyteczną usługę **bez żadnych kosztów**, 
+    która zapewnia nawet dodatkowy dochód. Oprócz oferowania dodatkowej usługi bez zobowiązań, 
+    za niską cenę, wczasowicze nie muszą już martwić się o piętrzące się brudne pranie, 
+    czyste pranie przez cały pobyt i więcej czasu na korzystanie z oferowanych zajęć.
+
+    [Potrzebujesz rady](/kontakt)
+    [Pobierz ulotkę](../assets/pdf/customers/kampingi.pdf)
+    `,
     image: 'campsite.jpg',
   },
-
   {
     _id: '2',
     title: 'Zdrowie i higiena',
     subtitle: 'Zalety zintegrowanej pralni w szpitalach, klinikach, laboratoriach i klinikach weterynaryjnych',
+    markdown: `
+    ## Bardzo ważne jest, aby w laboratoriach, przemyśle spożywczym oraz w sektorze zdrowia
+    zachować bezwzględną higienę
+
+    ![Zdrowi i higiena](../assets/images/customers/healthandhygiene.jpg)
+
+    Badania pokazują, że pranie jest głównym czynnikiem rozprzestrzeniania się infekcji 
+    przez patogenne zarazki. Od 10 do 15% zakażeń szpitalnych wynika 
+    z niskiej jakości higieny prania. Musisz zatem upewnić się, 
+    że twoje pranie spełnia najwyższe kryteria higieny, 
+    aby chronić personel i pacjentów twojego zakładu lub użytkowników twoich produktów.
+
+    Clothing used by laboratory or clean room staff must be clean and bacteria-free.
+
+    [Potrzebujesz rady](/kontakt)
+    [Pobierz ulotkę](../assets/pdf/customers/kampingi.pdf)
+
+    `,
     image: 'healthandhygiene.jpg',
   },
   {
