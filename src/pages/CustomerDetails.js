@@ -7,6 +7,7 @@ import { useParams, Link, useLocation } from 'react-router-dom';
 import { Container, Box, CardMedia, Typography } from '@mui/material';
 import Hero from '../components/Hero/Hero';
 import Loading from '../components/Loading/Loading';
+import FeedBack from '../components/Feedback/Feedback';
 import SectionTitle from '../components/SectionTitle/SectionTitle';
 
 import ReactMarkdown from 'react-markdown';
@@ -46,9 +47,13 @@ function CustomerDetails() {
       <Hero title={customer.title} subtitle={customer.subtitle} bgImage={`customers/${customer.image}`} blendColor="#666666" blendMode="screen" />
       <Container component="section" className={`${classes.page} ${classes.pageCustomerDetails}`} maxWidth="false">
         {/** one customer details*/}
-        <Container fixed>
-          <ReactMarkdown className={`${classes.markdown} ${classes[`customer_${customer.slug}`]}`}>{customer.markdown}</ReactMarkdown>
-        </Container>
+        {customer.markdown !== '' ? (
+          <Container fixed>
+            <ReactMarkdown className={`${classes.markdown} ${classes[`customer_${customer.slug}`]}`}>{customer.markdown}</ReactMarkdown>
+          </Container>
+        ) : (
+          <FeedBack message="--- Brak treści ---" />
+        )}
         {/** END one customer details */}
 
         {/** other segments */}
