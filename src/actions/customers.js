@@ -12,10 +12,10 @@ export const getCustomers = () => async (dispatch) => {
     console.log(error.message);
   }
 };
-export const getCustomerByID = (customerID) => async (dispatch) => {
+export const getCustomerBySlug = (slug) => async (dispatch) => {
   try {
     dispatch({ type: ActionTypes.START_LOADING_CUSTOMERS });
-    const { data } = await API.getCustomerByID(customerID);
+    const { data } = await API.getCustomerBySlug(slug);
     dispatch({ type: ActionTypes.GET_CUSTOMER_BY_ID, payload: data });
     dispatch({ type: ActionTypes.END_LOADING_CUSTOMERS });
   } catch (error) {

@@ -34,7 +34,7 @@ const App = () => {
         <Toolbar />
         <Routes>
           <Route path="/o-nas" element={<About />} />
-          <Route path="/klienci/:id" element={<CustomerDetails />} />
+          <Route path="/klienci/:slug" element={<CustomerDetails />} />
           <Route path="/klienci" element={<Customers />} />
           <Route path="/produkty/:name" element={<Products />} />
           <Route path="/rozwiazania-specjalne/:name" element={<DedicatedSolutions />} />

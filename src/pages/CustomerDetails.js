@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import ActionTypes from '../constants/actionTypes';
-import { getCustomerByID, getCustomers } from '../actions/customers';
+import { getCustomerBySlug, getCustomers } from '../actions/customers';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { Container, Box, CardMedia, Typography } from '@mui/material';
 import Hero from '../components/Hero/Hero';
@@ -14,7 +14,7 @@ import ReactMarkdown from 'react-markdown';
 import useStyles from '../styles/customerDetails';
 
 function CustomerDetails() {
-  const { id: _id } = useParams();
+  const { slug } = useParams();
   const location = useLocation();
   const { customer, isLoading, customers } = useSelector((state) => state.customers);
   const dispatch = useDispatch();
@@ -22,18 +22,18 @@ function CustomerDetails() {
 
   useEffect(() => {
     dispatch({ type: ActionTypes.START_LOADING_CUSTOMERS });
-    dispatch(getCustomerByID(_id));
+    dispatch(getCustomerBySlug(slug));
     if (customers.length === 0) dispatch(getCustomers());
     dispatch({ type: ActionTypes.END_LOADING_CUSTOMERS });
     return () => {};
-  }, [dispatch, _id, customers.length]);
+  }, [dispatch, slug, customers.length]);
 
   useEffect(() => {
     let target;
     if (location.hash) {
       target = document.getElementById(location.hash.slice(1));
     } else {
-      target = document.getElementById(customer?._id);
+      target = document.getElementById(customer?.slug);
     }
     if (target) target.scrollIntoView({ behavior: 'smooth' });
     return () => {};
@@ -42,7 +42,7 @@ function CustomerDetails() {
   if (isLoading) return <Loading message="Pobieranie szczegółów ..." mt={48} />;
 
   return customer ? (
-    <Box id={customer._id}>
+    <Box id={customer.slug}>
       <Hero title={customer.title} subtitle={customer.subtitle} bgImage={`customers/${customer.image}`} blendColor="#666666" blendMode="screen" />
       <Container component="section" className={`${classes.page} ${classes.pageCustomerDetails}`} maxWidth="false">
         {/** one customer details*/}
@@ -58,7 +58,7 @@ function CustomerDetails() {
             <Box className={classes.otherSegments}>
               {customers.map((customer) => {
                 return (
-                  <Link className={classes.otherSegmentsItem} to={`/klienci/${customer._id}#${customer._id}`} key={customer._id}>
+                  <Link className={classes.otherSegmentsItem} to={`/klienci/${customer.slug}#${customer.slug}`} key={customer._id}>
                     <CardMedia className={classes.otherSegmentsImage} component="img" image={`../assets/images/customers/${customer.image}`} alt={customer.title} />
                     <Typography className={classes.otherSegmentsTitle}>{customer.title}</Typography>
                   </Link>

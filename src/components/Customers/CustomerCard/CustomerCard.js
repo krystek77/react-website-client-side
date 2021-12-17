@@ -6,7 +6,7 @@ import { Card, CardContent, Typography, Button, Box, CardMedia } from '@mui/mate
 import useStyles from './styles';
 
 function CustomerCard(props) {
-  const { _id, title, subtitle, image } = props.customer;
+  const { title, subtitle, image, slug } = props.customer;
   const classes = useStyles();
 
   return (
@@ -18,7 +18,7 @@ function CustomerCard(props) {
         <Typography className={classes.customersListItemSubtitle} component="p" variant="body1">
           {subtitle}
         </Typography>
-        <Button className={classes.customersListItemActionButton} component={Link} to={`/klienci/${_id}`} size="large" variant="outlined" color="primary">
+        <Button className={classes.customersListItemActionButton} component={Link} to={`/klienci/${slug}`} size="large" variant="outlined" color="primary">
           Dowiedz się więcej
         </Button>
       </CardContent>
@@ -34,6 +34,7 @@ CustomerCard.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     image: PropTypes.string,
+    slug: PropTypes.string,
   }),
 };
 export default CustomerCard;
