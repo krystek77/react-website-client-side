@@ -45,7 +45,42 @@ export default makeStyles((theme) => ({
   },
   //markdown
   markdown: {
-    border: '1px solid red',
+    // border: '1px solid red',
+    '& h2': {
+      // border: '1px solid blue',
+      fontSize: 28,
+      textTransform: 'uppercase',
+      color: theme.palette.secondary.main,
+      lineHeight: 1.1,
+    },
+    '& p': {
+      color: theme.palette.secondary.main,
+      fontSize: 18,
+      // border: '1px solid green',
+    },
+    '& a': {
+      border: `1px solid ${theme.palette.primary.main}`,
+      padding: '7px 21px',
+      borderRadius: 4,
+      color: theme.palette.primary.main,
+      textDecoration: 'none',
+      display: 'inline-block',
+    },
+    '& img': {
+      maxWidth: 360,
+      display: 'block',
+      marginRight: 24,
+    },
+    '& p:nth-child(3)': {
+      // backgroundColor: 'red',
+      overflow: 'hidden',
+      '& img': {
+        float: 'left',
+      },
+    },
+    '& p:nth-child(4)': {
+      textAlign: 'center',
+    },
   },
   ['customer_zdrowie-i-higiena']: {},
   ['customer_kampingi-i-centra-rekracji']: {},

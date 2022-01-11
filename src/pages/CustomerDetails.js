@@ -48,7 +48,7 @@ function CustomerDetails() {
       <Container component="section" className={`${classes.page} ${classes.pageCustomerDetails}`} maxWidth="false">
         {/** one customer details*/}
         {customer.markdown !== '' ? (
-          <Container fixed>
+          <Container fixed maxWidth="md">
             <ReactMarkdown className={`${classes.markdown} ${classes[`customer_${customer.slug}`]}`}>{customer.markdown}</ReactMarkdown>
           </Container>
         ) : (
