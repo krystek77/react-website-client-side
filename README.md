@@ -40,9 +40,7 @@ Web site presents products of this company. (site in progress....)
 npm run start
 ```
 
-### During running server side part of application
-
-2 test user accounts are created:
+### During running server side part of application 2 test user accounts are created:
 
 1. Role: admin
    email: <admin@gmail.pl>
