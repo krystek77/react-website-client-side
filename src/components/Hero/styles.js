@@ -7,7 +7,7 @@ export default makeStyles((theme) => ({
     backgroundColor: (props) => (props.blendColor ? props.blendColor : theme.palette.secondary.light),
     // backgroundImage:(props)=>props.bgImage ? `url(../assets/images/hero/${props.bgImage}.webp)`:"transparent",
     // backgroundImage:(props)=>props.bgBase64 ? `url(${props.bgBase64})`:"transparent",
-    backgroundImage: (props) => (props.bgImage ? `url(../assets/images/hero/${props.bgImage}.webp)` : props.bgBase64 ? ` url(${props.bgBase64})` : 'transparent'),
+    backgroundImage: (props) => (props.bgImage ? `url(../assets/images/${props.bgImage})` : props.bgBase64 ? ` url(${props.bgBase64})` : 'transparent'),
     backgroundBlendMode: (props) => (props.blendMode ? props.blendMode : 'normal'),
     backgroundSize: 'cover',
     backgroundPosition: 'center center',

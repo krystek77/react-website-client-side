@@ -18,15 +18,11 @@ function Toolbar() {
   const classes = useStyles();
 
   useEffect(() => {
-    console.log('[Toolbar.js] - mount');
     setUser(JSON.parse(localStorage.getItem('userProfile')));
-    return () => {
-      console.log('[Toolbar.js] - unmount');
-    };
+    return () => {};
   }, [location]);
 
   const logout = () => {
-    // console.log('Log out user');
     dispatch({ type: ActionTypes.LOGOUT });
     history('/');
   };

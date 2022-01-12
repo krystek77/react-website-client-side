@@ -15,17 +15,13 @@ function Posts({ page }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('[Posts.js] - mounted');
     dispatch(getPosts(page));
-    return () => {
-      console.log('[Posts.js] - unmounted');
-    };
+    return () => {};
   }, [dispatch, page]);
 
   if (isLoading) return <Loading message="Ładowanie wiadomości" />;
   if (!posts.length && !isLoading) return <Feedback message="--- Brak wiadomości ---" />;
 
-  console.log('POSTS RELOADED');
   return (
     posts.length !== 0 && (
       <Grid className={classes.posts} container>

@@ -27,11 +27,8 @@ function Navigation() {
   }
 
   useEffect(() => {
-    console.log('[Navigation.js] - mounte');
     setActiveMenu('0');
-    return () => {
-      console.log('[Navigation.js] - unmount');
-    };
+    return () => {};
   }, [location]);
 
   return (
