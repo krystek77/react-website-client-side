@@ -4,6 +4,8 @@ This is the company website. If you have account (only for company's employers)
 you can create posts, edit, delete, add the likes to other post then yours.
 Web site presents products of this company. (site in progress....)
 
+![Zrzut ekranu_5-min](https://user-images.githubusercontent.com/45161412/149081313-daf5ef95-6b11-43b4-924b-e6173f0b63d7.png)
+
 ## Installation
 
 1. Clone repository
